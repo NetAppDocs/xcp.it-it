@@ -1,0 +1,130 @@
+---
+sidebar: sidebar 
+permalink: xcp-run-a-scan.html 
+keywords: netapp, xcp, run, scan, 
+summary: Esecuzione di una scansione 
+---
+= Eseguire una scansione
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Quando il file system NFS/SMB viene aggiunto alla GUI di XCP file Analytics, è possibile avviare una scansione del file system per analizzare e rappresentare i dati.
+
+.Fasi
+. Selezionare la freccia sulla scheda del file server aggiunta per visualizzare le condivisioni di file sul file server.
++
+image:xcp_image4.png["Visualizza immagine condivisioni file"]
+
+. Dall'elenco delle condivisioni file, selezionare il nome della condivisione file da acquisire.
+. Selezionare *Scan* per avviare la scansione.
++
+XCP visualizza una barra di avanzamento per la scansione.
+
+. Una volta completata la scansione, le schede *stat view* e *file distribution* sono abilitate per consentire la visualizzazione dei grafici.
+
+
+image:xcp_image5.png["Eseguire la scansione dell'immagine completa"]
+
+
+
+== Scopri i grafici
+
+La dashboard GUI di file Analytics visualizza più grafici per la visualizzazione di file Analytics.
+
+
+
+=== Grafico conteggio a caldo a freddo
+
+XCP file Analytics classifica i file a cui non si accede per 90 giorni come dati cold. I file a cui si accede negli ultimi 90 giorni sono dati hot. I criteri per definire i dati hot e cold si basano solo sul tempo di accesso.
+
+image:xcp_image6.png["Grafico conteggio a caldo a freddo"]
+
+Il grafico Hot Cold Count mostra il numero di inode (in milioni) caldi o freddi in XCP NFS. In XCP SMB, questo grafico indica il numero di file hot o cold. La barra colorata rappresenta i dati hot e mostra la percentuale di file a cui si accede entro 90 giorni.
+
+
+
+=== Grafico dimensione a caldo a freddo
+
+image:xcp_image7.png["Grafico dimensione a caldo a freddo"]
+
+Il grafico Hot Cold Size visualizza la percentuale di file hot e cold e la dimensione totale dei file in ciascuna categoria. La barra colorata rappresenta i dati caldi e la parte non colorata i dati freddi. I criteri per definire i dati hot e cold si basano solo sul tempo di accesso.
+
+
+
+=== Voci nel grafico della directory
+
+image:xcp_image8.png["Voci nel grafico della directory"]
+
+Il grafico voci nelle directory visualizza il numero di voci nelle directory. La colonna Depth (profondità) contiene diverse dimensioni di directory e la colonna Count (numero) indica il numero di voci in ciascuna profondità di directory.
+
+
+
+=== Grafico distribuzione file per dimensione
+
+image:xcp_image9.png["Grafico distribuzione file per dimensione"]
+
+Il grafico distribuzione file per dimensione visualizza il numero di file sotto le dimensioni indicate. La colonna dimensione file contiene le categorie di dimensione file e la colonna Conteggio indica la distribuzione del numero di file.
+
+
+
+=== Grafico profondità directory
+
+image:xcp_image10.png["Grafico profondità directory"]
+
+Il grafico profondità directory rappresenta la distribuzione del numero di directory in diversi intervalli di profondità directory. La colonna Depth (profondità) contiene diverse profondità di directory e la colonna Count (Conteggio) contiene il numero di ogni profondità di directory nella condivisione file.
+
+
+
+=== Spazio del file utilizzato dal grafico delle dimensioni
+
+image:xcp_image11.png["Spazio del file utilizzato dal grafico delle dimensioni"]
+
+Il grafico spazio file utilizzato per dimensione visualizza il numero di file in diversi intervalli di dimensione file. La colonna dimensione file contiene diversi intervalli di dimensioni file e la colonna spazio utilizzato indica lo spazio utilizzato da ciascun intervallo di dimensioni file.
+
+
+
+=== Grafico spazio occupato dagli utenti
+
+image:xcp_image12.png["Grafico spazio occupato dagli utenti"]
+
+Il grafico spazio occupato dagli utenti visualizza lo spazio utilizzato dagli utenti. La colonna Nome utente contiene i nomi degli utenti (UID quando non è possibile recuperare i nomi utente) e la colonna spazio utilizzato indica lo spazio utilizzato da ciascun nome utente.
+
+
+
+=== File acceduto/modificato/creato grafico
+
+image:xcp_image13.png["File acceduto/modificato/creato grafico"]
+
+Il grafico dei file a cui si accede/modificati/creati visualizza il numero di file modificati in eccesso. L'asse X rappresenta il periodo di tempo entro il quale sono state apportate le modifiche e l'asse y rappresenta il numero di file modificati.
+
+
+NOTE: Per ottenere il grafico del tempo di accesso (atime) nelle scansioni SMB, selezionare la casella di controllo per preservare atime prima di eseguire una scansione.
+
+
+
+=== File Distribution per Extension Graphic
+
+image:xcp_image14.png["File Distribution per Extension Graphic"]
+
+Il grafico distribuzione file per estensione rappresenta il numero delle diverse estensioni di file in una condivisione file. La dimensione delle divisioni che rappresentano le estensioni si basa sul numero di file con ciascuna estensione.
+
+
+
+=== Distribuzione file per tipo grafico
+
+image:xcp_image15.png["File Distribution per Extension Graphic"]
+
+Il grafico distribuzione per tipo rappresenta il numero dei seguenti tipi di file:
+
+* REG: File regolari
+* LNK: File con collegamenti
+* Speciali: File con file di dispositivi e file di caratteri.
+* DIR: File con directory
+* Giunzione: Disponibile solo in SMB
+

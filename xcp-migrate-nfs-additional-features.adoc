@@ -1,0 +1,60 @@
+---
+sidebar: sidebar 
+permalink: xcp-migrate-nfs-additional-features.html 
+keywords: xcp, nfs, chomod, chown, posix, ownership, change, file, path, directory, command, scan 
+summary: XCP include alcune funzionalità NFS aggiuntive che semplificano la modifica della proprietà e dei permessi di file e directory per qualsiasi condivisione NFS o percorso POSIX. 
+---
+= Funzionalità NFS aggiuntive
+:allow-uri-read: 
+
+
+[role="lead"]
+XCP include alcune funzionalità NFS aggiuntive.
+
+
+
+== Chown e chmod
+
+È possibile utilizzare XCP `chown` e. `chmod` Comandi per modificare in modo ricorrente tutti i file e le directory di una determinata condivisione NFS o percorso POSIX. Ciò aumenta le performance di milioni di file.
+
+
+NOTE: Prima di modificare la proprietà dei file, è necessario configurare il nuovo proprietario. In caso contrario, il comando non avrà esito positivo. XCP `chown` e. `chmod` I comandi funzionano in modo simile a Linux `chown` e. `chmod` comandi.
+
+
+
+=== Mod
+
+Il `chmod` il comando esegue la scansione e modifica dei permessi di tutti i file nella struttura di directory scelta. Il `chmod` Il comando richiede una modalità o un riferimento e una condivisione NFS o un percorso POSIX come variabili. XCP `chmod` modifica in modo ricorrente le autorizzazioni per un determinato percorso. È possibile utilizzare `chmod` per visualizzare il totale dei file sottoposti a scansione e le autorizzazioni modificate nell'output.
+
+*Esempio:*
+
+....
+xcp chmod -mode 777 NFS [server:/export path | file://<NFS mounted path>]
+xcp chmod -mode 707 nfs_server01.netapp.com:/export1
+xcp chmod -reference nfs_server01.netapp.com:/export/dir1/file.txt  nfs_server02.netapp.com: export1
+xcp chmod -match “fnm(‘file.txt’)” -mode 111 file:///mnt/nfs_mount_point/
+xcp chmod -exclude “fnm(‘file.txt’)” -mode 111 file:///demo/user1/
+....
+Eseguire `xcp help chmod` per ulteriori informazioni.
+
+
+
+=== Chown
+
+È possibile utilizzare XCP `chown` Comando per modificare in modo ricorrente tutti i file e le directory di una determinata condivisione NFS o percorso POSIX. Ciò aumenta le performance di milioni di file.
+
+Il `chown` command esegue la scansione e modifica della proprietà di tutti i file nella struttura di directory scelta. Il `chown` Il comando richiede una condivisione NFS o un percorso POSIX come variabili. XCP `chown` modifica in modo ricorrente la proprietà di un determinato percorso.
+
+*Esempio*
+
+....
+xcp chown -user user1 NFS [server:/export path | file://<NFS mounted path>
+xcp chown -user user1 nfs_server01.netapp.com:/export1
+xcp chown -user user1 -group group1 nfs_server01.netapp.com:/export1/dir1/
+xcp chown  -reference nfs_server01.netapp.com:/export/dir1/file.txt  nfs_server02.netapp.com:/export1
+xcp chown -match “fnm(‘file.txt’)” -user user1 file:///mnt/nfs_mount_point/
+xcp chown -exclude “fnm(‘file.txt’)” -user user1 -group group1
+xcp chown -user-from user1 -user user2 file:///mnt/nfs_mount_point/
+xcp chown -group-from group1 -group group2 nfs_server01.netapp.com:/export1/
+....
+Eseguire `xcp help chown` per ulteriori informazioni.

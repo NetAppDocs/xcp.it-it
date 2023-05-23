@@ -1,0 +1,97 @@
+---
+sidebar: sidebar 
+permalink: xcp-migrate-nfs-data.html 
+keywords: netapp, xcp, migrate, data, nfs, smb, copy, resume, sync, verify 
+summary: Migrare i dati NFS 
+---
+= Migrare i dati NFS
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dopo aver pianificato la migrazione con `show` e. `scan` è possibile migrare i dati.
+
+
+
+== Copia
+
+Il `copy` Il comando esegue la scansione e copia dell'intera struttura della directory di origine in un'esportazione NFSv3 di destinazione. Il `copy` il comando richiede la presenza di percorsi di origine e destinazione come variabili. Al termine dell'operazione di copia vengono visualizzati i dati relativi a file sottoposti a scansione e copiati, velocità/velocità e tempo trascorso.
+
+*Esempio:*
+
+[listing]
+----
+xcp copy -newid <id> src_server:/src_export dst_server:/dst_export
+----
+*Esempio di percorso POSIX:*
+
+[listing]
+----
+xcp copy -newid <id> file:///mnt/source file:///mnt/dest
+----
+*Esempio di percorso HDFS:*
+
+[listing]
+----
+xcp copy -newid <id> hdfs:///demo/user file:///mnt/dest
+----
+Vedere `xcp help copy` per ulteriori dettagli.
+
+
+
+== Riprendi
+
+Il `resume` command riavvia un'operazione di copia precedentemente interrotta specificando il nome o il numero dell'indice del catalogo. Il nome o il numero dell'indice del catalogo dell'operazione di copia precedente viene memorizzato in `<catalog path>:/catalog/indexes` directory.
+
+*Esempio:*
+
+[listing]
+----
+xcp resume [options] -id <id used for copy>
+----
+Vedere `xcp help resume` per ulteriori dettagli.
+
+
+
+== Sincronizza
+
+Il `sync` Il comando esegue la scansione delle modifiche e delle modifiche apportate in una directory NFS di origine utilizzando un nome di tag di indice del catalogo o il numero di un'operazione di copia precedente. Le modifiche incrementali di origine vengono copiate e applicate alla directory di destinazione. I vecchi numeri di indice del catalogo vengono sostituiti con uno nuovo [.underline] dopo l'operazione di sincronizzazione n..
+
+*Esempio:*
+
+[listing]
+----
+xcp sync [options] -id <id used for copy>
+----
+Vedere `xcp help sync` per ulteriori dettagli.
+
+
+
+== Verificare
+
+Il `verify` command utilizza un confronto completo dei dati byte per byte tra le directory di origine e di destinazione dopo l'operazione di copia senza utilizzare un numero di indice del catalogo. Il comando verifica i tempi di modifica e altri attributi di file o directory, incluse le autorizzazioni. Il comando legge anche i file su entrambi i lati e confronta i dati.
+
+*Esempio:*
+
+[listing]
+----
+xcp verify src_server:/src_export dst_server:/dst_export
+----
+*Esempio di percorso POSIX:*
+
+[listing]
+----
+xcp verify file:///mnt/source file:///mnt/dest
+----
+*Esempio di percorso HDFS:*
+
+[listing]
+----
+xcp verify hdfs:///user/demo1/data file:///user/demo1/dest
+----
+Vedere `xcp help verify` per ulteriori dettagli.

@@ -1,0 +1,73 @@
+---
+sidebar: sidebar 
+permalink: xcp-prepare-linux-for-xcp-nfs.html 
+keywords: netapp, xcp, prepare, preparing, preparation, linux, nfs, configure, configuring, catalog, storage, 
+summary: Preparare Linux per XCP NFS 
+---
+= Preparare Linux per XCP NFS
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+XCP NFS utilizza sistemi host client Linux per generare flussi i/o paralleli e utilizzare appieno le performance di rete e storage disponibili.
+
+È possibile configurare il setup per un utente root e non root e, a seconda dell'installazione, selezionare uno degli utenti.
+
+
+
+== Configurare il catalogo
+
+XCP salva i report delle operazioni e i metadati in una directory di catalogo accessibile a NFSv3 o su qualsiasi percorso POSIX con le autorizzazioni richieste.
+
+* Il provisioning del catalogo è un'attività di pre-installazione una tantum.
+* Circa 1 GB di spazio viene indicizzato per ogni 10 milioni di oggetti (directory più file e hard link); ogni copia che può essere ripresa o sincronizzata e ogni scansione offline richiede un indice.
+* Per supportare le performance, sono necessari almeno dieci dischi o SSD nell'aggregato contenente la directory di esportazione.
+
+
+
+NOTE: È necessario memorizzare i cataloghi XCP separatamente. Non devono trovarsi nella directory di esportazione NFS di origine o di destinazione. XCP mantiene i metadati, ovvero i report nella posizione del catalogo specificata durante la configurazione iniziale. Prima di eseguire qualsiasi operazione con XCP, è necessario specificare e aggiornare la posizione in cui memorizzare i report.
+
+
+
+== Configurare lo storage
+
+Le transizioni e le migrazioni NFS XCP hanno i seguenti requisiti di storage di origine e destinazione:
+
+* I server di origine e di destinazione devono disporre del servizio del protocollo NFSv3 o NFS v4.0 abilitato
++
+** Per la migrazione NFSv4 ACL, è necessario attivare il servizio del protocollo NFSv4 e l'ACL NFSv4 sul server di destinazione
+
+
+* I volumi di origine e di destinazione devono essere esportati con `root` Accesso all'host del client XCP Linux
+* Per la migrazione NFSv4 ACL, NFSv4 richiede l'utilizzo del linguaggio di codifica UTF-8 per i volumi che richiedono la migrazione ACL.
+
+
+[NOTE]
+====
+* Per evitare che gli amministratori modifichino accidentalmente il volume di origine, è necessario configurare il volume di origine per le directory di esportazione NFSv3 e NFSv4 come di sola lettura.
+* In ONTAP, è possibile utilizzare la diagnostica `-atime-update` opzione per conservare un'ora sugli oggetti di origine. Questa funzione è disponibile solo in ONTAP ed è utile se si desidera conservare un'ora negli oggetti di origine durante l'esecuzione di XCP.
+* In XCP, è possibile utilizzare `-preserve-atime` opzione per conservare un'ora sugli oggetti di origine. Questa opzione è disponibile per tutti i comandi che accedono agli oggetti di origine.
+
+
+====
+
+
+== Utente root
+
+Un utente root su una macchina Linux dispone delle autorizzazioni necessarie per montare i volumi di origine, destinazione e catalogo.
+
+
+
+== Utente non root
+
+Un utente non root dispone delle seguenti autorizzazioni su un volume montato:
+
+* Autorizzazione di lettura per l'accesso al volume di origine
+* Autorizzazione di lettura/scrittura per l'accesso al volume di destinazione montato
+* Autorizzazione di lettura/scrittura per l'accesso al volume del catalogo
+

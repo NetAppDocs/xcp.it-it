@@ -1,0 +1,45 @@
+---
+sidebar: sidebar 
+permalink: xcp-plan-nfs-data-migration.html 
+keywords: netapp, xcp, plan, planning, data, migration, migrate, migrating, nfs, smb, file, analytics 
+summary: Pianificare le migrazioni dei dati NFS 
+---
+= Pianificare la migrazione dei dati NFS
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Pianifica le migrazioni dei dati NFS.
+
+
+
+== Mostra
+
+Il `show` Il comando interroga i servizi RPC e le esportazioni NFS di uno o più server di storage. Il comando elenca i servizi disponibili e le esportazioni con la capacità utilizzata e libera di ogni esportazione, seguita dagli attributi root di ogni esportazione. Esempio:
+
+* `xcp show <NFS file server IP/FQDN>`
+* `xcp show nfs_server01.netapp.com`
+
+
+Eseguire `xcp help show` per ulteriori dettagli.
+
+
+
+== Scansione
+
+Il `scan` Il comando esegue una scansione ricorrente dell'intero percorso esportato NFSv3 di origine e stampa le statistiche della struttura del file alla fine della scansione. NetApp consiglia di mettere i supporti di esportazione NFS di origine in modalità di sola lettura durante l'operazione di scansione. Esempio:
+
+* `xcp scan NFS [server:/export path | \file://<NFS mounted path> | hdfs://<hdfs mounted path> ]`
+* `xcp scan nfs_server01.netapp.com:/export1`
+* `xcp scan \file:///mnt/nfs-source`
+* `xcp scan hdfs:///demo/user1`
+
+
+Eseguire `xcp help scan` per ulteriori dettagli.
+
+Se si desidera, utilizzare file Analytics per visualizzare graficamente i risultati.

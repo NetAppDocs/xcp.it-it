@@ -1,0 +1,108 @@
+---
+sidebar: sidebar 
+permalink: xcp-access-file-analytics.html 
+keywords: netapp, xcp, file, servers, access, analytics, learn, about, graphs, hot, cold, count, size, entries in directory, distribution by size, directory depth, file space used by size 
+summary: File Analytics offre una vista grafica dei risultati della scansione 
+---
+= Accedere a file Analytics
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+File Analytics offre una vista grafica dei risultati della scansione.
+
+La GUI di XCP file Analytics offre una dashboard con grafici per la visualizzazione di file Analytics. La GUI di XCP file Analytics viene attivata quando si configura XCP su una macchina Linux.
+
+
+NOTE: Per verificare i browser supportati per l'accesso a file Analytics, consultare link:https://mysupport.netapp.com/matrix/["NetApp IMT"^].
+
+.Fasi
+. Utilizzare il link `\https://<IP address of linux machine>/xcp` Per accedere alla GUI di file Analytics. Quando richiesto, accettare il certificato di sicurezza:
++
+.. Selezionare Avanzate sotto l'informativa sulla privacy.
+.. Selezionare l'opzione Procedi a. `<IP address of linux machine>` collegamento.
+
+
+. Accedere alla GUI di file Analytics.
++
+Esistono due modi per accedere alla GUI di file Analytics:
+
++
+.. Utilizzare il nome utente "admin" e la password impostati durante la configurazione.
++
+image:xcp_image2.png["Schermata di accesso a XCP file Analytics"]
+
+.. Configurare e abilitare la funzionalità SSO (Single Sign-on) a livello aziendale.
++
+È possibile utilizzare questa funzione di accesso per configurare XCP file Analytics su un computer specifico e condividere l'URL dell'interfaccia utente Web a livello aziendale, consentendo agli utenti di accedere all'interfaccia utente utilizzando le proprie credenziali SSO.
+
++
+
+NOTE: L'accesso SSO è opzionale e può essere configurato e attivato in modo permanente. Per impostare l'accesso SSO basato su SAML (Security Assertion Markup Language), vedere <<Configurare le credenziali SSO>>.
+
+
+
+. Dopo aver effettuato l'accesso, è possibile vedere l'agente NFS; è presente un segno di spunta verde che indica la configurazione minima del sistema Linux e della versione XCP.
+. Se è stato configurato un agente SMB, è possibile visualizzare l'agente SMB aggiunto nella stessa scheda agente.
+
+
+
+
+== Configurare le credenziali SSO
+
+La funzionalità di accesso SSO è implementata in XCP file Analytics utilizzando SAML ed è supportata con il provider di identità Active Directory Federation Services (ADFS). SAML trasferisce l'attività di autenticazione al provider di identità di terze parti (IdP) della tua azienda, che può utilizzare qualsiasi numero di approcci per l'autenticazione multifattore (MFA).
+
+.Fasi
+. Registra l'applicazione XCP file Analytics con il tuo provider di identità aziendale.
++
+File Analytics viene ora eseguito come service provider e pertanto deve essere registrato con il provider di identità aziendale. In genere, esiste un team nell'azienda che gestisce questo processo di integrazione SSO. Il primo passo consiste nel trovare e contattare il team pertinente e condividere con loro i dettagli dei metadati dell'applicazione file Analytics.
+
++
+Di seguito sono riportati i dettagli obbligatori da condividere per la registrazione con il provider di identità:
+
++
+** *ID entità provider di servizi:* `\https://<IP address of linux machine>/xcp`
+** *URL ACS (Service Consumer Service) del service provider:* `\https://<IP address of linux machine>:5030/api/xcp/SAML/sp`
++
+Puoi anche verificare questi dettagli accedendo all'interfaccia utente di file Analytics:
+
++
+... Accedere all'interfaccia utente utilizzando il nome utente "admin" e la password impostati durante l'installazione.
+... Selezionare l'icona *utente* nell'angolo in alto a destra della pagina, quindi selezionare *SAML settings* (Impostazioni SAML).
++
+Selezionare *Impostazioni provider di servizi* nel menu a discesa visualizzato.
+
++
+image:xcp_image18.png["Esempio di impostazioni SAML"]
+
++
+Dopo la registrazione, riceverai i dettagli dell'endpoint IdP per la tua azienda. Devi fornire questi metadati dell'endpoint IdP all'interfaccia utente di file Analytics.
+
+
+
+
+
+. Fornire i dettagli dell'IdP:
++
+.. Accedere a *Dashboard*. Selezionare l'icona *utente* nell'angolo in alto a destra della pagina e selezionare *Impostazioni SAML*.
+.. Inserire i dettagli IdP ottenuti dopo la registrazione.
++
+*Esempio*
+
++
+image:xcp_image19.png["Esempio di impostazione IDP"]
+
+.. Selezionare la casella di controllo *Enable SAML* (attiva SAML) per abilitare in modo permanente l'SSO basato su SAML.
+.. Selezionare *Salva*.
+.. Disconnettersi da file Analytics e accedere nuovamente.
++
+Si viene reindirizzati alla pagina SSO aziendale.
+
+
+
+

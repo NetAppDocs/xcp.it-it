@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: xcp-using-file-analytics.html 
+keywords: netapp, xcp, plan, planning, data, migration, migrate, migrating, file, analytics 
+summary: Pianificare utilizzando file Analytics 
+---
+= Pianificare utilizzando file Analytics
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Pianifica la migrazione dei dati con file Analytics.
+
+
+NOTE: XCP è una CLI, mentre file Analytics ha una GUI.
+
+*Panoramica*
+
+XCP file Analytics utilizza l'API di scansione XCP per raccogliere dati da host NFS o SMB. Questi dati vengono quindi visualizzati nella GUI di XCP file Analytics. XCP file Analytics include tre componenti principali:
+
+* Servizio XCP
+* Database di file Analytics
+* GUI di file Analytics per gestire e visualizzare i dati
+
+
+Il metodo di implementazione per i componenti di XCP file Analytics dipende dalla soluzione richiesta:
+
+* Implementazione delle soluzioni XCP file Analytics per i file system NFS:
++
+** È possibile implementare la GUI di file Analytics, il database e il servizio XCP nello stesso host Linux.
+
+
+* Implementazione delle soluzioni XCP file Analytics per file system SMB: È necessario implementare la GUI e il database di file Analytics in un host Linux e implementare il servizio XCP su un host Windows.
+

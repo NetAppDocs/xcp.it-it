@@ -1,0 +1,70 @@
+---
+sidebar: sidebar 
+permalink: xcp-prepare-windows-for-xcp-smb.html 
+keywords: netapp, xcp, prepare, preparing, preparation, windows, 
+summary: Preparare Windows per XCP SMB 
+---
+= Preparare Windows per XCP SMB
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+XCP SMB utilizza sistemi host client Windows per generare flussi i/o paralleli e utilizzare appieno le performance di rete e storage disponibili.
+
+
+
+== Configurare lo storage
+
+Le transizioni e le migrazioni SMB di XCP hanno i seguenti requisiti di accesso utente:
+
+* Sistema host XCP: Un utente host XCP deve disporre dei privilegi di amministratore (l'utente deve far parte del gruppo "BUILTIN/Administrators" sul server SMB di destinazione).
+* Aggiungere la migrazione o l'utente host XCP ai criteri del registro di controllo e di sicurezza per Active Directory. Per individuare il criterio "Gestisci registro di controllo e protezione" in Windows 10, attenersi alla seguente procedura:
++
+.Fasi
+.. Aprire la finestra di dialogo *Editor criteri di gruppo*.
+.. Accedere a *Configurazione computer > Impostazioni di Windows > Impostazioni di protezione > Criteri locali > assegnazione diritti utente*.
+.. Selezionare *Mange auditing and Security log*.
+.. Per aggiungere un utente host XCP, selezionare *Aggiungi utente o Gruppo*.
++
+Per ulteriori informazioni, consulta: link:https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn221953(v%3Dws.11)["Gestire il registro di controllo e di sicurezza"^].
+
+
+
+* Sistema storage di destinazione: L'utente host XCP deve disporre dell'accesso in lettura e scrittura.
+* Sistema storage di origine:
++
+** Se l'utente fa parte del gruppo "Backup Operators" nel sistema di storage di origine, i membri di questo gruppo possono leggere i file ignorando le regole di sicurezza, indipendentemente dalle autorizzazioni che proteggono i file.
+** Se l'utente non fa parte del gruppo "Backup Operators" nel sistema di origine, deve disporre dell'accesso in lettura.
+
+
+
+
+
+NOTE: Per supportare l'opzione XCP, è necessario disporre dell'autorizzazione di scrittura nel sistema di storage di origine `- preserve-atime`.
+
+
+
+== Configurare un client Windows
+
+* Aggiungere la scatola di storage di destinazione e la scatola di storage di origine al file host:
++
+.. Accedere alla seguente posizione: `(C:\Windows\System32\drivers\etc\hosts)`
+.. Inserire le seguenti voci host nel file nel seguente formato:
++
+`<Source data vserver data interface ip>   <Source cifs server name>
+<Destination data vserver data interface ip>   <Destination cifs server name>`
+
++
+*Esempio*
+
++
+image:xcp_image17.png["file host di esempio"]
+
+
+
+

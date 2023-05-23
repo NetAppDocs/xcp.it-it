@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: xcp-add-file-servers.html 
+keywords: netapp, xcp, file, servers, access, analytics, learn, about, graphs, hot, cold, count, size, entries in directory, distribution by size, directory depth, file space used by size 
+summary: Aggiunta di file server 
+---
+= Aggiungere file server
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+È possibile configurare i file system esportati da NFS e SMB nella GUI di XCP file Analytics.
+
+Ciò consente a XCP file Analytics di eseguire la scansione e l'analisi dei dati nel file system. Per aggiungere file server NFS o SMB, procedere come segue.
+
+.Fase
+. Per aggiungere file server, selezionare *Aggiungi file server*.
+
+
+image:xcp_image3.png["Schermata Add file server (Aggiungi file server)"]
+
+Aggiungere l'indirizzo IP del file server, selezionare l'opzione NFS o SMB e fare clic su *Aggiungi*.
+
+
+NOTE: Se un agente SMB non è visibile nella GUI, non sarà possibile aggiungere un server SMB.
+
+Dopo aver aggiunto il file server, XCP visualizza:
+
+* Totale condivisioni file disponibili
+* File share con i dati di analisi (il numero iniziale è "0", che si aggiorna quando si esegue una scansione riuscita)
+* Total space Utilization (utilizzo totale dello spazio): La somma dello spazio utilizzato da tutte le esportazioni
+* I dati per le condivisioni di file e l'utilizzo dello spazio sono dati in tempo reale direttamente dal server NFS/SMB. La raccolta e l'elaborazione dei dati richiede alcuni secondi.
+
+
+
+NOTE: Lo spazio disponibile rispetto allo spazio utilizzato in file Analytics viene calcolato da ogni file system esportato disponibile su NFS. Ad esempio, se i volumi sono costituiti da qtree e le esportazioni vengono create su un qtree, lo spazio complessivo è lo spazio cumulativo delle dimensioni del volume e della dimensione del qtree.

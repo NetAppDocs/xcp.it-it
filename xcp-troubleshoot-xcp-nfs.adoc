@@ -1,0 +1,133 @@
+---
+sidebar: sidebar 
+permalink: xcp-troubleshoot-xcp-nfs.html 
+keywords: netapp, xcp, troubleshoot, troubleshooting, nfs, errors, 
+summary: Risoluzione degli errori NFS XCP 
+---
+= Risolvere i problemi relativi agli errori NFS XCP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Esaminare le soluzioni per risolvere il problema.
+
+
+
+== Problemi e soluzioni XCP
+
+|===
+| Problema XCP | Soluzione 
+
+
+| `xcp: ERROR`: Confronta batch: File di indice incompatibile. Utilizzare il file di indice generato solo con la versione corrente di XCP. In alternativa, è possibile scaricare un file binario XCP precedente da xcp.netapp.com. | Si sta tentando di eseguire operazioni su un indice generato utilizzando una versione XCP precedente a XCP 1.9. Non supportato. Si consiglia di completare qualsiasi migrazione in corso e passare a questa versione di XCP. In alternativa, è possibile eseguire nuovamente `scan`, `copy` oppure `verify` Comandi per generare un nuovo indice con XCP 1.9. 
+
+
+| `xcp: ERROR`: deve essere eseguito come root | Eseguire i comandi XCP come utente root 
+
+
+| `xcp: ERROR`: File di licenza `/opt/NetApp/xFiles/xcp/license` non trovato. | Scaricare la licenza dal link:https://xcp.netapp.com/["Sito XCP"^], copiarlo in `/opt/NetApp/xFiles/xcp/`e attivarlo eseguendo `xcp activate` comando. 
+
+
+| `xcp: ERROR`: Questa licenza è scaduta | Rinnovare o ottenere la nuova licenza XCP da link:https://xcp.netapp.com/["Sito XCP"^]. 
+
+
+| `xcp: ERROR`: Licenza illeggibile | Il file di licenza potrebbe essere corrotto. Ottenere la nuova licenza XCP da link:https://xcp.netapp.com/["Sito XCP"^]. 
+
+
+| `xcp: ERROR`: XCP non attivato, eseguire prima "Activate" | Eseguire `xcp activate` comando 
+
+
+| Questa copia non è concessa in licenza | Ottenere il file di licenza XCP appropriato. Copiare la licenza XCP su `/opt/NetApp/xFiles/xcp/` Directory sul server XCP. Eseguire `xcp activate` per attivare la licenza. 
+
+
+| `xcp: ERROR`: Impossibile attivare la licenza: Server irraggiungibile | Si sta tentando di attivare la licenza online e il sistema host non è connesso a Internet. Assicurarsi che il sistema sia connesso a Internet. 
+
+
+| `xcp: ERROR`: Impossibile attivare la licenza: Server xcp.netapp.com irraggiungibile
+`xcp: HINT`: Configurare il DNS su questo host o tornare alla pagina di licenza per richiedere una licenza privata errore previsto: Impossibile attivare la licenza: Server xcp.netapp.com irraggiungibile | Assicurarsi che xcp.netapp.com sia raggiungibile dall'host o richiedere la licenza offline 
+
+
+| `xcp: ERROR`: Catalog inaccessible (Catalogo non accessibile): Impossibile eseguire il montaggio `nfs_server:/export[:subdirectory]` | Aprire l'editor sull'host del client XCP Linux e aggiornare il file di configurazione con la posizione corretta del catalogo. Il file di configurazione XCP si trova in `/opt/NetApp/xFiles/xcp/xcp.ini`. Voci di esempio del file di configurazione:
+`[root@scspr1949387001 ~]# cat /opt/NetApp/xFiles/xcp/xcp.ini`
+`[xcp]`
+`catalog = 10.235.128.153:/catalog` 
+
+
+| `nfs3 error 2`: file o directory non presenti | L'operazione non ha trovato i file di origine nell'esportazione NFS di destinazione. Eseguire `xcp sync` per copiare gli aggiornamenti incrementali dall'origine alla destinazione 
+
+
+| `xcp: ERROR`: Indice vuoto o non valido | L'operazione di copia precedente è stata interrotta prima della creazione del file di indice. Eseguire nuovamente lo stesso comando con il nuovo indice e, quando il comando è in esecuzione, verificare che la parola chiave "indicizzato" sia visualizzata nelle statistiche. 
+
+
+| `xcp: ERROR`: confronto batch: processo figlio non riuscito `(exit code -9): recv <type 'exceptions.EOFError'>` | Seguire le istruzioni riportate nel seguente articolo della Knowledge base: link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/NetApp_XCP/XCP:_ERROR:_Cannot_allocate_memory_-_when_syncing_NFS_data["Impossibile allocare la memoria durante la sincronizzazione dei dati NFS"^] 
+
+
+| `xcp: ERROR`: Per xcp per l'elaborazione degli ACL, montare `<path>` Utilizzando il client OS nfs4 | Montare l'origine e la destinazione sull'host XCP utilizzando NFSv4, ad esempio `mount -o vers=4.0 10.10.10.10:/source_vol /mnt/source` 
+
+
+| XCP `verify` comando non riuscito durante una migrazione. Lo STATO viene visualizzato COME NON RIUSCITO. (Attivo) | XCP `verify` il comando è stato eseguito quando l'origine era attiva. Eseguire XCP `verify` comando dopo il cutover finale. 
+
+
+| XCP `verify` il comando non riesce dopo un cutover. (Attivo) | L'operazione di sincronizzazione cutover XCP potrebbe non aver copiato tutti i dati. Rieseguire XCP `sync` seguito dal comando `verify` comando dopo il cutover finale. Se il problema persiste, contattare il supporto tecnico. 
+
+
+| XCP `sync` comando non riuscito (valido per tutti gli errori di sincronizzazione durante le migrazioni). (Attivo) | XCP non è in grado di leggere i dati, questo potrebbe essere dovuto a un problema XCP. Controllare il messaggio di STATO XCP al termine dell'operazione del comando. Rieseguire il `sync` comando. Se l'operazione di sincronizzazione non riesce di nuovo, contattare il supporto tecnico. 
+
+
+| XCP `copy`, `resume`, e. `sync` i comandi non funzionano a causa di memoria insufficiente. XCP si blocca e lo stato di XCP viene visualizzato COME FAILED (NON RIUSCITO). (Attivo) | La memoria disponibile sull'host è bassa o si è verificato un enorme cambiamento incrementale. Seguire le istruzioni riportate nel seguente articolo della Knowledge base: link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/NetApp_XCP/XCP:_ERROR:_Cannot_allocate_memory_-_when_syncing_NFS_data["Impossibile allocare la memoria durante la sincronizzazione dei dati NFS"^] 
+
+
+| `mnt3 error 13: permission denied` | In qualità di utente non root, non si dispone delle autorizzazioni corrette per accedere al file system. Controllare se è possibile accedere al file system ed eseguire operazioni di lettura/scrittura. 
+
+
+| `xcp: batch 1: ERROR: [Errno 13] Permission denied:` | In qualità di utente non root, non si dispone delle autorizzazioni corrette per accedere al file system. Controllare se è possibile accedere al file system ed eseguire operazioni di lettura/scrittura. 
+
+
+| `mxcp: ERROR: OSMounter 'file:///t/ 10.234.115.215_src_vol/DIR': [Errno 2] No such file or directory` | Il percorso `/t/10.234.115.215_src_vol/ DIR` Non è montato sul file system Linux. Controllare se il percorso esiste. 
+
+
+| `ERROR: run sync {-id: 'xcp_index_1624263869.3734858'}: sync not yet available for hdfs/ posix/s3fs sources and targets -workaround is copy with a match filter for recent mods` | Il `sync` Il comando non è supportato in XCP per i connettori POSIX e HDFS. 
+
+
+| Il `xcp verify` il comando non riesce con tempi mod diversi | È possibile identificare il file e copiarlo manualmente nella destinazione. 
+
+
+| `Non dir object copy/sync can not be resumed; try copy again.`
+`For more details please refer XCP user guide.` | Poiché non è possibile riprendere un singolo file, si consiglia di eseguire `xcp copy` di nuovo per il file. Qualsiasi modifica al file comporta una copia completa del file. Di conseguenza, le performance non ne risentono. 
+
+
+| `Non dir object can not be synced; try copy again.`
+`For more details please refer XCP user guide.` | Poiché non è possibile sincronizzare un singolo file, si consiglia di eseguire `xcp copy` di nuovo per il file. Qualsiasi modifica al file comporta una copia completa del file. Di conseguenza, le performance non ne risentono. 
+
+
+| `xcp: ERROR: batch 4: Could not connect to node:` | Verificare che il nodo fornito in `—nodes` parametro raggiungibile. Provare a connettersi utilizzando Secure Shell (SSH) dal nodo master 
+
+
+| `[Error 13] permission denied` | Verificare di disporre dell'autorizzazione di scrittura sul volume di destinazione. 
+
+
+| `xcp: ERROR: batch 2: child process failed (exit code -6): recv <type 'exceptions.EOFError'>:` | Aumentare la memoria di sistema ed eseguire nuovamente il test. 
+
+
+| `xcp:ERROR: invalid path 'IP:/users009/user1/2022-07-01_04:36:52_1489367` | Se nel percorso del file sono presenti due punti (:), utilizzare tre punti (:::). 
+|===
+
+
+== Logdump
+
+Se si verifica un problema con un comando o un lavoro XCP, la `logdump` il comando consente di eseguire il dump dei file di log relativi al problema in un `.zip` File che può essere inviato a NetApp per il debug. Il `logdump` Il comando filtra i log in base all'ID di migrazione o all'ID del job e li scarica in un `.zip` nella directory corrente. Il `.zip` Il file ha lo stesso nome della migrazione o dell'ID lavoro utilizzato con il comando.
+
+*Esempio*
+
+[listing]
+----
+xcp logdump -j <job id>
+xcp logdump -m <migration id>
+----
+
+NOTE: Dopo la migrazione, se si utilizza `XCP_CONFIG_DIR` oppure `XCP_LOG_DIR` variabili di ambiente per eseguire l'override del percorso di configurazione o del log predefinito, il `logdump` Il comando non riesce quando viene utilizzato con una vecchia migrazione o un ID lavoro. Per evitare questo problema, utilizzare lo stesso logpath fino al completamento della migrazione.

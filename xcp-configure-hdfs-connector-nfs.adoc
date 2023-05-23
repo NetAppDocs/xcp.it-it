@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: xcp-configure-hdfs-connector-nfs.html 
+keywords: xcp, nfs, hdfs, connector, configure 
+summary: Il connettore HDFS offre a XCP la possibilità di accedere a qualsiasi file system HDFS disponibile con diversi vendor. 
+---
+= Configurare il connettore HDFS
+:allow-uri-read: 
+
+
+[role="lead"]
+Per XCP NFS, il connettore hdfs (hdfs://) di Hadoop offre a XCP la possibilità di accedere a qualsiasi file system HDFS disponibile con diversi vendor.
+
+.Funzionalità supportate
+Il `copy` L'operazione di comando da HDFS a NFS è supportata per i connettori HDFS.
+
+.Sintassi del percorso
+La sintassi del percorso per un connettore HDFS è `hdfs://[user@host:port]/full-path`.
+
+
+NOTE: Se non si specifica un utente, un host e una porta, XCP chiama `hdfsConnect` con l'host impostato su `default` e la porta impostata su `0`.
+
+.Configurare un connettore HDFS
+Per eseguire HDFS `copy` È necessario impostare il client HDFS sul sistema Linux e, in base al vendor Hadoop, seguire la configurazione di installazione disponibile su Internet. Ad esempio, è possibile impostare il client per un cluster MapR utilizzando `https://docs.datafabric.hpe.com/60/AdvancedInstallation/SettingUptheClient-redhat.html`.
+
+Una volta completata la configurazione del client HFDS, è necessario completare la configurazione sul client. Per utilizzare i percorsi HDFS con i comandi XCP, è necessario disporre delle seguenti variabili di ambiente:
+
+* PERCORSO_NHDFS_LIBHDFS
+* PERCORSO_LIBJVM_NHDFS
+
+
+Negli esempi seguenti, le impostazioni funzionano con MapR e java-1.8.0-openjdk-devel su CentOS:
+
+[listing]
+----
+export JAVA_HOME=$(dirname $(dirname $(readlink $(readlink $
+(which javac)))))
+export NHDFS_LIBJVM_PATH=`find $JAVA_HOME -name "libjvm.so"` export
+NHDFS_LIBHDFS_PATH=/opt/mapr/lib/libMapRClient.so
+----
+[listing]
+----
+[demo@mapr0 ~]$ hadoop fs -ls Found 3 items
+drwxr-xr-x - demo mapr 0 2021-01-14 00:02 d1
+drwxr-xr-x - demo mapr 0 2021-01-14 00:02 d2
+drwxr-xr-x - demo mapr 0 2021-01-14 00:02 d3
+----

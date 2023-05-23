@@ -1,0 +1,87 @@
+---
+sidebar: sidebar 
+permalink: xcp-configure-multinode-scaleout-nfs.html 
+keywords: xcp, configure, nfs, multinode, scale, out 
+summary: Per superare i limiti di performance di un singolo nodo, è possibile utilizzare un singolo comando di copia XCP per eseguire gli operai su più sistemi Linux o nodi cluster. 
+---
+= Configurare lo scale-out multinodo
+:allow-uri-read: 
+
+
+[role="lead"]
+Per XCP NFS, puoi superare i limiti di performance di un singolo nodo utilizzando un singolo nodo `copy` (o. `scan -md5`) Per eseguire i dipendenti su più sistemi Linux o nodi cluster.
+
+.Funzionalità supportate
+Lo scale-out multinodo è utile in qualsiasi ambiente in cui le performance di un singolo sistema non sono sufficienti, ad esempio nei seguenti scenari:
+
+* Quando sono necessari mesi prima che un singolo nodo copi petabyte di dati
+* Quando le connessioni ad alta latenza agli archivi di oggetti cloud rallentano un singolo nodo
+* In cluster farm HDFS di grandi dimensioni in cui vengono eseguite numerose operazioni di i/O.
+
+
+.Sintassi del percorso
+La sintassi del percorso per lo scale-out multinodo è `--nodes worker1,worker2,worker3`.
+
+.Configurare lo scale-out multinodo
+Prendere in considerazione una configurazione con quattro host Linux con configurazioni CPU e RAM simili. È possibile utilizzare tutti e quattro gli host per la migrazione perché XCP può coordinare le operazioni di copia in tutti i nodi host. Per utilizzare questi nodi in un ambiente scale-out, è necessario identificare uno dei quattro nodi come nodo master e altri come nodi di lavoro. Ad esempio, per un'installazione Linux a quattro nodi, assegnare ai nodi il nome "master", "worker1", "worker2" e "worker3", quindi impostare la configurazione sul nodo master:
+
+. Copiare XCP nella home directory.
+. Installare e attivare la licenza XCP.
+. Modificare il `xcp.ini` e aggiungere il percorso del catalogo.
+. Impostare passwordless Secure Shell (SSH) dal nodo master ai nodi di lavoro:
++
+.. Generare la chiave sul nodo master:
++
+`ssh-keygen -b 2048 -t rsa -f /root/.ssh/id_rsa -q -N ''`
+
+.. Copiare la chiave in tutti i nodi di lavoro:
++
+`ssh-copy-id -i /root/.ssh/id_rsa.pub root@worker1`
+
+
+
+
+
+Il nodo master XCP utilizza SSH per eseguire i dipendenti su altri nodi. È necessario configurare i nodi di lavoro per abilitare l'accesso SSH senza password per l'utente che esegue XCP sul nodo master. Ad esempio, per consentire a una dimostrazione utente su un nodo master di utilizzare il nodo "worker1" come nodo di lavoro XCP, è necessario copiare il binario XCP dal nodo master a tutti i nodi di lavoro nella home directory.
+
+.MaxStartup
+Quando si avviano più operatori XCP contemporaneamente, per evitare errori, è necessario aumentare il `sshd MaxStartups` parametro su ciascun nodo di lavoro, come mostrato nell'esempio seguente:
+
+[listing]
+----
+echo "MaxStartups 100" | sudo tee -a /etc/ssh/sshd_config
+sudo systemctl restart sshd
+----
+.Il file "nodes.ini"
+Quando XCP esegue un worker su un nodo del cluster, il processo di lavoro eredita le variabili di ambiente dal processo XCP principale sul nodo master. Per personalizzare un particolare ambiente di nodi, è necessario impostare le variabili in `nodes.ini` file nella directory di configurazione solo sul nodo master (i nodi di lavoro non hanno una directory di configurazione o un catalogo). Ad esempio, per un server ubuntu Mars che dispone di ITS `libjvm.so` In una posizione diversa rispetto al nodo master, ad esempio WAVE (CentOS), richiede una directory di configurazione per consentire a un lavoratore su Mars di utilizzare il connettore HDFS. Questa configurazione viene illustrata nel seguente esempio:
+
+[listing]
+----
+[schay@wave ~]$ cat /opt/NetApp/xFiles/xcp/nodes.ini [mars]
+NHDFS_LIBJVM_PATH=/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/
+amd64/server/libjvm.so
+----
+Se si utilizza una multisessione con percorsi di file POSIX e HDFS, è necessario montare il file system e il file system di origine e destinazione esportati sul nodo master e su tutti i nodi di lavoro.
+
+Quando XCP viene eseguito su un nodo di lavoro, il nodo di lavoro non dispone di alcuna configurazione locale (nessuna licenza, file di log o catalogo). Nel sistema della home directory è richiesto solo il binario XCP. Ad esempio, per eseguire `copy` comando, il nodo master e tutti i nodi di lavoro devono accedere all'origine e alla destinazione. Per `xcp copy --nodes linux1,linux2 hdfs:///user/demo/test \file:///mnt/ontap`, il `linux1` e. `linux2` Gli host devono configurare il software client HDFS e montare l'esportazione NFS su /mnt/ontap e, come menzionato in precedenza, una copia del binario XCP nella home directory.
+
+.Combina connettori POSIX e HDFS, scale-out multinodo e funzionalità di sicurezza
+È possibile utilizzare i connettori POSIX e HDFS, lo scale-out multinodo e le funzioni di sicurezza in combinazione. Ad esempio, quanto segue `copy` e. `verify` I comandi combinano connettori POSIX e HDFS con funzioni di sicurezza e scale-out:
+
+* `copy` esempio di comando:
++
+[listing]
+----
+./xcp copy hdfs:///user/demo/d1 file:///mnt/nfs-server0/d3
+./xcp copy -match "'USER1 in name'" file:///mnt/nfs-server0/d3
+hdfs:///user/demo/d1
+./xcp copy —node worker1,worker2,worker3 hdfs:///user/demo/d1
+file:///mnt/nfs-server0/d3
+----
+* `verify` esempio di comando:
+
+
+[listing]
+----
+./xcp verify hdfs:///user/demo/d2 file:///mnt/nfs-server0/d3
+----

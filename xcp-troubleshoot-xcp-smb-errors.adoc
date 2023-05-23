@@ -1,0 +1,53 @@
+---
+sidebar: sidebar 
+permalink: xcp-troubleshoot-xcp-smb-errors.html 
+keywords: netapp, xcp, troubleshoot, troubleshooting, smb, 
+summary: Risoluzione dei problemi relativi agli errori SMB di XCP 
+---
+= Risolvere gli errori SMB XCP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Esaminare le soluzioni per risolvere il problema.
+
+|===
+| Problema | Soluzione 
+
+
+| `xcp: ERROR`: Questa licenza è scaduta | Rinnovare o ottenere la nuova licenza XCP da link:https://xcp.netapp.com/["Sito XCP"^]. 
+
+
+| Questa copia non è concessa in licenza | Ottenere il file di licenza XCP appropriato. Copiare la licenza XCP su `c:\netapp\xcp` Sull'host XCP. Eseguire `xcp activate` per attivare la licenza 
+
+
+| `xcp: ERROR`: XCP non attivato, eseguire prima "Activate" | Scaricare la licenza XCP dal link:https://xcp.netapp.com/["Sito XCP"^]. Copiare il file sull'host del client XCP Linux all'indirizzo `c:\netapp\xcp` Sull'host XCP. Eseguire `xcp activate` per attivare la licenza. 
+
+
+| `xcp: ERROR`File di licenza C: Licenza NetApp non trovata | Registrarsi per la licenza XCP su link:https://xcp.netapp.com/["Sito XCP"^]. Scaricare e copiare il file di licenza in `C:\NetApp\XCP\` Sull'host client XCP Windows. 
+
+
+| Errore di scansione xcp: Impossibile trovare il nome di rete | Eseguire nuovamente il comando con il nome di condivisione corretto 
+
+
+| Errore copia xcp: ERRORE durante il recupero dell'entità di protezione fallback messaggio di errore registrato nel file xcp.log:
+`pywintypes.error: (1722, 'LookupAccountName', 'The RPC server is unavailable.')` | Aggiungere la casella di destinazione nel file hosts (`C:\Windows\System32\drivers\etc\hosts`). La casella di destinazione dello storage NetApp deve essere nel formato seguente:
+`<data vserver data interface ip>` 1 o più spazi vuoti `<cifs server name>` 
+
+
+| `xcp copy: ERROR` Impossibile ottenere l'entità di protezione fallback (inserire la casella di destinazione dopo l'aggiunta nei file host) errore di accesso al file xcp.log:
+`'No mapping between account names and security IDs was done'` | L'utente/gruppo di fallback non esiste nel sistema di destinazione (casella di destinazione) o nella directory attiva. Eseguire nuovamente il comando con le opzioni utente/gruppo di fallback corrette 
+
+
+| `xcp copy: ERROR` Impossibile ottenere l'entità di protezione fallback (inserire la casella di destinazione dopo l'aggiunta nei file host) errore di accesso al file xcp.log:
+`pywintypes.error: (87, 'LookupAccountName', 'The parameter is incorrect.')` | Parametro errato per l'opzione utente/gruppo fallback. Eseguire nuovamente il comando con la sintassi corretta per le opzioni utente/gruppo di fallback 
+
+
+| `xcp copy` Con il messaggio di errore di migrazione acl registrato nel file xcp.log:
+`pywintypes.error`: `(1314, 'GetNamedSecurityInfo', 'A required privilege is not held by the client.')` | Un utente sta affrontando un problema relativo ai descrittori di sicurezza perché con i privilegi di cui dispone l'utente per la migrazione, XCP può ottenere solo proprietario, gruppo e DACL, non può ottenere SACL. Aggiungere l'utente di migrazione alla policy "Manage Audit and Security Log" (Gestisci registro di controllo e protezione) in Active Directory. Riferimento: link:https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn221953%28v%3Dws.11%29["Gestire il registro di controllo e di sicurezza"^] 
+|===

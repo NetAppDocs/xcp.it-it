@@ -1,0 +1,199 @@
+---
+sidebar: sidebar 
+permalink: xcp-install-xcp-nfs.html 
+keywords: netapp, xcp, install, installing, nfs 
+summary: Installazione di XCP NFS 
+---
+= Installare XCP NFS
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+Se si desidera aggiornare XCP, eliminare l'installazione corrente e sostituirla con una nuova installazione della versione più recente. In questa sezione vengono descritti i requisiti di sistema e le procedure per la configurazione iniziale di XCP su un client Linux e per la configurazione del file INI.
+
+*Requisiti di sistema*
+
+[cols="35,65"]
+|===
+| Elemento | Requisito 
+
+
+| Sistema | Server Intel o AMD a 64 bit, minimo 4 core e 32 GB di RAM 
+
+
+| Sistema operativo e software | RHEL8. Vedere link:https://mysupport.netapp.com/matrix/["IMT"^] per i sistemi operativi supportati 
+
+
+| Requisiti speciali | Connettività di rete e accesso a livello root a origine e destinazione NFSv3 non esporta altre applicazioni attive 
+
+
+| Storage | 20 MB di spazio su disco per il file binario XCP e almeno 50 MB di spazio su disco per i log memorizzati nella directory /opt/NetApp/xFiles/xcp/ 
+
+
+| Versione del protocollo supportata | NFSv3 e NFSv4 (POSIX e ACL) 
+
+
+| Browser supportato (solo file Analytics) | XCP file Analytics supporta Google Chrome versione 76 e successive. Vedere link:https://mysupport.netapp.com/matrix/["IMT"^] matrice per tutte le versioni supportate del browser 
+|===
+
+NOTE: La configurazione consigliata per la migrazione live source è 8 core e 64 GB di RAM.
+
+
+
+== Installare XCP NFS per un utente root
+
+Per installare XCP per un utente root, seguire la procedura riportata di seguito.
+
+.Fasi
+. Accedere alla macchina Linux come utente root e scaricare e installare la licenza:
++
+[listing]
+----
+[root@scspr1980872003 ~]# ls -l
+total 36188
+-rw-r--r--  1 root root 37043983 Oct  5 09:36 NETAPP_XCP_<version>.tgz
+-rw-------. 1 root root     1994 Sep  4  2019 license
+----
+. Per estrarre lo strumento, estrarre XCP:
++
+[listing]
+----
+[root@scspr1980872003 ~]# tar -xvf NETAPP_XCP_<version>.tgz
+[root@scspr1980872003 ~]# ls
+NETAPP_XCP_<version>.tgz license xcp
+[root@scspr1980872003 ~]# cd xcp/linux/
+[root@scspr1980872003 linux]# ls
+xcp
+----
+. Verificare che il `/opt/NetApp/xFiles/xcp` Il percorso è disponibile sul sistema da una versione precedente di XCP.
++
+Se `/opt/NetApp/xFiles/xcp` è disponibile, attivare la licenza utilizzando `xcp activate` e procedere con la migrazione dei dati.
+
++
+Se `/opt/NetApp/xFiles/xcp` non è disponibile quando si esegue `xcp activate` Viene eseguito per la prima volta, il sistema crea la directory di configurazione dell'host XCP in `/opt/NetApp/xFiles/xcp`.
+
++
+Il `xcp activate` il comando non riesce perché la licenza non è installata:
+
++
+[listing]
+----
+[root@scspr1980872003 linux]# ./xcp activate
+(c) yyyy NetApp, Inc.
+xcp: Host config file not found. Creating sample at '/opt/NetApp/xFiles/xcp/xcp.ini'
+
+xcp: ERROR: License file /opt/NetApp/xFiles/xcp/license not found.
+Register for a license at https://xcp.netapp.com
+----
+. Copiare la licenza in `/opt/NetApp/xFiles/xcp/`:
++
+[listing]
+----
+[root@scspr1980872003 linux]# cp ~/license /opt/NetApp/xFiles/xcp/
+----
+. Verificare che il file di licenza sia stato copiato in `/opt/NetApp/xFiles/xcp/`:
++
+[listing]
+----
+[root@ scspr1980872003 ~]# ls -altr /opt/NetApp/xFiles/xcp/
+total 44
+drwxr-xr-x 3 root root    17 Oct  1 06:07 ..
+-rw-r--r-- 1 root root   304 Oct  1 06:07 license
+drwxr-xr-x 2 root root     6 Oct  1 10:16 xcpfalogs
+drwxr-xr-x 2 root root    21 Oct  1 10:16 xcplogs
+-rw-r--r-- 1 root root   110 Oct  5 00:48 xcp.ini
+drwxr-xr-x 4 root root    83 Oct  5 00:48 .
+[root@scspr1978802001 ~]#
+----
+. Attivare XCP:
++
+[listing]
+----
+[root@scspr1980872003 linux]# ./xcp activate
+XCP <version>; (c) yyyy NetApp, Inc.;
+XCP activated
+----
+
+
+
+
+== Installare XCP per un utente non root
+
+Per installare XCP per un utente non root, seguire la procedura riportata di seguito.
+
+.Fasi
+. Accedere alla macchina Linux come utente non root e scaricare e installare la licenza:
++
+[listing]
+----
+[user1@scspr2474004001 ~]$ ls -l
+total 36640
+-rwxr-xr-x 1 user1 user1      352 Sep 20 01:56 license
+-rw-r--r-- 1 user1 user1 37512339 Sep 20 01:56 NETAPP_XCP_Nightly_dev.tgz
+[user1@scspr2474004001 ~]$
+----
+. Per estrarre lo strumento, estrarre XCP:
++
+[listing]
+----
+[user1@scspr2474004001 ~]$ tar -xvf NETAPP_XCP_Nightly_dev.tar
+[user1@scspr2474004001 ~]$ cd xcp/linux/
+[user1@scspr2474004001 linux]$ ls
+xcp
+[user1@scspr2474004001 linux]$
+----
+. Verificare che il `/home/user1/NetApp/xFiles/xcp` Il percorso è disponibile sul sistema da una versione precedente di XCP.
++
+Se il `/home/user1/NetApp/xFiles/xcp` path è disponibile, attivare la licenza utilizzando `xcp activate` gestire e procedere con la migrazione dei dati.
+
++
+Se `/home/user1/NetApp/xFiles/xcp` non è disponibile quando si esegue `xcp activate` Per la prima volta, il sistema crea la directory di configurazione dell'host XCP in `/home/user1/NetApp/xFiles/xcp`.
+
++
+Il `xcp activate` il comando non riesce perché la licenza non è installata:
+
++
+[listing]
+----
+[user1@scspr2474004001 linux]$ /home/user1/xcp/linux/xcp activate
+(c) yyyy NetApp, Inc.
+xcp: Host config file not found. Creating sample at '/home/user1/NetApp/xFiles/xcp/xcp.ini'
+
+xcp: ERROR: License file /home/user1/NetApp/xFiles/xcp/license not found.
+Register for a license at https://xcp.netapp.com
+[user1@scspr2474004001 linux]$
+----
+. Copiare la licenza in `/home/user1/NetApp/xFiles/xcp/`:
++
+[listing]
+----
+[user1@scspr2474004001 linux]$ cp ~/license /home/user1/NetApp/xFiles/xcp/
+[user1@scspr2474004001 linux]$
+----
+. Verificare che il file di licenza sia stato copiato in `/home/user1/NetApp/xFiles/xcp/`:
++
+[listing]
+----
+[user1@scspr2474004001 xcp]$ ls -ltr
+total 8
+drwxrwxr-x 2 user1 user1  21 Sep 20 02:04 xcplogs
+-rw-rw-r-- 1 user1 user1  71 Sep 20 02:04 xcp.ini
+-rwxr-xr-x 1 user1 user1 352 Sep 20 02:10 license
+[user1@scspr2474004001 xcp]$
+----
+. Attivare XCP:
++
+[listing]
+----
+[user1@scspr2474004001 linux]$ ./xcp activate
+(c) yyyy NetApp, Inc.
+
+XCP activated
+
+[user1@scspr2474004001 linux]$
+----
+

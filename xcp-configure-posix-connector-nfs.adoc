@@ -1,0 +1,97 @@
+---
+sidebar: sidebar 
+permalink: xcp-configure-posix-connector-nfs.html 
+keywords: xcp, configure, nfs, posix, connector 
+summary: Il connettore POSIX offre a XCP la possibilità di accedere a qualsiasi file system montato su Linux, come NFSv4, XFS e Veritas. 
+---
+= Configurare il connettore POSIX
+:allow-uri-read: 
+
+
+[role="lead"]
+XCP NFS supporta ora l'utilizzo di connettori POSIX per fornire percorsi di origine e destinazione per la migrazione dei dati.
+
+
+
+== Funzionalità supportate
+
+Per i connettori POSIX sono supportate le seguenti funzionalità:
+
+* Per file system POSIX che supportano nanosecondi `atime`, `mtime`, e. `ctime`, il `scan` il comando ottiene i valori completi (secondi e nanosecondi) e il `copy` il comando li imposta
+* I connettori POSIX sono più sicuri di XCP con socket TCP NFSv3.
+
+
+
+
+== Sintassi del percorso
+
+La sintassi del percorso per un connettore POSIX è `\file://<mounted path on linux>`.
+
+
+
+== Configurare un connettore POSIX
+
+Per configurare un connettore POSIX, è necessario eseguire le seguenti operazioni:
+
+* Montare un volume di origine e un volume di destinazione
+* Verificare che il percorso di destinazione disponga dell'autorizzazione necessaria per scrivere i dati
+
+
+Una destinazione e un catalogo vengono montati nel seguente esempio:
+
+[listing]
+----
+root@scspr2395903001 ~]# findmnt -t nfs4
+TARGET SOURCE FSTYPE OPTIONS
+/t/10.237.170.39_src_vol 10.237.170.39:/source_vol nfs4
+rw,relatime,vers=4.0,rsize=65536,wsize=65536,namlen=255,hard,proto=t
+cp,timeo=600,retrans=2,sec=sys,clien
+/t/10.237.170.53_dest_vol 10.237.170.53:/dest_vol nfs4
+rw,relatime,vers=4.0,rsize=65536,wsize=65536,namlen=255,hard,proto=t
+cp,timeo=600,retrans=2,sec=sys,clien
+/t/10.237.170.53_catalog_vol 10.237.170.53:/xcp_catalog nfs4
+rw,relatime,vers=4.0,rsize=65536,wsize=65536,namlen=255,hard,proto=t
+cp,timeo=600,retrans=2,sec=sys,clien
+[root@scspr2395903001 ~]#
+----
+I connettori POSIX accedono a un volume di origine e di destinazione utilizzando la sintassi POSIX `file://`. Nell'esempio precedente, il percorso di origine è `\file:///t/10.237.170.39_src_vol` il percorso di destinazione è `file:// /t/10.237.170.53_dest_vol`.
+
+È possibile gestire la configurazione di esempio di un catalogo XCP condiviso da utenti non root creando un gruppo Linux per utenti XCP. Per gli utenti non root, gli utenti dei gruppi Linux devono disporre delle seguenti autorizzazioni per eseguire le migrazioni.
+
+Nel seguente esempio di output, `demo` è l'utente non root e. `/mnt/xcp-catalog` è il percorso in cui viene montato il volume del catalogo:
+
+[listing]
+----
+sudo groupadd -g 7711 xcp_users
+sudo usermod -G xcp_users -a demo
+sudo chown -R :xcp_users /mnt/xcp-catalog
+sudo chmod -R g+w /mnt/xcp-catalog
+----
+Il catalogo XCP non memorizza i dati, ma memorizza i nomi dei file di scansione e copia, i nomi delle directory e altri metadati. Pertanto, si consiglia di configurare le autorizzazioni del file system del catalogo per consentire agli utenti di fornire loro la capacità di proteggere i metadati memorizzati.
+
+
+
+== Proprietà (UID e GID)
+
+Quando si è impostati come utente normale, per impostazione predefinita, un `copy` Il comando a una destinazione POSIX o NFS3 non tenta di impostare la proprietà (ID utente (UID) e ID gruppo (GID)). L'impostazione della proprietà viene in genere eseguita da un amministratore. Quando l'utente A copia i file dall'utente B, l'utente A si aspetta di possedere la destinazione. Tuttavia, questo non accade quando un utente root copia i file. Quando un utente root copia i file, il `-chown` l'opzione modifica il comportamento in modo che non sia root `copy` comando con `-chown` Tenta di impostare UID e GID.
+
+
+
+== Aumentare il numero massimo di descrittori di file aperti
+
+Per ottenere performance e affidabilità ottimali, è possibile aumentare il numero massimo di descrittori di file aperti per l'utente XCP su tutti i nodi.
+
+.Fasi
+. Aprire il file utilizzando il seguente comando:
+`vi /etc/security/limits.conf`
+. Aggiungere al file la seguente riga:
+`<username> - nofile 999999`
+
+
+*Esempio*
+
+[listing]
+----
+root - nofile 999999
+----
+Vedere link:https://access.redhat.com/solutions/61334^["Soluzioni Red Hat"] per ulteriori informazioni.
