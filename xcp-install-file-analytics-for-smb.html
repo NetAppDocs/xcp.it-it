@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head class="at-element-marker">
+  <title>Installare file Analytics per SMB</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Installare file Analytics per SMB" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/it-it/xcp/xcp-install-file-analytics-for-smb.html" />
+	<meta property="og:description" content="Installare o aggiornare file Analytics per SMB" />
+  <meta property="og:image" content="https://docs.netapp.com/it-it/xcp/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Installare o aggiornare file Analytics per SMB">
+  <meta name="keywords" content=" netapp, xcp, install, installing, file, analytics, smb, upgrade, upgrading"><!-- Icons -->
+  <link rel="icon" href="/it-it/xcp/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/it-it/xcp/css/netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/it-it/xcp/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/it-it/xcp/css/tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel="canonical" href="https://docs.netapp.com/it-it/xcp/xcp-install-file-analytics-for-smb.html" />
+  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/xcp/xcp-install-file-analytics-for-smb.html" />
+  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/xcp/xcp-install-file-analytics-for-smb.html" />
+  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/xcp/xcp-install-file-analytics-for-smb.html" />
+  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/xcp/xcp-install-file-analytics-for-smb.html" />
+  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/xcp/xcp-install-file-analytics-for-smb.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/xcp/xcp-install-file-analytics-for-smb.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/xcp/xcp-install-file-analytics-for-smb.html" />
+  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/xcp/xcp-install-file-analytics-for-smb.html" />
+  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/xcp/xcp-install-file-analytics-for-smb.html" />
+  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/xcp/xcp-install-file-analytics-for-smb.html" />
+  <link rel='stylesheet' href='/it-it/xcp/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
+    function addAdobeLaunch(adobeId) {
+      var head = document.getElementsByTagName('head')[0];
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/"+adobeId+".min.js";
+      head.appendChild(adobe);
+    }
+
+    function addGoogleAnalytics(gtagId) {
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id="+gtagId;
+      var head = document.getElementsByTagName('head')[0];
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gtagId);
+    }
+
+    function addConsent(consentId) {
+      var head = document.getElementsByTagName('head')[0];
+      var onetrustConsent = document.createElement("script");
+      onetrustConsent.type = "text/javascript";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/"+consentId+"/OtAutoBlock.js";
+      head.appendChild(onetrustConsent);
+
+      var onetrustScript = document.createElement("script");
+      onetrustScript.type = "text/javascript";
+      onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+      onetrustScript.charset = "UTF-8";
+      onetrustScript.dataset.documentLanguage = "true";
+      onetrustScript.dataset.domainScript = consentId;
+      head.appendChild(onetrustScript);
+    }addConsent("72570c5c-fe30-465f-b0e0-b77f7fb4ae34");
+    addAdobeLaunch("launch-e9ff3acac59f");
+    addGoogleAnalytics("UA-81697994-3");function OptanonWrapper() { }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/it-it/xcp/js/na-search.js'></script><script src='/it-it/xcp/js/na-pagenav.js'></script><script src='/it-it/xcp/js/na-utility.js'></script>
+ <!--  
+  <link rel='stylesheet' href='/it-it/xcp/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/it-it/xcp/css/prism-netapp.css' type='text/css'>
+ -->
+
+  <!-- <script src='/it-it/xcp/js/na-utility.js'></script> -->
+  <script src='/it-it/xcp/js/clouddocs.js'></script>
+  <script src='/it-it/xcp/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- <script src='/it-it/xcp/js/toc.js'></script> -->
+  <!-- <script src='/it-it/xcp/js/customscripts.js'></script> --><script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+          $(".sidebar-nav-container").on("scroll", function() {
+            $.cookie("sidebarScroll", $(".sidebar-nav-container").scrollTop(), {
+              path    : "/it-it/xcp"  
+            });
+          });
+          $(function() {
+            if ($.cookie("sidebarScroll")) {
+              $(".sidebar-nav-container").scrollTop($.cookie("sidebarScroll"));
+            }
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+  <script src='/it-it/xcp/js/custom-dropdown.js'></script>
+  <script src='/it-it/xcp/js/FileSaver.min.js'></script>
+  <script src='/it-it/xcp/js/jszip-utils.min.js'></script>
+  <script src='/it-it/xcp/js/jszip.min.js'></script>
+  <!-- <script src='/it-it/xcp/js/pdf-ux.js'></script> -->
+</head>
+
+
+  <body class role="document" data-flavor="">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/xcp.it-it/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/it-it/xcp/xcp-install-file-analytics-for-smb.html&page-title=Installare file Analytics per SMB" class="page-nav-contribute-link" role="button"><img src="/it-it/xcp/images/discuss-sm.svg" alt="" class="github-icon" />Richiedi modifiche alla documentazione</a><a target="_blank" href="https://github.com/NetAppDocs/xcp/blob/main/xcp-install-file-analytics-for-smb.adoc" class="page-nav-contribute-link" role="button"><img src="/it-it/xcp/images/edit-sm.svg" alt="" class="github-icon" />Modifica questa pagina</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/it-it/xcp/images/article-sm.svg" alt="" class="github-icon" />Scopri come collaborare</a></div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">IN QUESTA PAGINA</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">Prodotto e soluzioni</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">Supporto e training</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">Cloud Central</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">Community</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">Blog</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">Testimonianze dei clienti</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/company/contact-us/" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Contatto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/it-it/xcp/images/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/it-it/xcp/images/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/it-it/xcp/images/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/it-it/xcp/search.html"
+          data-type="widget" 
+          data-placeholder="Esplora la documentazione"
+          data-no-results-found="Nessun risultato per {query}"
+          data-did-you-mean="Cerca {suggestion}."
+          data-no-results-found-did-you-mean="Nessun risultato per {query}. Intendi {suggestion}?"
+          data-results-found="{hitCount} risultati trovati"
+          data-error-message="Si è verificato un problema durante il recupero dei risultati. Riprova."
+          data-error-reset="Reimposta ricerca"
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/it-it/xcp/images/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">Italiano</span>
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/it-it/xcp/images/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/it-it/xcp/xcp-install-file-analytics-for-smb.html" target="_self"><span translate="no" class="notranslate">Italiano</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/xcp/xcp-install-file-analytics-for-smb.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/xcp/xcp-install-file-analytics-for-smb.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/xcp/xcp-install-file-analytics-for-smb.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/xcp/xcp-install-file-analytics-for-smb.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/xcp/xcp-install-file-analytics-for-smb.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/de-de/xcp/xcp-install-file-analytics-for-smb.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/es-es/xcp/xcp-install-file-analytics-for-smb.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/fr-fr/xcp/xcp-install-file-analytics-for-smb.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+        </li></ul>
+    </div>
+    <!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" id="sidebar-height">
+      <button id="btn-sidebar-collapse" onclick="hideSidebar()"><img src="/it-it/xcp/images/collapse.png" alt="Comprimi pannello di navigazione"></button>
+      <div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/it-it/xcp/images/pdf.png" alt="" width="16" height="16"/>PDF disponibili<span>
+    </span>
+  </a>
+</div>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        
+        
+        
+        <a target="_blank" href="/it-it/xcp/pdfs/fullsite-sidebar/Inizia_a_utilizzare_XCP.pdf" >
+          <img src="/it-it/xcp/images/pdf.png" alt="" width="16" height="16"/>PDF del sito di questa documentazione</a>
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/xcp/pdfs/sidebar/Inizia_a_utilizzare_XCP.pdf" 
+            
+          >
+            <img src="/it-it/xcp/images/pdf.png" alt="" width="16" height="16"/>
+            Inizia a utilizzare XCP
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/xcp/pdfs/sidebar/Installare_XCP.pdf" 
+            
+          >
+            <img src="/it-it/xcp/images/pdf.png" alt="" width="16" height="16"/>
+            Installare XCP
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/xcp/pdfs/sidebar/Configurare_XCP.pdf" 
+            
+          >
+            <img src="/it-it/xcp/images/pdf.png" alt="" width="16" height="16"/>
+            Configurare XCP
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/xcp/pdfs/sidebar/Pianificare_la_migrazione_dei_dati.pdf" 
+            
+          >
+            <img src="/it-it/xcp/images/pdf.png" alt="" width="16" height="16"/>
+            Pianificare la migrazione dei dati
+          </a>
+          
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/xcp/pdfs/sidebar/Pianificare_utilizzando_file_Analytics.pdf" 
+            
+          >
+            <img src="/it-it/xcp/images/pdf.png" alt="" width="16" height="16"/>
+            Pianificare utilizzando file Analytics
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/xcp/pdfs/sidebar/Migrare_i_dati.pdf" 
+            
+          >
+            <img src="/it-it/xcp/images/pdf.png" alt="" width="16" height="16"/>
+            Migrare i dati
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/it-it/xcp/pdfs/sidebar/Risolvere_i_problemi.pdf" 
+            
+          >
+            <img src="/it-it/xcp/images/pdf.png" alt="" width="16" height="16"/>
+            Risolvere i problemi
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/it-it/xcp/images/pdf-zip.png" alt="" width="16" height="16"/>
+      <pre>Raccolta di documenti PDF separati<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+  });
+</script><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="A casa"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/home.html">
+        A casa
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Note di rilascio"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/releasenotes.html">
+        Note di rilascio
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Inizia a utilizzare XCP"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="/it-it/xcp/index.html">
+        <div class="na-navbar-padding"> Inizia a utilizzare XCP</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Funzionalità add-on NFS XCP"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-nfs-add-ons.html">
+        Funzionalità add-on NFS XCP
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Funzionalità non supportate"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-unsupported-features.html">
+        Funzionalità non supportate
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurazioni supportate"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-supported-configurations.html">
+        Configurazioni supportate
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Porte utilizzate da XCP"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-ports-used.html">
+        Porte utilizzate da XCP
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Installare XCP"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="/it-it/xcp/xcp-install-xcp.html">
+        <div class="na-navbar-padding"> Installare XCP</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Preparare Linux per XCP NFS"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-prepare-linux-for-xcp-nfs.html">
+        Preparare Linux per XCP NFS
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Preparare Windows per XCP SMB"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-prepare-windows-for-xcp-smb.html">
+        Preparare Windows per XCP SMB
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Preparazione di file Analytics"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-prepare-file-analytics.html">
+        Preparazione di file Analytics
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Installare XCP NFS"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-install-xcp-nfs.html">
+        Installare XCP NFS
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Installare XCP SMB"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-install-xcp-smb.html">
+        Installare XCP SMB
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Installare file Analytics per NFS"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-install-file-analytics-for-nfs.html">
+        Installare file Analytics per NFS
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Installare file Analytics per SMB"
+      data-li-level="2#" 
+      class="  active "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-install-file-analytics-for-smb.html">
+        Installare file Analytics per SMB
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurare XCP"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Configurare XCP</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurare il file INI per XCP NFS"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-configure-the-ini-file-for-xcp-nfs.html">
+        Configurare il file INI per XCP NFS
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Tuning delle performance"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-performance-tuning.html">
+        Tuning delle performance
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Variabile di ambiente"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-environment-variable.html">
+        Variabile di ambiente
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurare il connettore POSIX"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-configure-posix-connector-nfs.html">
+        Configurare il connettore POSIX
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurare il connettore HDFS"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-configure-hdfs-connector-nfs.html">
+        Configurare il connettore HDFS
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configurare lo scale-out multinodo"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-configure-multinode-scaleout-nfs.html">
+        Configurare lo scale-out multinodo
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Pianificare la migrazione dei dati"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="/it-it/xcp/xcp-plan-data-migration.html">
+        <div class="na-navbar-padding"> Pianificare la migrazione dei dati</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Pianificare la migrazione dei dati NFS"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-plan-nfs-data-migration.html">
+        Pianificare la migrazione dei dati NFS
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Pianificare la migrazione dei dati SMB"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-plan-smb-data-migration.html">
+        Pianificare la migrazione dei dati SMB
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Pianificare utilizzando file Analytics"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/it-it/xcp/xcp-using-file-analytics.html">
+        <div class="na-navbar-padding"> Pianificare utilizzando file Analytics</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Accedere a file Analytics"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-access-file-analytics.html">
+        Accedere a file Analytics
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Aggiungere file server"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-add-file-servers.html">
+        Aggiungere file server
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Eseguire una scansione"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-run-a-scan.html">
+        Eseguire una scansione
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Filtri"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-filters.html">
+        Filtri
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Registrazione per NFS e SMB (opzionale)"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-logging-for-nfs-and-smb.html">
+        Registrazione per NFS e SMB (opzionale)
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migrare i dati"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Migrare i dati</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migrare i dati NFS"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-migrate-nfs-data.html">
+        Migrare i dati NFS
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Migrare i dati delle PMI"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-migrate-smb-data.html">
+        Migrare i dati delle PMI
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Funzionalità NFS aggiuntive"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-migrate-nfs-additional-features.html">
+        Funzionalità NFS aggiuntive
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Risolvere i problemi"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Risolvere i problemi</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Risolvere i problemi relativi agli errori NFS XCP"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-troubleshoot-xcp-nfs.html">
+        Risolvere i problemi relativi agli errori NFS XCP
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Risolvere gli errori SMB XCP"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-troubleshoot-xcp-smb-errors.html">
+        Risolvere gli errori SMB XCP
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Risolvere gli errori di XCP file Analytics"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/xcp-troubleshoot-xcp-file-analytics-errors.html">
+        Risolvere gli errori di XCP file Analytics
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ulteriori informazioni"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/it-it/xcp/get-more-information.html">
+        Ulteriori informazioni
+      </a></li></ul>
+</div>
+<script>
+  window.onscroll = () => {
+    const value = -40 - (document.body.scrollHeight - (window.innerHeight + document.scrollingElement.scrollTop));
+    
+    document.getElementById("sidebar-height").style.bottom = Math.max(0,value) + "px";
+};
+</script>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+<script>$("#mysidebar li.active").parents('ul').css("display","block");</script>
+
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <div class="ie-utility">
+  <button id="btn-sidebar-expand" onclick="showSidebar()"><img src="/it-it/xcp/images/expand.png" alt="Espandi pannello di navigazione"></button>
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
+        </li>
+        
+
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/it-it/xcp/">XCP</a>
+        </li>
+
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/it-it/xcp/images/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> La versione in lingua italiana fornita proviene da una traduzione automatica. Per eventuali incoerenze, fare riferimento alla versione in lingua inglese. </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Installare file Analytics per SMB</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2023-05-23 13:21:38 +0000">05/23/2023</time>
+    
+  
+
+<span>Collaboratori
+</span>
+
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>Installare o aggiornare file Analytics per SMB.</p>
+</div>
+<div class="paragraph">
+<p>Per i requisiti di sistema per SMB, vedere <a href="xcp-install-xcp-smb.html">"Installare XCP SMB"</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Prima di iniziare</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Per utilizzare il servizio SMB XCP, è necessario configurare XCP file Analytics per NFS su una macchina Linux.</p>
+</li>
+<li>
+<p>Assicurarsi che il servizio XCP sia in esecuzione sulla macchina Linux, prima di iniziare la configurazione di XCP file Analytics su una macchina Windows.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="nuova-installazione-di-file-analytics-per-smb">Nuova installazione di file Analytics per SMB</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Per eseguire una nuova installazione di file Analytics per SMB, attenersi alla seguente procedura.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Fasi</div>
+<ol class="arabic">
+<li>
+<p>Copiare il <code>xcp.exe</code> Sul tuo Windows <code>C:</code> disco, questo binario è disponibile all&#8217;interno <code>/xcp/windows</code> dopo aver suntato il tgz.</p>
+</li>
+<li>
+<p>Scaricare il file di licenza XCP da <a href="https://xcp.netapp.com/" target="_blank" rel="noopener">"Sito XCP"</a>.</p>
+</li>
+<li>
+<p>Creare la cartella <code>C:\\NetApp\XCP</code> E copiare la licenza XCP in questa posizione.</p>
+</li>
+<li>
+<p>Attivare la licenza XCP utilizzando il seguente comando al prompt dei comandi:  <code>xcp.exe activate</code></p>
+</li>
+<li>
+<p>Copiare il <code>server.key</code> e. <code>server.crt</code> file da <code>/opt/NetApp/xFiles/xcp/</code> (Nella casella Linux in cui XCP file Analytics è già configurato) su `C:\NetApp\XCP`Facoltativo - se si dispone di un certificato CA, collocare il certificato in questa posizione con lo stesso nome ed estensione.</p>
+</li>
+<li>
+<p>Nel prompt dei comandi dell&#8217;interfaccia utente di Windows, eseguire <code>xcp configure</code>.</p>
+</li>
+<li>
+<p>Quando richiesto, fornire l&#8217;indirizzo IP della macchina Linux in cui è configurato il server XCP file Analytics.</p>
+</li>
+<li>
+<p>Quando richiesto, fornire la password del database immessa durante la configurazione di XCP Linux file Analytics.</p>
+</li>
+<li>
+<p>Andare alla macchina Linux ed eseguire <code>./configure.sh</code>.</p>
+</li>
+<li>
+<p>Selezionare <code>option 4 (Update XCP windows agent IP)</code> Nel menu principale e fornire l&#8217;indirizzo IP per la macchina Windows.</p>
+</li>
+<li>
+<p>Andare sul computer Windows ed eseguire <code>xcp listen</code>, Ora XCP file Analytics per SMB è configurato. Mantenere la finestra in uno stato aperto per eseguire continuamente il servizio.</p>
+</li>
+<li>
+<p>Avviare file Analytics nel browser Google Chrome e aggiornare la pagina: <code>https://&lt;ip address of linux&gt;/xcp</code></p>
+</li>
+<li>
+<p>Selezionare <code>OK</code> quando viene visualizzata la finestra di dialogo. Viene visualizzata una nuova scheda. Attivare le finestre a comparsa nel browser se sono bloccate. Accettare l&#8217;informativa sulla privacy per l&#8217;URL e viene visualizzato il seguente messaggio: <code>SMB agent is ready to use. Please refresh the analytics page</code></p>
+</li>
+<li>
+<p>Tornare alla scheda originale in cui è ospitata la GUI di XCP file Analytics e aggiornare la pagina. In questo modo l&#8217;agente SMB viene visualizzato sotto la scheda Agenti.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="upgrade-di-file-analytics-per-pmi">Upgrade di file Analytics per PMI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Per aggiornare il file Analytics esistente per SMB, attenersi alla seguente procedura.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Prima di eseguire file Analytics, assicurarsi che anche il server Linux in cui è in esecuzione file Analytics sia aggiornato e che il servizio sia in esecuzione.</p>
+</li>
+<li>
+<p>In Windows, arrestare il servizio XCP esistente immettendo <code>CTRL-C</code> sulla riga di comando.</p>
+</li>
+<li>
+<p>Sostituire <code>xcp.exe</code> con il binario più recente.</p>
+</li>
+<li>
+<p>Andare alla macchina Linux ed eseguire <code>./configure.sh</code>.</p>
+</li>
+<li>
+<p>Selezionare <code>option 4 (Update XCP windows agent IP)</code> Nel menu principale e fornire l&#8217;indirizzo IP per la macchina Windows.</p>
+</li>
+<li>
+<p>Andare sul computer Windows ed eseguire <code>xcp listen</code>, Ora XCP file Analytics per SMB è configurato. Mantenere la finestra in uno stato aperto per eseguire continuamente il servizio.</p>
+</li>
+<li>
+<p>Avviare file Analytics nel browser Google Chrome e aggiornare la pagina: <code>https://&lt;ip address of linux&gt;/xcp</code></p>
+</li>
+<li>
+<p>Selezionare <code>OK</code> quando viene visualizzata la finestra di dialogo. Viene visualizzata una nuova scheda. Attivare le finestre a comparsa nel browser se sono bloccate. Accettare l&#8217;informativa sulla privacy per l&#8217;URL e viene visualizzato il seguente messaggio: <code>SMB agent is ready to use. Please refresh the analytics page</code></p>
+</li>
+<li>
+<p>Tornare alla scheda originale in cui è ospitata la GUI di XCP file Analytics e aggiornare la pagina. In questo modo l&#8217;agente SMB viene visualizzato sotto la scheda Agenti.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/copyright/">© 2023 NetApp, Inc.</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">Condizioni per l'utilizzo</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">Direttiva sulla privacy</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Direttiva sui Cookie</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Impostazioni cookie</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="n-footer__bottom-right">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a target="_self" href="javascript:netapp_mailto()">Invia feedback su questa pagina</a>
+            </li>
+          </ul>
+        </div>
+        <div class="n-footer__social-links">
+          <ul class="n-footer__social-link-list">
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com"
+                target="_blank" title="blog" alt="blog">
+                <span class="n-footer__social-link-text">blog</span>
+                <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                  <title>blog@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/xcp/images/sprite.svg#blog"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/"
+                target="_blank" title="community" alt="community">
+                <span class="n-footer__social-link-text">community</span>
+                <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+                  <title>community@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/xcp/images/sprite.svg#comments"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp"
+                target="_blank" title="twitter" alt="twitter">
+                <span class="n-footer__social-link-text">twitter</span>
+                <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                  <title>twitter@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/xcp/images/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp"
+                target="_blank" title="facebook" alt="facebook">
+                <span class="n-footer__social-link-text">facebook</span>
+                <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+                  <title>facebook@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/xcp/images/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-linkedin"
+                href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+                <span class="n-footer__social-link-text">linkedin</span>
+                <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+                  <title>linkedin@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/xcp/images/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-youtube"
+                href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+                <span class="n-footer__social-link-text">youtube</span>
+                <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                  <title>youtube@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/xcp/images/sprite.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-slideshare"
+                href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+                <span class="n-footer__social-link-text">slideshare</span>
+                <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+                  <title>slideshare@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/it-it/xcp/images/sprite.svg#slideshare"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/it-it/xcp/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/it-it/xcp/js/prism.js'></script>
+      <script type="text/javascript" src='/it-it/xcp/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/it-it/xcp/js/tabbed-blocks.js'></script>
+    <script src='/it-it/xcp/js/sidebar.js'></script>
+  </body></html>
