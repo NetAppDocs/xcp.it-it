@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="it">
   <head class="at-element-marker">
-  <title>Search results</title>
+  <title>Configurare il connettore S3</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Search results" />
+  <meta property="og:title" content="Configurare il connettore S3" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/it-it/xcp/search.html" />
-	<meta property="og:description" content="" />
+	<meta property="og:url" content="https://docs.netapp.com/it-it/xcp/xcp-configure-s3-connector-nfs.html" />
+	<meta property="og:description" content="Il connettore S3 offre a XCP la possibilità di migrare i dati da un file system NFS o HDFS allo storage a oggetti S3" />
   <meta property="og:image" content="https://docs.netapp.com/it-it/xcp/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="">
-  <meta name="keywords" content=" "><meta name="translate" content="false"/><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Il connettore S3 offre a XCP la possibilità di migrare i dati da un file system NFS o HDFS allo storage a oggetti S3">
+  <meta name="keywords" content=" xcp, configure, nfs, S3, connector"><!-- Icons -->
   <link rel="icon" href="/it-it/xcp/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -32,17 +32,17 @@
   <link rel="stylesheet" href="/it-it/xcp/css/landing-page.css" type="text/css">
   <link rel="stylesheet" href="/it-it/xcp/css/tabbed-blocks.css" type="text/css">
   <!-- Canonical url -->
-  <link rel="canonical" href="https://docs.netapp.com/it-it/xcp/search.html" />
-  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/xcp/search.html" />
-  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/xcp/search.html" />
-  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/xcp/search.html" />
-  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/xcp/search.html" />
-  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/xcp/search.html" />
-  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/xcp/search.html" />
-  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/xcp/search.html" />
-  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/xcp/search.html" />
-  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/xcp/search.html" />
-  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/xcp/search.html" />
+  <link rel="canonical" href="https://docs.netapp.com/it-it/xcp/xcp-configure-s3-connector-nfs.html" />
+  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/xcp/xcp-configure-s3-connector-nfs.html" />
+  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/xcp/xcp-configure-s3-connector-nfs.html" />
+  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/xcp/xcp-configure-s3-connector-nfs.html" />
+  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/xcp/xcp-configure-s3-connector-nfs.html" />
+  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/xcp/xcp-configure-s3-connector-nfs.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/xcp/xcp-configure-s3-connector-nfs.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/xcp/xcp-configure-s3-connector-nfs.html" />
+  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/xcp/xcp-configure-s3-connector-nfs.html" />
+  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/xcp/xcp-configure-s3-connector-nfs.html" />
+  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/xcp/xcp-configure-s3-connector-nfs.html" />
   <link rel='stylesheet' href='/it-it/xcp/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
     function addAdobeLaunch(adobeId) {
       var head = document.getElementsByTagName('head')[0];
@@ -89,7 +89,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
   <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/it-it/xcp/js/na-utility.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/it-it/xcp/js/na-search.js'></script><script src='/it-it/xcp/js/na-pagenav.js'></script><script src='/it-it/xcp/js/na-utility.js'></script>
  <!--  
   <link rel='stylesheet' href='/it-it/xcp/css/prism.css' type='text/css'>
   <link rel='stylesheet' href='/it-it/xcp/css/prism-netapp.css' type='text/css'>
@@ -175,6 +175,20 @@
       <div class="n-off-canvas-menu__content-wrap">
         <header class="site-header" id="banner">
   
+  <!-- Start Page Toolbar -->
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/xcp.it-it/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/it-it/xcp/xcp-configure-s3-connector-nfs.html&page-title=Configurare il connettore S3" class="page-nav-contribute-link" role="button"><img src="/it-it/xcp/images/discuss-sm.svg" alt="" class="github-icon" />Richiedi modifiche alla documentazione</a><a target="_blank" href="https://github.com/NetAppDocs/xcp/blob/main/xcp-configure-s3-connector-nfs.adoc" class="page-nav-contribute-link" role="button"><img src="/it-it/xcp/images/edit-sm.svg" alt="" class="github-icon" />Modifica questa pagina</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/it-it/xcp/images/article-sm.svg" alt="" class="github-icon" />Scopri come collaborare</a></div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">IN QUESTA PAGINA</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  
   <!-- Start top_hat -->
   <div class="n-top-hat">
     <div class="n-container">
@@ -244,6 +258,31 @@
       </div>
 
       
+      
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/it-it/xcp/search.html"
+          data-type="widget" 
+          data-placeholder="Esplora la documentazione"
+          data-no-results-found="Nessun risultato per {query}"
+          data-did-you-mean="Cerca {suggestion}."
+          data-no-results-found-did-you-mean="Nessun risultato per {query}. Intendi {suggestion}?"
+          data-results-found="{hitCount} risultati trovati"
+          data-error-message="Si è verificato un problema durante il recupero dei risultati. Riprova."
+          data-error-reset="Reimposta ricerca"
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/it-it/xcp/images/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
     </div>
   </div>
   <div class="n-property-bar__toolbar">
@@ -258,23 +297,23 @@
       </div>
 
       <ul class="custom-dropdown-menu"><li>
-          <a href="https://docs.netapp.com/it-it/xcp//search.html" target="_self"><span translate="no" class="notranslate">Italiano</span></a>
+          <a href="https://docs.netapp.com/it-it/xcp/xcp-configure-s3-connector-nfs.html" target="_self"><span translate="no" class="notranslate">Italiano</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/us-en/xcp//search.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+          <a href="https://docs.netapp.com/us-en/xcp/xcp-configure-s3-connector-nfs.html" target="_self"><span translate="no" class="notranslate">English</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/ja-jp/xcp//search.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+          <a href="https://docs.netapp.com/ja-jp/xcp/xcp-configure-s3-connector-nfs.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/ko-kr/xcp//search.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+          <a href="https://docs.netapp.com/ko-kr/xcp/xcp-configure-s3-connector-nfs.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/zh-cn/xcp//search.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+          <a href="https://docs.netapp.com/zh-cn/xcp/xcp-configure-s3-connector-nfs.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/zh-tw/xcp//search.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+          <a href="https://docs.netapp.com/zh-tw/xcp/xcp-configure-s3-connector-nfs.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/de-de/xcp//search.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+          <a href="https://docs.netapp.com/de-de/xcp/xcp-configure-s3-connector-nfs.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/es-es/xcp//search.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
+          <a href="https://docs.netapp.com/es-es/xcp/xcp-configure-s3-connector-nfs.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/fr-fr/xcp//search.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+          <a href="https://docs.netapp.com/fr-fr/xcp/xcp-configure-s3-connector-nfs.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
         </li></ul>
     </div>
     <!-- End Language Selector -->
@@ -409,6 +448,8 @@
 
 
 
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
 
 
         </li>
@@ -781,7 +822,7 @@
       data-pdf-exists="true" 
       data-pdf-filename="Configurare il connettore S3"
       data-li-level="2#" 
-      class=" "
+      class="  active "
     ><a class="na-navbar-padding" href="/it-it/xcp/xcp-configure-s3-connector-nfs.html">
         Configurare il connettore S3
       </a></li></ul></li><li 
@@ -1004,31 +1045,192 @@
       </div>
     </span>
   </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Search results</h1>
+  <h1 class="n-doc__component-detail-heading">Configurare il connettore S3</h1>
 </div>
 
 
-<div id="search-demo-container" class="n-property-bar__search">
-  <div id="react-search" 
-  data-search-html="/it-it/xcp/search.html"
-  data-type="page" 
-  data-placeholder="Esplora la documentazione" 
-  data-no-results-found="Nessun risultato per {query}" 
-  data-did-you-mean="Cerca {suggestion}." 
-  data-no-results-found-did-you-mean="Nessun risultato per {query}. Intendi {suggestion}?" 
-  data-results-found="{hitCount} risultati trovati"
-  data-error-message="Si è verificato un problema durante il recupero dei risultati. Riprova."
-  data-error-reset="Reimposta ricerca"
-  data-sk-es-pf-indexes=""
-  data-flavor=""></div>
-  <button class="search-all-icon n-property-bar__search-toggle-button" type="button">
-    <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
-      <title>search</title>
-      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/it-it/xcp/images/sprite.svg#search"></use>
-    </svg>
-  </button>
-</div>
+<p class="page-details">
+  
+    
+    <time datetime="2023-07-06 19:29:32 +0000">07/06/2023</time>
+    
+  
 
+<span>Collaboratori
+</span>
+
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>A partire da XCP 1.9.2, il connettore S3 (Simple Storage Service) migliora l&#8217;ambito della migrazione dei dati XCP consentendo la migrazione dei dati dai file system HDFS (Distributed file System) di Hadoop allo storage a oggetti S3.</p>
+</div>
+<div class="paragraph">
+<div class="title">Casi di utilizzo della migrazione supportati</div>
+<p>Per i connettori S3 sono supportati i seguenti casi d&#8217;utilizzo della migrazione:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Migrazione da HDFS o NFS a NetApp StorageGRID</p>
+</li>
+<li>
+<p>Migrazione da HDFS o NFS ad Amazon S3</p>
+</li>
+<li>
+<p>Migrazione da HDFS o NFS a NetApp ONTAP S3</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/xcp/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Attualmente MapR è qualificato e supportato solo per HDFS.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<div class="title">Funzionalità supportate</div>
+<p>Supporto per <code>scan</code>, <code>copy</code>, <code>verify</code>, <code>resume</code> e. <code>delete</code> I comandi sono disponibili per i connettori S3.</p>
+</div>
+<div class="paragraph">
+<div class="title">Funzionalità non supportate</div>
+<p>Supporto per <code>sync</code> Comando non disponibile per i connettori S3.</p>
+</div>
+<div class="paragraph">
+<div class="title">Sintassi del percorso</div>
+<p>La sintassi del percorso per il connettore S3 è <code>s3://&lt;bucket in S3&gt;</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>È possibile fornire un profilo S3 specifico per i comandi XCP utilizzando <code>-s3.profile</code> opzione.</p>
+</li>
+<li>
+<p>È possibile utilizzare <code>s3.endpoint</code> Opzione per modificare il valore dell&#8217;endpoint per comunicare con S3</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/xcp/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+L&#8217;utilizzo degli endpoint è obbligatorio per StorageGRID e ONTAP S3.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configurare-un-connettore-s3">Configurare un connettore S3</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<div class="title">Fasi</div>
+<ol class="arabic">
+<li>
+<p>Per eseguire il comando XCP con S3 Connector, creare un bucket in S3 seguendo la documentazione online per le rispettive piattaforme:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.netapp.com/us-en/ontap/object-storage-management/index.html" target="_blank" rel="noopener">"Gestione dello storage a oggetti ONTAP S3"</a></p>
+</li>
+<li>
+<p><a href="https://docs.netapp.com/us-en/storagegrid-116/tenant/index.html" target="_blank" rel="noopener">"StorageGRID: Utilizza una panoramica dell&#8217;account tenant"</a></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/xcp/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Prima di continuare, è necessario disporre di <code>access key</code>, <code>secret key</code>, Bundle di certificati CA (Certificate Authority) e. <code>endpoint url</code> informazioni. XCP identifica e si connette al bucket S3 utilizzando questi parametri prima di iniziare un&#8217;operazione.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Installare i pacchetti CLI di Amazon Web Services (AWS) ed eseguire i comandi CLI di AWS per configurare le chiavi e i certificati SSL (Secure Sockets Layer) per gli account S3:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Vedere <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html" target="_blank" rel="noopener">"Installazione o aggiornamento della versione più recente di AWS CLI"</a> Per installare i pacchetti AWS.</p>
+</li>
+<li>
+<p>Vedere <a href="https://docs.aws.amazon.com/cli/latest/reference/configure/set.html" target="_blank" rel="noopener">"Guida di riferimento al comando CLI AWS"</a> per ulteriori informazioni.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Utilizzare <code>aws configure</code> per configurare il file delle credenziali. Per impostazione predefinita, la posizione del file è <code>/root/.aws/credentials</code>. Il file delle credenziali deve specificare la chiave di accesso e la chiave di accesso segreta.</p>
+</li>
+<li>
+<p>Utilizzare <code>aws configure set</code> Per specificare un bundle di certificati CA, che è un file con <code>.pem</code> Estensione utilizzata per la verifica dei certificati SSL. Per impostazione predefinita, la posizione del file è <code>/root/.aws/config</code>.</p>
+<div class="paragraph">
+<p><strong>Esempio:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[root@client1 ~]# aws configure
+AWS Access Key ID [None]: &lt;access_key&gt;
+AWS Secret Access Key [None]: &lt;secret_key&gt;
+Default region name [None]:
+Default output format [None]:
+[root@client1 ~]# cat /root/.aws/credentials
+[default]
+aws_access_key_id = &lt;access_key&gt;
+aws_secret_access_key = &lt;secret_key&gt;
+[root@client1 ~]#
+[root@client1 ~]# aws configure set default.ca_bundle /u/xxxx/s3/ca/aws_cacert.pem
+[root@client1 ~]# cat /root/.aws/config
+[default]
+ca_bundle = /u/xxxx/s3/ca/aws_cacert.pem</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Una volta completata la configurazione di installazione richiesta, verificare che i comandi CLI di AWS possano accedere ai bucket S3 dal client Linux prima di eseguire i comandi XCP:
+<code>aws s3 ls --endpoint-url &lt;endpoint_url&gt; s3://bucket-name/</code></p>
+<div class="paragraph">
+<p><code>aws s3 ls --profile &lt;profile&gt; --endpoint-url &lt;endpoint_url&gt; s3://bucket-name</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Esempio:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[root@client1 linux]# aws s3 ls --profile &lt;profile&gt; --endpoint &lt;endpoint_url&gt;  s3://&lt;bucket-name&gt;
+                           PRE 1G/
+                           PRE aws_files/
+                           PRE copied_folders/
+                           PRE d1/
+                           PRE d2/
+                           PRE giant_size_dirs/
+                           PRE medium_size_dirs/
+                           PRE small_size_dirs/
+[root@client1 l</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
 
     </article>
     <!-- Page Container -->
@@ -1171,29 +1373,4 @@
     </script>
     <script src='/it-it/xcp/js/tabbed-blocks.js'></script>
     <script src='/it-it/xcp/js/sidebar.js'></script>
-  </body><script>
-    /*
-      if(hasParameter(window.location.search,'q')) {
-        var queryString = decodeURI(getParameter(window.location.search, 'q'));
-        document.getElementsByClassName("sk-search-box__text")[0].setAttribute("value", queryString);
-      }
-
-      function getParameter(searchString,param) {
-        var params = searchString.split('?&');
-        for(var i=0;i<params.length;i++) {
-          var paramIndex = params[i].indexOf(param+"=");
-          if(paramIndex != -1) {
-            return params[i].substring(paramIndex+param.length+1);
-          }
-        }
-
-        return "";
-      }
-
-      function hasParameter(searchString,param) {
-        searchString = searchString || "";
-        param = param || "";
-        return (searchString.indexOf("?"+param+"=") != -1 || searchString.indexOf("&"+param+"=") != -1);
-      }
-      */
-  </script></html>
+  </body></html>

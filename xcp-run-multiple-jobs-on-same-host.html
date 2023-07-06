@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="it">
   <head class="at-element-marker">
-  <title>Search results</title>
+  <title>Eseguire più lavori XCP sullo stesso host XCP</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Search results" />
+  <meta property="og:title" content="Eseguire più lavori XCP sullo stesso host XCP" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/it-it/xcp/search.html" />
-	<meta property="og:description" content="" />
+	<meta property="og:url" content="https://docs.netapp.com/it-it/xcp/xcp-run-multiple-jobs-on-same-host.html" />
+	<meta property="og:description" content="Il connettore POSIX offre a XCP la possibilità di accedere a qualsiasi file system montato su Linux, come NFSv4, XFS e Veritas." />
   <meta property="og:image" content="https://docs.netapp.com/it-it/xcp/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="">
-  <meta name="keywords" content=" "><meta name="translate" content="false"/><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Il connettore POSIX offre a XCP la possibilità di accedere a qualsiasi file system montato su Linux, come NFSv4, XFS e Veritas.">
+  <meta name="keywords" content=" xcp, configure, nfs, posix, connector"><!-- Icons -->
   <link rel="icon" href="/it-it/xcp/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -32,17 +32,17 @@
   <link rel="stylesheet" href="/it-it/xcp/css/landing-page.css" type="text/css">
   <link rel="stylesheet" href="/it-it/xcp/css/tabbed-blocks.css" type="text/css">
   <!-- Canonical url -->
-  <link rel="canonical" href="https://docs.netapp.com/it-it/xcp/search.html" />
-  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/xcp/search.html" />
-  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/xcp/search.html" />
-  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/xcp/search.html" />
-  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/xcp/search.html" />
-  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/xcp/search.html" />
-  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/xcp/search.html" />
-  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/xcp/search.html" />
-  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/xcp/search.html" />
-  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/xcp/search.html" />
-  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/xcp/search.html" />
+  <link rel="canonical" href="https://docs.netapp.com/it-it/xcp/xcp-run-multiple-jobs-on-same-host.html" />
+  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/xcp/xcp-run-multiple-jobs-on-same-host.html" />
+  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/xcp/xcp-run-multiple-jobs-on-same-host.html" />
+  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/xcp/xcp-run-multiple-jobs-on-same-host.html" />
+  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/xcp/xcp-run-multiple-jobs-on-same-host.html" />
+  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/xcp/xcp-run-multiple-jobs-on-same-host.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/xcp/xcp-run-multiple-jobs-on-same-host.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/xcp/xcp-run-multiple-jobs-on-same-host.html" />
+  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/xcp/xcp-run-multiple-jobs-on-same-host.html" />
+  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/xcp/xcp-run-multiple-jobs-on-same-host.html" />
+  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/xcp/xcp-run-multiple-jobs-on-same-host.html" />
   <link rel='stylesheet' href='/it-it/xcp/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
     function addAdobeLaunch(adobeId) {
       var head = document.getElementsByTagName('head')[0];
@@ -89,7 +89,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
   <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/it-it/xcp/js/na-utility.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/it-it/xcp/js/na-search.js'></script><script src='/it-it/xcp/js/na-pagenav.js'></script><script src='/it-it/xcp/js/na-utility.js'></script>
  <!--  
   <link rel='stylesheet' href='/it-it/xcp/css/prism.css' type='text/css'>
   <link rel='stylesheet' href='/it-it/xcp/css/prism-netapp.css' type='text/css'>
@@ -175,6 +175,20 @@
       <div class="n-off-canvas-menu__content-wrap">
         <header class="site-header" id="banner">
   
+  <!-- Start Page Toolbar -->
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/xcp.it-it/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/it-it/xcp/xcp-run-multiple-jobs-on-same-host.html&page-title=Eseguire più lavori XCP sullo stesso host XCP" class="page-nav-contribute-link" role="button"><img src="/it-it/xcp/images/discuss-sm.svg" alt="" class="github-icon" />Richiedi modifiche alla documentazione</a><a target="_blank" href="https://github.com/NetAppDocs/xcp/blob/main/xcp-run-multiple-jobs-on-same-host.adoc" class="page-nav-contribute-link" role="button"><img src="/it-it/xcp/images/edit-sm.svg" alt="" class="github-icon" />Modifica questa pagina</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/it-it/xcp/images/article-sm.svg" alt="" class="github-icon" />Scopri come collaborare</a></div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">IN QUESTA PAGINA</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  
   <!-- Start top_hat -->
   <div class="n-top-hat">
     <div class="n-container">
@@ -244,6 +258,31 @@
       </div>
 
       
+      
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/it-it/xcp/search.html"
+          data-type="widget" 
+          data-placeholder="Esplora la documentazione"
+          data-no-results-found="Nessun risultato per {query}"
+          data-did-you-mean="Cerca {suggestion}."
+          data-no-results-found-did-you-mean="Nessun risultato per {query}. Intendi {suggestion}?"
+          data-results-found="{hitCount} risultati trovati"
+          data-error-message="Si è verificato un problema durante il recupero dei risultati. Riprova."
+          data-error-reset="Reimposta ricerca"
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/it-it/xcp/images/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
     </div>
   </div>
   <div class="n-property-bar__toolbar">
@@ -258,23 +297,23 @@
       </div>
 
       <ul class="custom-dropdown-menu"><li>
-          <a href="https://docs.netapp.com/it-it/xcp//search.html" target="_self"><span translate="no" class="notranslate">Italiano</span></a>
+          <a href="https://docs.netapp.com/it-it/xcp/xcp-run-multiple-jobs-on-same-host.html" target="_self"><span translate="no" class="notranslate">Italiano</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/us-en/xcp//search.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+          <a href="https://docs.netapp.com/us-en/xcp/xcp-run-multiple-jobs-on-same-host.html" target="_self"><span translate="no" class="notranslate">English</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/ja-jp/xcp//search.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+          <a href="https://docs.netapp.com/ja-jp/xcp/xcp-run-multiple-jobs-on-same-host.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/ko-kr/xcp//search.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+          <a href="https://docs.netapp.com/ko-kr/xcp/xcp-run-multiple-jobs-on-same-host.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/zh-cn/xcp//search.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+          <a href="https://docs.netapp.com/zh-cn/xcp/xcp-run-multiple-jobs-on-same-host.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/zh-tw/xcp//search.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+          <a href="https://docs.netapp.com/zh-tw/xcp/xcp-run-multiple-jobs-on-same-host.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/de-de/xcp//search.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+          <a href="https://docs.netapp.com/de-de/xcp/xcp-run-multiple-jobs-on-same-host.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/es-es/xcp//search.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
+          <a href="https://docs.netapp.com/es-es/xcp/xcp-run-multiple-jobs-on-same-host.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/fr-fr/xcp//search.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+          <a href="https://docs.netapp.com/fr-fr/xcp/xcp-run-multiple-jobs-on-same-host.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
         </li></ul>
     </div>
     <!-- End Language Selector -->
@@ -525,6 +564,8 @@
 
 
 
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
 
 
 
@@ -901,7 +942,7 @@
       data-pdf-exists="true" 
       data-pdf-filename="Eseguire più lavori XCP sullo stesso host"
       data-li-level="2#" 
-      class=" "
+      class="  active "
     ><a class="na-navbar-padding" href="/it-it/xcp/xcp-run-multiple-jobs-on-same-host.html">
         Eseguire più lavori XCP sullo stesso host
       </a></li><li 
@@ -1004,31 +1045,152 @@
       </div>
     </span>
   </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Search results</h1>
+  <h1 class="n-doc__component-detail-heading">Eseguire più lavori XCP sullo stesso host XCP</h1>
 </div>
 
 
-<div id="search-demo-container" class="n-property-bar__search">
-  <div id="react-search" 
-  data-search-html="/it-it/xcp/search.html"
-  data-type="page" 
-  data-placeholder="Esplora la documentazione" 
-  data-no-results-found="Nessun risultato per {query}" 
-  data-did-you-mean="Cerca {suggestion}." 
-  data-no-results-found-did-you-mean="Nessun risultato per {query}. Intendi {suggestion}?" 
-  data-results-found="{hitCount} risultati trovati"
-  data-error-message="Si è verificato un problema durante il recupero dei risultati. Riprova."
-  data-error-reset="Reimposta ricerca"
-  data-sk-es-pf-indexes=""
-  data-flavor=""></div>
-  <button class="search-all-icon n-property-bar__search-toggle-button" type="button">
-    <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
-      <title>search</title>
-      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/it-it/xcp/images/sprite.svg#search"></use>
-    </svg>
-  </button>
-</div>
+<p class="page-details">
+  
+    
+    <time datetime="2023-07-06 19:29:32 +0000">07/06/2023</time>
+    
+  
 
+<span>Collaboratori
+</span>
+
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>A partire da XCP 1.9.2, è possibile utilizzare la funzione "-minmem" per eseguire più lavori o comandi XCP su un singolo host XCP, a condizione che l&#8217;host disponga di risorse sufficienti per ciascun lavoro. Quando si esegue un comando che supporta la funzione "-minmem", XCP utilizza una quantità minima di memoria host per completare il processo, creando così la capacità di eseguire ulteriori processi sulla stessa configurazione host.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="requisiti-minimi-di-sistema">Requisiti minimi di sistema</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Per ogni lavoro XCP, è necessario consentire fino a 64 GB di memoria host e otto core per migrazioni da medie a grandi dimensioni.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/xcp/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+La funzione "-minmem" non è supportata per la migrazione dei dati SMB.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="registrazione">Registrazione</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Per impostazione predefinita, ogni lavoro XCP viene registrato in un file di log separato, univoco per l&#8217;ID lavoro. Questo meccanismo di logging funziona bene quando si eseguono più lavori sullo stesso host singolo. NetApp sconsiglia di modificare <code>xcpLogConfig.Json</code> file per utilizzare un singolo <code>xcp.log</code> File per registrare più lavori XCP eseguiti in parallelo sullo stesso host.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="comandi-supportati">Comandi supportati</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>La funzione "-minmem" è supportata con i seguenti comandi XCP:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>scan</code></p>
+</li>
+<li>
+<p><code>copy</code></p>
+</li>
+<li>
+<p><code>resume</code></p>
+</li>
+<li>
+<p><code>verify</code></p>
+</li>
+<li>
+<p><code>isync</code></p>
+</li>
+<li>
+<p><code>chmod</code></p>
+</li>
+<li>
+<p><code>chown</code></p>
+</li>
+<li>
+<p><code>delete</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="comandi-non-supportati">Comandi non supportati</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>La funzione "-minmem" non è supportata con <code>sync</code> comando.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="esempi-di-comandi">Esempi di comandi</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Per utilizzare la funzione "-minmem", è necessario includere l&#8217;opzione "-minmem" nel comando XCP, come illustrato negli esempi seguenti:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>xcp copy -newid <em>new ID</em> <strong>-minmem</strong> src_server:/src_export dst_server:/dst_export</code></p>
+</li>
+<li>
+<p><code>xcp resume [options] -id <strong>-minmem</strong> <em>copy ID</em></code></p>
+</li>
+<li>
+<p><code>xcp verify <strong>-minmem</strong> src_server:/src_export dst_server:/dst_export</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Esempi di percorso HDFS</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>xcp copy <strong>-minmem</strong> hdfs:///user/demo1/data file:///user/demo1/dest</code></p>
+</li>
+<li>
+<p><code>xcp verify <strong>-minmem</strong> hdfs:///user/demo1/data file:///user/demo1/dest</code></p>
+</li>
+<li>
+<p><code>xcp copy -minmem hdfs:///user/demo1/data s3://bucket1</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Esempi di percorso POSIX</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>xcp copy <strong>-minmem</strong> -newid <em>new ID</em> file:///mnt/source file:///mnt/dest</code></p>
+</li>
+<li>
+<p><code>xcp verify <strong>-minmem</strong> file:///mnt/source file:///mnt/dest</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 
     </article>
     <!-- Page Container -->
@@ -1171,29 +1333,4 @@
     </script>
     <script src='/it-it/xcp/js/tabbed-blocks.js'></script>
     <script src='/it-it/xcp/js/sidebar.js'></script>
-  </body><script>
-    /*
-      if(hasParameter(window.location.search,'q')) {
-        var queryString = decodeURI(getParameter(window.location.search, 'q'));
-        document.getElementsByClassName("sk-search-box__text")[0].setAttribute("value", queryString);
-      }
-
-      function getParameter(searchString,param) {
-        var params = searchString.split('?&');
-        for(var i=0;i<params.length;i++) {
-          var paramIndex = params[i].indexOf(param+"=");
-          if(paramIndex != -1) {
-            return params[i].substring(paramIndex+param.length+1);
-          }
-        }
-
-        return "";
-      }
-
-      function hasParameter(searchString,param) {
-        searchString = searchString || "";
-        param = param || "";
-        return (searchString.indexOf("?"+param+"=") != -1 || searchString.indexOf("&"+param+"=") != -1);
-      }
-      */
-  </script></html>
+  </body></html>

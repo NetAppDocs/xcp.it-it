@@ -22,21 +22,21 @@
     <url>
       <loc>https://docs.netapp.com/it-it/xcp/</loc>
       
-      <lastmod>2023-05-23T13:21:38+00:00</lastmod>
+      <lastmod>2023-07-06T19:29:32+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/it-it/xcp/releasenotes.html</loc>
       
-      <lastmod>2023-05-23T13:21:38+00:00</lastmod>
+      <lastmod>2023-07-06T19:29:32+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/it-it/xcp//search.html</loc>
       
-      <lastmod>2023-05-24T08:13:48+00:00</lastmod>
+      <lastmod>2023-07-06T19:29:47+00:00</lastmod>
       
     </url>
   
@@ -72,6 +72,13 @@
       <loc>https://docs.netapp.com/it-it/xcp/xcp-configure-posix-connector-nfs.html</loc>
       
       <lastmod>2023-05-23T13:21:38+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/it-it/xcp/xcp-configure-s3-connector-nfs.html</loc>
+      
+      <lastmod>2023-07-06T19:29:32+00:00</lastmod>
       
     </url>
   
@@ -134,28 +141,28 @@
     <url>
       <loc>https://docs.netapp.com/it-it/xcp/xcp-install-xcp-nfs.html</loc>
       
-      <lastmod>2023-05-23T13:21:38+00:00</lastmod>
+      <lastmod>2023-07-06T19:29:32+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/it-it/xcp/xcp-install-xcp-smb.html</loc>
       
-      <lastmod>2023-05-23T13:21:38+00:00</lastmod>
+      <lastmod>2023-07-06T19:29:32+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/it-it/xcp/xcp-install-xcp.html</loc>
       
-      <lastmod>2023-05-23T13:21:38+00:00</lastmod>
+      <lastmod>2023-07-06T19:29:32+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/it-it/xcp/xcp-logging-for-nfs-and-smb.html</loc>
       
-      <lastmod>2023-05-23T13:21:38+00:00</lastmod>
+      <lastmod>2023-07-06T19:29:32+00:00</lastmod>
       
     </url>
   
@@ -167,23 +174,30 @@
     </url>
   
     <url>
+      <loc>https://docs.netapp.com/it-it/xcp/xcp-migrate-hdfs-data.html</loc>
+      
+      <lastmod>2023-07-06T19:29:32+00:00</lastmod>
+      
+    </url>
+  
+    <url>
       <loc>https://docs.netapp.com/it-it/xcp/xcp-migrate-nfs-additional-features.html</loc>
       
-      <lastmod>2023-05-23T13:21:38+00:00</lastmod>
+      <lastmod>2023-07-06T19:29:32+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/it-it/xcp/xcp-migrate-nfs-data.html</loc>
       
-      <lastmod>2023-05-23T13:21:38+00:00</lastmod>
+      <lastmod>2023-07-06T19:29:32+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/it-it/xcp/xcp-migrate-smb-data.html</loc>
       
-      <lastmod>2023-05-23T13:21:38+00:00</lastmod>
+      <lastmod>2023-07-06T19:29:32+00:00</lastmod>
       
     </url>
   
@@ -209,9 +223,16 @@
     </url>
   
     <url>
+      <loc>https://docs.netapp.com/it-it/xcp/xcp-plan-hdfs-data-migration.html</loc>
+      
+      <lastmod>2023-07-06T19:29:32+00:00</lastmod>
+      
+    </url>
+  
+    <url>
       <loc>https://docs.netapp.com/it-it/xcp/xcp-plan-nfs-data-migration.html</loc>
       
-      <lastmod>2023-05-23T13:21:38+00:00</lastmod>
+      <lastmod>2023-07-06T19:29:32+00:00</lastmod>
       
     </url>
   
@@ -265,6 +286,13 @@
     </url>
   
     <url>
+      <loc>https://docs.netapp.com/it-it/xcp/xcp-run-multiple-jobs-on-same-host.html</loc>
+      
+      <lastmod>2023-07-06T19:29:32+00:00</lastmod>
+      
+    </url>
+  
+    <url>
       <loc>https://docs.netapp.com/it-it/xcp/xcp-supported-configurations.html</loc>
       
       <lastmod>2023-05-23T13:21:38+00:00</lastmod>
@@ -274,14 +302,14 @@
     <url>
       <loc>https://docs.netapp.com/it-it/xcp/xcp-troubleshoot-xcp-file-analytics-errors.html</loc>
       
-      <lastmod>2023-05-23T13:21:38+00:00</lastmod>
+      <lastmod>2023-07-06T19:29:32+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/it-it/xcp/xcp-troubleshoot-xcp-nfs.html</loc>
       
-      <lastmod>2023-05-23T13:21:38+00:00</lastmod>
+      <lastmod>2023-07-06T19:29:32+00:00</lastmod>
       
     </url>
   
@@ -295,7 +323,7 @@
     <url>
       <loc>https://docs.netapp.com/it-it/xcp/xcp-unsupported-features.html</loc>
       
-      <lastmod>2023-05-23T13:21:38+00:00</lastmod>
+      <lastmod>2023-07-06T19:29:32+00:00</lastmod>
       
     </url>
   

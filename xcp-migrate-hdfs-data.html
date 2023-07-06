@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="it">
   <head class="at-element-marker">
-  <title>Search results</title>
+  <title>Migrare i dati HDFS</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Search results" />
+  <meta property="og:title" content="Migrare i dati HDFS" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/it-it/xcp/search.html" />
-	<meta property="og:description" content="" />
+	<meta property="og:url" content="https://docs.netapp.com/it-it/xcp/xcp-migrate-hdfs-data.html" />
+	<meta property="og:description" content="Migrare i dati HDFS" />
   <meta property="og:image" content="https://docs.netapp.com/it-it/xcp/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="">
-  <meta name="keywords" content=" "><meta name="translate" content="false"/><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Migrare i dati HDFS">
+  <meta name="keywords" content=" netapp, xcp, migrate, data, nfs, hdfs, smb, copy, resume, verify, posix"><!-- Icons -->
   <link rel="icon" href="/it-it/xcp/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -32,17 +32,17 @@
   <link rel="stylesheet" href="/it-it/xcp/css/landing-page.css" type="text/css">
   <link rel="stylesheet" href="/it-it/xcp/css/tabbed-blocks.css" type="text/css">
   <!-- Canonical url -->
-  <link rel="canonical" href="https://docs.netapp.com/it-it/xcp/search.html" />
-  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/xcp/search.html" />
-  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/xcp/search.html" />
-  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/xcp/search.html" />
-  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/xcp/search.html" />
-  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/xcp/search.html" />
-  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/xcp/search.html" />
-  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/xcp/search.html" />
-  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/xcp/search.html" />
-  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/xcp/search.html" />
-  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/xcp/search.html" />
+  <link rel="canonical" href="https://docs.netapp.com/it-it/xcp/xcp-migrate-hdfs-data.html" />
+  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/xcp/xcp-migrate-hdfs-data.html" />
+  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/xcp/xcp-migrate-hdfs-data.html" />
+  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/xcp/xcp-migrate-hdfs-data.html" />
+  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/xcp/xcp-migrate-hdfs-data.html" />
+  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/xcp/xcp-migrate-hdfs-data.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/xcp/xcp-migrate-hdfs-data.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/xcp/xcp-migrate-hdfs-data.html" />
+  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/xcp/xcp-migrate-hdfs-data.html" />
+  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/xcp/xcp-migrate-hdfs-data.html" />
+  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/xcp/xcp-migrate-hdfs-data.html" />
   <link rel='stylesheet' href='/it-it/xcp/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
     function addAdobeLaunch(adobeId) {
       var head = document.getElementsByTagName('head')[0];
@@ -89,7 +89,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
   <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/it-it/xcp/js/na-utility.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/it-it/xcp/js/na-search.js'></script><script src='/it-it/xcp/js/na-pagenav.js'></script><script src='/it-it/xcp/js/na-utility.js'></script>
  <!--  
   <link rel='stylesheet' href='/it-it/xcp/css/prism.css' type='text/css'>
   <link rel='stylesheet' href='/it-it/xcp/css/prism-netapp.css' type='text/css'>
@@ -175,6 +175,20 @@
       <div class="n-off-canvas-menu__content-wrap">
         <header class="site-header" id="banner">
   
+  <!-- Start Page Toolbar -->
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/xcp.it-it/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/it-it/xcp/xcp-migrate-hdfs-data.html&page-title=Migrare i dati HDFS" class="page-nav-contribute-link" role="button"><img src="/it-it/xcp/images/discuss-sm.svg" alt="" class="github-icon" />Richiedi modifiche alla documentazione</a><a target="_blank" href="https://github.com/NetAppDocs/xcp/blob/main/xcp-migrate-hdfs-data.adoc" class="page-nav-contribute-link" role="button"><img src="/it-it/xcp/images/edit-sm.svg" alt="" class="github-icon" />Modifica questa pagina</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/it-it/xcp/images/article-sm.svg" alt="" class="github-icon" />Scopri come collaborare</a></div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">IN QUESTA PAGINA</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  
   <!-- Start top_hat -->
   <div class="n-top-hat">
     <div class="n-container">
@@ -244,6 +258,31 @@
       </div>
 
       
+      
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/it-it/xcp/search.html"
+          data-type="widget" 
+          data-placeholder="Esplora la documentazione"
+          data-no-results-found="Nessun risultato per {query}"
+          data-did-you-mean="Cerca {suggestion}."
+          data-no-results-found-did-you-mean="Nessun risultato per {query}. Intendi {suggestion}?"
+          data-results-found="{hitCount} risultati trovati"
+          data-error-message="Si è verificato un problema durante il recupero dei risultati. Riprova."
+          data-error-reset="Reimposta ricerca"
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/it-it/xcp/images/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
     </div>
   </div>
   <div class="n-property-bar__toolbar">
@@ -258,23 +297,23 @@
       </div>
 
       <ul class="custom-dropdown-menu"><li>
-          <a href="https://docs.netapp.com/it-it/xcp//search.html" target="_self"><span translate="no" class="notranslate">Italiano</span></a>
+          <a href="https://docs.netapp.com/it-it/xcp/xcp-migrate-hdfs-data.html" target="_self"><span translate="no" class="notranslate">Italiano</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/us-en/xcp//search.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+          <a href="https://docs.netapp.com/us-en/xcp/xcp-migrate-hdfs-data.html" target="_self"><span translate="no" class="notranslate">English</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/ja-jp/xcp//search.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+          <a href="https://docs.netapp.com/ja-jp/xcp/xcp-migrate-hdfs-data.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/ko-kr/xcp//search.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+          <a href="https://docs.netapp.com/ko-kr/xcp/xcp-migrate-hdfs-data.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/zh-cn/xcp//search.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+          <a href="https://docs.netapp.com/zh-cn/xcp/xcp-migrate-hdfs-data.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/zh-tw/xcp//search.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+          <a href="https://docs.netapp.com/zh-tw/xcp/xcp-migrate-hdfs-data.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/de-de/xcp//search.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+          <a href="https://docs.netapp.com/de-de/xcp/xcp-migrate-hdfs-data.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/es-es/xcp//search.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
+          <a href="https://docs.netapp.com/es-es/xcp/xcp-migrate-hdfs-data.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
         </li><li>
-          <a href="https://docs.netapp.com/fr-fr/xcp//search.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+          <a href="https://docs.netapp.com/fr-fr/xcp/xcp-migrate-hdfs-data.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
         </li></ul>
     </div>
     <!-- End Language Selector -->
@@ -523,6 +562,8 @@
 
 
 
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
 
 
 
@@ -894,7 +935,7 @@
       data-pdf-exists="true" 
       data-pdf-filename="Migrare i dati HDFS"
       data-li-level="2#" 
-      class=" "
+      class="  active "
     ><a class="na-navbar-padding" href="/it-it/xcp/xcp-migrate-hdfs-data.html">
         Migrare i dati HDFS
       </a></li><li 
@@ -1004,31 +1045,134 @@
       </div>
     </span>
   </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Search results</h1>
+  <h1 class="n-doc__component-detail-heading">Migrare i dati HDFS</h1>
 </div>
 
 
-<div id="search-demo-container" class="n-property-bar__search">
-  <div id="react-search" 
-  data-search-html="/it-it/xcp/search.html"
-  data-type="page" 
-  data-placeholder="Esplora la documentazione" 
-  data-no-results-found="Nessun risultato per {query}" 
-  data-did-you-mean="Cerca {suggestion}." 
-  data-no-results-found-did-you-mean="Nessun risultato per {query}. Intendi {suggestion}?" 
-  data-results-found="{hitCount} risultati trovati"
-  data-error-message="Si è verificato un problema durante il recupero dei risultati. Riprova."
-  data-error-reset="Reimposta ricerca"
-  data-sk-es-pf-indexes=""
-  data-flavor=""></div>
-  <button class="search-all-icon n-property-bar__search-toggle-button" type="button">
-    <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
-      <title>search</title>
-      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/it-it/xcp/images/sprite.svg#search"></use>
-    </svg>
-  </button>
-</div>
+<p class="page-details">
+  
+    
+    <time datetime="2023-07-06 19:29:32 +0000">07/06/2023</time>
+    
+  
 
+<span>Collaboratori
+</span>
+
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>Dopo aver pianificato la migrazione con <code>scan</code> è possibile migrare i dati.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="copia">Copia</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Il <code>copy</code> Command esegue la scansione e copia dell&#8217;intero Hadoop Distributed file System (HDFS) di origine su un bucket NFS o Simple Storage Service (S3). Il <code>copy</code> il comando richiede la presenza di percorsi di origine e destinazione come variabili. Al termine dell&#8217;operazione di copia, vengono visualizzati i dati relativi a file sottoposti a scansione e copiati, throughput, velocità e tempo trascorso.</p>
+</div>
+<div class="paragraph">
+<p><strong>Esempio di percorso NFS:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>xcp copy -newid &lt;id&gt; hdfs:///demo/user dst_server:/dst_export</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Esempio di percorso POSIX:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>xcp copy -newid &lt;id&gt; hdfs:///demo/user file:///mnt/dest</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Esempio di percorso S3:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>xcp copy -newid &lt;id&gt; hdfs:///demo/user s3://my-bucket
+xcp copy -newid &lt;id&gt; -s3.profile &lt;s3 profile name&gt; -s3.endpoint &lt;endpoint-url&gt; hdfs:///demo/user s3://my-bucket</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Vedere <code>xcp help copy</code> per ulteriori dettagli.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="riprendi">Riprendi</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Il <code>resume</code> command riavvia un&#8217;operazione di copia precedentemente interrotta specificando il nome o il numero dell&#8217;indice del catalogo. Il nome o il numero dell&#8217;indice del catalogo dell&#8217;operazione di copia precedente viene memorizzato in <code>&lt;catalog path&gt;:/catalog/indexes</code> directory.</p>
+</div>
+<div class="paragraph">
+<p><strong>Esempio:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>xcp resume [options] -id &lt;id used for copy&gt;
+xcp resume [options] -s3.profile &lt;s3 profile name&gt; -s3.endpoint &lt;endpoint-url&gt; -id &lt;id used for copy&gt;</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/xcp/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Per impostazione predefinita, XCP <code>resume</code> Il comando utilizza l&#8217;endpoint S3 e il profilo S3 dall&#8217;indice di copia utilizzato durante <code>copy</code> comando. Tuttavia, se nuovo <code>-s3.endpoint</code> e. <code>-s3.profile</code> i valori vengono forniti con <code>resume</code> comando, vengono utilizzati i nuovi valori per le opzioni e i valori utilizzati con la copia <code>command</code> vengono ignorati.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Vedere <code>xcp help resume</code> per ulteriori dettagli.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="verificare">Verificare</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Il <code>verify</code> command utilizza un confronto completo dei dati byte per byte tra le directory di origine e di destinazione dopo l&#8217;operazione di copia senza utilizzare un numero di indice del catalogo. Il comando legge i file su entrambi i lati e confronta i dati.</p>
+</div>
+<div class="paragraph">
+<p><strong>Esempio:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>xcp verify hdfs:///demo/user dst_server:/dst_export</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Esempio di percorso POSIX:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>xcp verify hdfs:///user/demo1/data file:///user/demo1/dest</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Esempio di percorso S3:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>xcp verify hdfs:///user/demo1/data s3://my-bucket
+xcp verify -s3.profile &lt;s3 profile name&gt; -s3.endpoint &lt;endpoint-url&gt; hdfs:///demo/user s3://my-bucket</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Vedere <code>xcp help verify</code> per ulteriori dettagli.</p>
+</div>
+</div>
+</div>
 
     </article>
     <!-- Page Container -->
@@ -1171,29 +1315,4 @@
     </script>
     <script src='/it-it/xcp/js/tabbed-blocks.js'></script>
     <script src='/it-it/xcp/js/sidebar.js'></script>
-  </body><script>
-    /*
-      if(hasParameter(window.location.search,'q')) {
-        var queryString = decodeURI(getParameter(window.location.search, 'q'));
-        document.getElementsByClassName("sk-search-box__text")[0].setAttribute("value", queryString);
-      }
-
-      function getParameter(searchString,param) {
-        var params = searchString.split('?&');
-        for(var i=0;i<params.length;i++) {
-          var paramIndex = params[i].indexOf(param+"=");
-          if(paramIndex != -1) {
-            return params[i].substring(paramIndex+param.length+1);
-          }
-        }
-
-        return "";
-      }
-
-      function hasParameter(searchString,param) {
-        searchString = searchString || "";
-        param = param || "";
-        return (searchString.indexOf("?"+param+"=") != -1 || searchString.indexOf("&"+param+"=") != -1);
-      }
-      */
-  </script></html>
+  </body></html>
