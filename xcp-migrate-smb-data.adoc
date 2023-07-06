@@ -60,9 +60,7 @@ Il `verify` il comando legge le condivisioni di origine e di destinazione e le c
 
 [NOTE]
 ====
-* Durante l'operazione di verifica, è possibile utilizzare `-preserve-atime` contrassegnare con `verify` per mantenere il tempo di accesso all'origine.
-* Durante l'operazione di verifica, è possibile utilizzare `-noatime` contrassegnare con `verify` comando per escludere le differenze di tempo di accesso.
-
+Durante l'operazione di verifica, è possibile utilizzare `-preserve-atime` contrassegnare con `verify` per mantenere il tempo di accesso all'origine.
 
 ====
 *Esempio:*

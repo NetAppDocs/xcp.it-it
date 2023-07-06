@@ -46,6 +46,9 @@ Le seguenti funzionalità non sono supportate su XCP NFS:
 
 
 | Supporto di Active source | XCP non supporta la combinazione di operazioni di copia Snapshot baseline o incrementali con migrazioni live source. 
+
+
+| Migrazione da NFS a S3 | XCP non supporta la migrazione da NFS a S3. 
 |===
 Le seguenti funzioni non sono supportate su XCP SMB:
 
@@ -70,12 +73,34 @@ Le seguenti funzioni non sono supportate su XCP SMB:
 
 
 | Migrazione live dell'origine | XCP non supporta la modifica dei dati sul volume di origine durante la migrazione. 
+
+
+| Istanze multiple di XCP sullo stesso host | Quando si eseguono più istanze di XCP sullo stesso host, si potrebbero ottenere risultati imprevedibili. 
 |===
 Le seguenti funzionalità comuni non sono disponibili per XCP NFS e SMB:
 
-* *Istanze multiple XCP sullo stesso host*: Quando si eseguono più istanze di XCP sullo stesso host, si potrebbero ottenere risultati imprevedibili.
 * *Time to complete migration*: XCP upfront non fornisce il tempo necessario per completare la migrazione o il tempo necessario per completare qualsiasi comando utilizzato per la migrazione. Se si esegue il cutover finale, verificare che il tasso di perdita dei dati sul volume di origine sia basso.
 * *Esecuzione di una copia di nuovo su una destinazione non pulita*: La copia di riferimento XCP non riesce quando sono presenti dati parziali sulla destinazione di destinazione. Per una copia XCP baseline e una verifica XCP corrette, la destinazione deve essere pulita.
 * *Destinazione live*: XCP non supporta la modifica dei dati sul volume di destinazione durante una migrazione o durante una sincronizzazione incrementale.
 * *Utente non root per file Analytics*: XCP non supporta installazioni e configurazioni eseguite da utenti non root o sudo.
+
+
+Le seguenti funzionalità non sono disponibili per i connettori HDFS (Distributed file System) di Hadoop:
+
+[cols="2*"]
+|===
+| Nome funzione | Descrizione 
+
+
+| Supporto per `sync` comando | Il connettore HDFS non supporta `sync` comando. 
+
+
+| Link simbolico (symlink) e supporto hard link | Il file system HDFS non supporta collegamenti simbolici, hard link o file speciali. 
+
+
+| Migrazione HDFS live source | XCP non supporta la modifica dei dati nel file system HDFS all'origine durante la migrazione 
+|===
+Le seguenti funzioni non sono disponibili per i connettori S3 (Simple Storage Service):
+
+* *Migrazione con il bucket S3 come origine*: XCP non supporta la migrazione con un bucket S3 come origine.
 

@@ -56,7 +56,7 @@ Le opzioni del file di configurazione JSON distinguono tra maiuscole e minuscole
 | eventlog |  |  | Opzione per configurare il messaggio del registro eventi. 
 
 
-| "IsEnabled" | Booleano | falso | Questa opzione booleana viene utilizzata per attivare la messaggistica degli eventi. Impostarlo su `false` non genera alcun messaggio di evento e nessun registro eventi verrà pubblicato nel file di registro eventi. 
+| "IsEnabled" | Booleano | vero | Questa opzione booleana viene utilizzata per attivare la messaggistica degli eventi. Impostarlo su `false` non genera alcun messaggio di evento e nessun registro eventi verrà pubblicato nel file di registro eventi. 
 
 
 | "livello" | Stringa | INFO | Livello del filtro di severità del messaggio di evento. I messaggi sugli eventi supportano cinque livelli di gravità in ordine decrescente: CRITICO, ERRORE, AVVISO, INFORMAZIONI, DEBUG 

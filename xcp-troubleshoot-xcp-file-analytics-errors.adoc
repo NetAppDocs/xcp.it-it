@@ -81,4 +81,36 @@ Eseguire nuovamente configure e selezionare l'opzione di installazione. Se l'ins
 
 
 | Lo spazio totale per un file system esportato su un determinato file server potrebbe mostrare più spazio rispetto allo storage fisico allocato. | Ciò può verificarsi quando nel volume sono presenti esportazioni a livello di qtree. Ad esempio, se la dimensione del volume esportato come `/vol1` È pari a 10 GB ed è presente un qtree all'interno del volume `/vol1/qtree1`, quindi il `xcp show` viene visualizzato il comando `vol1` dimensioni as `10 GB` e a. `qtree1` dimensioni as `10 GB`. XCP file Analytics somma lo spazio di entrambe le esportazioni e fornisce lo spazio totale, in questo caso, `20 GB`. Non lo capisce `qtree1` è uno spazio logico. 
+
+
+| Impossibile raggiungere il sito o accesso utente non riuscito dopo l'installazione.  a| 
+. Controllare se i servizi XCP sono in esecuzione:
+`service xcp status`
+. Avviare l'operazione di ascolto XCP e verificare che non vi siano errori:
++
+`xcp –listen`
+
+. Se viene visualizzato il seguente errore, installare i pacchetti CodeReady utilizzando yum, ad esempio `yum install codeready-builder-for-rhel-8-x86_64-rpms`:
+
+
+[listing]
+----
+Error:
+-------
+Traceback (most recent call last):
+  File "xcp.py", line 1146, in <module>
+  File "xcp.py", line 1074, in main
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "PyInstaller/loader/pyimod03_importers.py", line 495, in exec_module
+  File "rest/routes.py", line 61, in <module>
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "PyInstaller/loader/pyimod03_importers.py", line 495, in exec_module
+  File "onelogin/saml2/auth.py", line 14, in <module>
+xmlsec.Error: (1, 'cannot load crypto library for xmlsec.')
+[23891] Failed to execute script 'xcp' due to unhandled exception!
+----
 |===

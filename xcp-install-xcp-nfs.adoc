@@ -22,7 +22,7 @@ Se si desidera aggiornare XCP, eliminare l'installazione corrente e sostituirla 
 | Elemento | Requisito 
 
 
-| Sistema | Server Intel o AMD a 64 bit, minimo 4 core e 32 GB di RAM 
+| Sistema | Server Intel o AMD a 64 bit, minimo 8 core e 64 GB di RAM 
 
 
 | Sistema operativo e software | RHEL8. Vedere link:https://mysupport.netapp.com/matrix/["IMT"^] per i sistemi operativi supportati 
@@ -37,7 +37,7 @@ Se si desidera aggiornare XCP, eliminare l'installazione corrente e sostituirla 
 | Versione del protocollo supportata | NFSv3 e NFSv4 (POSIX e ACL) 
 
 
-| Browser supportato (solo file Analytics) | XCP file Analytics supporta Google Chrome versione 76 e successive. Vedere link:https://mysupport.netapp.com/matrix/["IMT"^] matrice per tutte le versioni supportate del browser 
+| Browser supportato (solo file Analytics) | Fare riferimento a. link:https://mysupport.netapp.com/matrix/["IMT"^] Matrice per tutte le versioni browser supportate per XCP file Analytics. 
 |===
 
 NOTE: La configurazione consigliata per la migrazione live source è 8 core e 64 GB di RAM.

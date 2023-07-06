@@ -40,7 +40,7 @@ NOTE: Non è possibile eseguire l'aggiornamento; reinstallare XCP per sostituire
 | Versione del protocollo supportata | Tutte le versioni del protocollo SMB 
 
 
-| Browser supportato (solo file Analytics) | XCP file Analytics supporta Google Chrome versione 76 e successive. Consultare la matrice IMT per tutte le versioni supportate del browser 
+| Browser supportato (solo file Analytics) | Fare riferimento a. link:https://mysupport.netapp.com/matrix/["IMT"^] Matrice per tutte le versioni browser supportate per XCP file Analytics. 
 |===
 
 

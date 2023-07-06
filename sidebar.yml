@@ -47,6 +47,8 @@ entries:
     url: "/xcp-configure-hdfs-connector-nfs.html"
   - title: Configurare lo scale-out multinodo
     url: "/xcp-configure-multinode-scaleout-nfs.html"
+  - title: Configurare il connettore S3
+    url: "/xcp-configure-s3-connector-nfs.html"
 - title: Pianificare la migrazione dei dati
   url: "/xcp-plan-data-migration.html"
   entries:
@@ -54,6 +56,8 @@ entries:
     url: "/xcp-plan-nfs-data-migration.html"
   - title: Pianificare la migrazione dei dati SMB
     url: "/xcp-plan-smb-data-migration.html"
+  - title: Pianificare la migrazione dei dati HDFS
+    url: "/xcp-plan-hdfs-data-migration.html"
   - title: Pianificare utilizzando file Analytics
     url: "/xcp-using-file-analytics.html"
     entries:
@@ -73,6 +77,10 @@ entries:
     url: "/xcp-migrate-nfs-data.html"
   - title: Migrare i dati delle PMI
     url: "/xcp-migrate-smb-data.html"
+  - title: Migrare i dati HDFS
+    url: "/xcp-migrate-hdfs-data.html"
+  - title: Eseguire più lavori XCP sullo stesso host
+    url: "/xcp-run-multiple-jobs-on-same-host.html"
   - title: Funzionalità NFS aggiuntive
     url: "/xcp-migrate-nfs-additional-features.html"
 - title: Risolvere i problemi

@@ -4,10 +4,10 @@ sidebar: sidebar
 keywords: release, notes, new, features, fixed, issues, known, xcp 
 summary: 'Descrive nuove funzionalità, note sull"aggiornamento, problemi risolti, limitazioni note e problemi noti.' 
 ---
-= XCP v1.9.1 - Note di rilascio
+= XCP v1.9.2 - Note di rilascio
 :allow-uri-read: 
 
 
-Il link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2884968["XCP v1.9.1 - Note di rilascio"^] descrivere nuove funzionalità, note sull'aggiornamento, problemi risolti, limitazioni note e problemi noti.
+Il link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2885805["XCP v1.9.2 - Note di rilascio"^] descrivere nuove funzionalità, note sull'aggiornamento, problemi risolti, limitazioni note e problemi noti.
 
 Per accedere alle Note sulla versione, devi accedere al sito di supporto NetApp.
