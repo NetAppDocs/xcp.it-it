@@ -625,8 +625,6 @@
   <block id="cb86540892d12e21880b91e51aae8225" category="inline-image-macro">Immagine del flusso di lavoro XCP</block>
   <block id="33fed185b714f317f622abebb7d8d09e" category="paragraph"><block ref="33fed185b714f317f622abebb7d8d09e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="7f9cccf134351e9df9c324fb764603f3" category="summary">Benvenuto in XCP Information Library, include collegamenti alle release precedenti.</block>
-  <block id="fdbdc0e84f617d7346b90d43e65e3e78" category="doc">Documentazione di XCP v1.9</block>
-  <block id="acca97deb653a678580117072b78b763" category="paragraph">Benvenuto nella libreria di informazioni XCP. Qui è disponibile la documentazione relativa al software XCP v1.9, che include le procedure di installazione, configurazione e utilizzo di XCP.</block>
   <block id="9d2169c1c2855b78a7aeaa4f42d27dc7" category="inline-link-macro">Sito di supporto NetApp</block>
   <block id="76c8844b91693e12fac2abf6d423c3f5" category="paragraph">La documentazione relativa alle versioni precedenti di XCP è disponibile sul sito <block ref="a4ccf985ba56b702a384be031a3cd5f9" category="inline-link-macro-rx"></block>.</block>
   <block id="bf86284529584845670edb0c3a95e5ec" category="summary">Il connettore POSIX offre a XCP la possibilità di accedere a qualsiasi file system montato su Linux, come NFSv4, XFS e Veritas.</block>
@@ -723,7 +721,6 @@
   <block id="8c41baf1ca98e1184f48c4721d44d431" category="inline-link-macro">Sito di supporto NetApp</block>
   <block id="110444d197d67f7d16c29fa0e2022b7f" category="paragraph">È possibile scaricare XCP da <block ref="ff34957a5613d93a82e79914bce07df2" category="inline-link-macro-rx"></block>.</block>
   <block id="5d813edbc38ed8b3a73ab3c485aa5daf" category="section-title">Licenza XCP</block>
-  <block id="a6ed02e973991972186d8dbd4bd0e16e" category="paragraph">NetApp offre una licenza XCP gratuita valida 90 giorni. È possibile ottenere il file di licenza da <block ref="f33ccbb3083b14f48de92a286ba83724" category="inline-link-macro-rx"></block>. Il portale delle licenze offre diverse opzioni di licenza. Dopo 90 giorni è possibile rinnovare la licenza per altri 90 giorni utilizzando lo stesso portale.</block>
   <block id="0f217d96dd705618a7386cd8e0f4a5e4" category="paragraph">La licenza XCP è disponibile come licenza offline o online. Se si desidera inviare statistiche di migrazione, utilizzare una licenza online. La licenza online richiede una connessione a Internet. La licenza offline non richiede una connessione a Internet.</block>
   <block id="b4c8d461cf544f3b1324e87e550416e1" category="section-title">Preparare il sistema</block>
   <block id="e20233267adbb44f966c8c601a37ab48" category="inline-link-macro">NFS XCP su un sistema Linux</block>
@@ -888,4 +885,7 @@
   <block id="27ce933e59d1bd3bfff8d6118fb7a35e" category="paragraph">Il <block ref="b98ddb4c6025a76df69bcccfdb0bd760" category="inline-link-macro-rx"></block> descrivere nuove funzionalità, note sull'aggiornamento, problemi risolti, limitazioni note e problemi noti.</block>
   <block id="b179bbcf6f57100cffb18d2558916e9d" category="cell">Server Intel o AMD a 64 bit, minimo 8 core e 64 GB di RAM</block>
   <block id="11db15a14a5186a893fe15b0e03f3213" category="sidebar">Eseguire più lavori XCP sullo stesso host</block>
+  <block id="bd843a39d27307ca3a4420e90c5e228f" category="doc">Documentazione di XCP v1.9.2</block>
+  <block id="84f3449f04bbc191eb611f160d99dcfc" category="paragraph">Benvenuto nella libreria di informazioni di NetApp XCP. Qui è disponibile la documentazione relativa al software XCP v1.9.2, che include le procedure di installazione, configurazione e utilizzo di XCP.</block>
+  <block id="ac1b0e3122e91e04b7f9d9e2eea0accb" category="paragraph">NetApp offre una licenza XCP gratuita di un anno. È possibile ottenere il file di licenza da <block ref="f33ccbb3083b14f48de92a286ba83724" category="inline-link-macro-rx"></block>. Il portale delle licenze offre diverse opzioni di licenza. Dopo un anno, è possibile rinnovare la licenza per un altro anno utilizzando lo stesso portale.</block>
 </blocks>
