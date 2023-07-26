@@ -14,9 +14,9 @@ A partire da XCP 1.9.2, il connettore S3 (Simple Storage Service) migliora l'amb
 .Casi di utilizzo della migrazione supportati
 Per i connettori S3 sono supportati i seguenti casi d'utilizzo della migrazione:
 
-* Migrazione da HDFS o NFS a NetApp StorageGRID
-* Migrazione da HDFS o NFS ad Amazon S3
-* Migrazione da HDFS o NFS a NetApp ONTAP S3
+* Migrazione da HDFS a NetApp StorageGRID
+* Migrazione da HDFS a Amazon S3
+* Migrazione da HDFS a NetApp ONTAP S3
 
 
 
