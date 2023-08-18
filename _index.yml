@@ -1,0 +1,39 @@
+---
+indexpage:
+  lead: NetApp XCP è un software basato su client che consente migrazioni di dati
+    scalabili e dalle performance elevate per migrazioni di dati e analisi dei file
+    da qualsiasi a NetApp e NetApp. Qui troverai la documentazione per il software
+    XCP 1.9.2, incluse le modalità di installazione, configurazione e utilizzo di
+    XCP. La documentazione per le versioni precedenti di XCP è disponibile sul sito
+    di supporto NetApp.
+  tiles:
+  - title: Inizia subito
+    links:
+    - title: Note di rilascio
+      url: "/releasenotes.html"
+    - title: Scopri XCP
+      url: "/xcp-index.html"
+  - title: Versioni precedenti
+    links:
+    - title: NetApp XCP 1.9.1
+      url: https://mysupport.netapp.com/documentation/docweb/index.html?productID=64637&language=en-US
+    - title: NetApp XCP 1,9
+      url: https://mysupport.netapp.com/documentation/docweb/index.html?productID=64493&language=en-US
+    - title: NetApp XCP 1.8.1
+      url: https://mysupport.netapp.com/documentation/docweb/index.html?productID=64287&language=en-US
+    - title: NetApp XCP 1,8
+      url: https://mysupport.netapp.com/documentation/docweb/index.html?productID=64074&language=en-US
+    - title: NetApp XCP 1,7 e versioni precedenti
+      url: https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=63064
+  - title: Più risorse
+    links:
+    - title: Documentazione XCP (inclusi i materiali di riferimento)
+      url: https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=63064
+    - title: NetApp TechCommTV (video NetApp XCP)
+      url: link:https://www.youtube.com/user/NetAppTechCommTV/search?query=xcp
+    - title: NetApp XCP (inclusi i collegamenti per ottenere una licenza)
+      url: https://xcp.netapp.com/
+    - title: Risorse NetApp per XCP
+      url: https://www.netapp.com/search/#q=xcp&sort=relevancy&f:@language=English
+    - title: Comunità NetApp (forum)
+      url: link:https://community.netapp.com

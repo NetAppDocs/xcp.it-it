@@ -1,0 +1,55 @@
+---
+permalink: legal-notices.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= Note legali
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Le note legali forniscono l'accesso a dichiarazioni di copyright, marchi, brevetti e altro ancora.
+
+
+
+== Copyright
+
+link:https://www.netapp.com/company/legal/copyright/["https://www.netapp.com/company/legal/copyright/"^]
+
+
+
+== Marchi
+
+NETAPP, il logo NETAPP e i marchi elencati nella pagina dei marchi NetApp sono marchi di NetApp, Inc. Altri nomi di società e prodotti potrebbero essere marchi dei rispettivi proprietari.
+
+link:https://www.netapp.com/company/legal/trademarks/["https://www.netapp.com/company/legal/trademarks/"^]
+
+
+
+== Brevetti
+
+Un elenco aggiornato dei brevetti di proprietà di NetApp è disponibile all'indirizzo:
+
+link:https://www.netapp.com/pdf.html?item=/media/11887-patentspage.pdf["https://www.netapp.com/pdf.html?item=/media/11887-patentspage.pdf"^]
+
+
+
+== Direttiva sulla privacy
+
+link:https://www.netapp.com/company/legal/privacy-policy/["https://www.netapp.com/company/legal/privacy-policy/"^]
+
+
+
+== Open source
+
+I file di avviso forniscono informazioni sul copyright e sulle licenze di terze parti utilizzate nel software NetApp.
+
+* link:media/xcp_1.9.2_notice.pdf["Avviso per NetApp XCP 1.9.2"^]
+* link:media/xcp_1.9.1_notice.pdf["Avviso per NetApp XCP 1.9.1"^]
+* link:media/xcp_1.9_notice.pdf["Avviso per NetApp XCP 1,9"^]
+* link:media/xcp_1.8.1_notice.pdf["Avviso per NetApp XCP 1.8.1"^]
+* link:media/xcp_1.8_notice.pdf["Avviso per NetApp XCP 1,8"^]
+

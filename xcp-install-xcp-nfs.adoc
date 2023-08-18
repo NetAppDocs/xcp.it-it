@@ -11,9 +11,15 @@ summary: Installazione di XCP NFS
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
+:firstname: [.lead]
+:author: [.lead]
+:authorinitials: [
+:authors: [.lead]
+:revnumber: 
+:revdate: delete the current installation and replace it with a new installation of the latest version.
 
 
-Se si desidera aggiornare XCP, eliminare l'installazione corrente e sostituirla con una nuova installazione della versione più recente. In questa sezione vengono descritti i requisiti di sistema e le procedure per la configurazione iniziale di XCP su un client Linux e per la configurazione del file INI.
+In questa sezione vengono descritti i requisiti di sistema e le procedure per la configurazione iniziale di XCP su un client Linux e per la configurazione del file INI.
 
 *Requisiti di sistema*
 
