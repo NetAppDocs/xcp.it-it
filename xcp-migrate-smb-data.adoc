@@ -14,7 +14,7 @@ summary: Migrare i dati delle PMI
 
 
 [role="lead"]
-Dopo aver pianificato la migrazione con `show` e. `scan` è possibile migrare i dati.
+Dopo aver pianificato la migrazione con `show` e. `scan` È possibile eseguire la migrazione dei dati SMB.
 
 
 
