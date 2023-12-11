@@ -16,26 +16,63 @@ summary: Installare o aggiornare file Analytics per NFS
 [role="lead"]
 Installare o aggiornare file Analytics per NFS.
 
-Per i requisiti di sistema per NFS, consulta link:xcp-install-xcp-nfs.html["Installare XCP NFS"]. Il `configure.sh` Script installa e abilita le configurazioni predefinite DI HTTPD e PostgreSQL disponibili per il server Linux. È possibile modificare o eseguire l'aggiornamento a una versione più recente in base alle necessità e attenersi alle linee guida sulla sicurezza.
+.A proposito di questa attività
+Per i requisiti di sistema per NFS, consulta link:xcp-install-xcp-nfs.html["Installare XCP NFS"].
+
+Il `configure.sh` Script installa XCP file Analytics su un computer host Red Hat Enterprise Linux (RHEL). Come parte dell'installazione, lo script installa Postgres Database, Apache HTTPD server e altri pacchetti richiesti sulla macchina Linux host. Per informazioni su specifiche versioni RHEL supportate, fare riferimento alla link:https://mysupport.netapp.com/matrix/["IMT"^]. È possibile modificare o eseguire l'aggiornamento a una versione più recente in base alle necessità e attenersi alle linee guida sulla sicurezza. Per ulteriori informazioni su `configure.sh` script, esegui `./configure.sh -h` sulla riga di comando.
 
 .Prima di iniziare
-* Non è possibile eseguire contemporaneamente l'applicazione XCP e XCP as service sullo stesso host. Se sono in esecuzione operazioni XCP, completare le operazioni prima di avviare la configurazione.
+* Se sono in esecuzione operazioni XCP, NetApp consiglia di completare le operazioni prima di avviare la configurazione.
 * La macchina Linux deve essere connessa al server di repository Yum o a Internet.
-* Se sulla macchina Linux è configurato un firewall, è necessario modificare le impostazioni del firewall per abilitare le porte utilizzate da XCP, il servizio XCP e i servizi utilizzati da XCP file Analytics. Per ulteriori informazioni, visitare il sito Web all'indirizzo xref:xcp-ports-used.html[Porte utilizzate da XCP].
+* Se sulla macchina Linux è configurato un firewall, è necessario modificare le impostazioni del firewall per abilitare la porta 5030, utilizzata dal servizio XCP.
 
 
 .Fasi
-. Accedere alla cartella XCP ed eseguire `./configure.sh` script. Lo script impiega da tre a dieci minuti per configurare la macchina Linux e completare le seguenti attività:
+. Installare o aggiornare file Analytics per NFS.
 +
-.. Scarica i pacchetti PostgreSQL
-.. Installare il server PostgreSQL
-.. Installare HTTPD
-.. Utilizzare il protocollo SSL aperto per creare un certificato autofirmato (`server.key and server.crt`)
-.. Creare il database XCP file Analytics
+[role="tabbed-block"]
+====
+.Installare file Analytics
+--
+.. Passare a. `xcp` ed eseguire `./configure.sh` script.
++
+Se l'installazione ha esito positivo, viene visualizzato il seguente messaggio:
+
++
+[listing]
+----
+You can now access XCP file analytics using (<username>:<password>)
+https://<ip_address>/xcp
+----
++
+
+NOTE: È possibile utilizzare questo nome utente e la password per accedere alla GUI di file Analytics.
 
 
-. Selezionare `option 1 Configure client system` Dal menu di configurazione XCP.
-. Per una nuova installazione, aggiornare la password per l'amministratore e gli utenti del database. Per un aggiornamento, viene richiesto di interrompere il servizio XCP. Al termine, selezionare `option 0`.
-. Avviare il servizio XCP. Utilizzare il seguente comando per verificare se il servizio XCP è in esecuzione: Stato del servizio xcp
-. Avviare analisi file nel browser: */<ip address of linux>/xcp*.
+
+--
+.Aggiornamento di file Analytics
+--
+.. Passare a. `xcp` cartella ed esecuzione `./configure.sh -f`.
+.. Quando richiesto, immettere `y` per pulire e riconfigurare il sistema.
++
+Una volta approvato, lo script cancella la configurazione esistente e riconfigura il sistema.
+
++
+Se l'operazione ha esito positivo, viene visualizzato il seguente messaggio:
+
++
+[listing]
+----
+You can now access XCP file analytics using (<username>:<password>)
+https://<ip_address>/xcp
+----
+
+
+--
+====
+. Avviare file Analytics in un browser supportato: *\https://<ip address of linux>/xcp*.
++
+Fare riferimento a. link:xcp-install-xcp-nfs.html["Installare XCP NFS"] per informazioni sui browser supportati.
+
 

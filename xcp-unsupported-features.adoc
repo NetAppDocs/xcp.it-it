@@ -58,9 +58,6 @@ Le seguenti funzioni non sono supportate su XCP SMB:
 | IPv6 | Non supporta IP versione 6 (IPv6) 
 
 
-| Flussi di dati alternativi NTFS | XCP attualmente non supporta flussi di dati alternativi 
-
-
 | Filtri XCP | L'opzione XCP SMB exclude attualmente esclude le directory in base al loro modello nel filtro e attraversa il file system di tali directory. 
 
 

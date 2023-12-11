@@ -36,6 +36,9 @@ Eseguire `xcp help show` per ulteriori dettagli.
 
 Il `scan` Il comando esegue una scansione ricorrente dell'intero percorso esportato NFSv3 di origine e stampa le statistiche della struttura del file alla fine della scansione. NetApp consiglia di mettere i supporti di esportazione NFS di origine in modalità di sola lettura durante l'operazione di scansione.
 
+
+NOTE: Se il nome di un file o di una directory contiene caratteri diversi da UTF-8, questi caratteri vengono convertiti nel formato UTF-8 e visualizzati quando si esegue `xcp-scan` comando. A seconda della conversione dalla codifica di origine a UTF-8, i caratteri potrebbero non essere visualizzati come previsto.
+
 *Esempio:*
 
 * `xcp scan NFS [server:/export path | file:// ]`

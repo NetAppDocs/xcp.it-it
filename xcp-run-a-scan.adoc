@@ -101,18 +101,41 @@ Il grafico spazio occupato dagli utenti visualizza lo spazio utilizzato dagli ut
 
 image:xcp_image13.png["File acceduto/modificato/creato grafico"]
 
-Il grafico dei file a cui si accede/modificati/creati visualizza il numero di file modificati in eccesso. L'asse X rappresenta il periodo di tempo entro il quale sono state apportate le modifiche e l'asse y rappresenta il numero di file modificati.
+Il grafico file utilizzati/modificati/creati visualizza il numero di file modificati nel tempo. L'asse X rappresenta il periodo di tempo entro il quale sono state apportate le modifiche e l'asse Y rappresenta il numero di file modificati.
 
 
 NOTE: Per ottenere il grafico del tempo di accesso (atime) nelle scansioni SMB, selezionare la casella di controllo per preservare atime prima di eseguire una scansione.
 
 
 
-=== File Distribution per Extension Graphic
+=== Grafico dimensione file raggiunta/modificata/creata
+
+image:xcp-filesize-amc.png[""]
+
+Il grafico dimensione file raggiunta/modificata/creata visualizza le dimensioni dei file modificate nel tempo. L'asse X rappresenta il periodo di tempo entro il quale sono state apportate le modifiche e l'asse Y rappresenta la dimensione dei file modificati.
+
+
+NOTE: Per ottenere il grafico del tempo di accesso (atime) nelle scansioni SMB, selezionare la casella di controllo per preservare atime prima di eseguire una scansione.
+
+
+
+=== Distribuzione file per grafico estensione
 
 image:xcp_image14.png["File Distribution per Extension Graphic"]
 
 Il grafico distribuzione file per estensione rappresenta il numero delle diverse estensioni di file in una condivisione file. La dimensione delle divisioni che rappresentano le estensioni si basa sul numero di file con ciascuna estensione.
+
+Inoltre, per le condivisioni SMB, è possibile ottenere il numero di file ADS (Alternate Data Streams) per ogni estensione di file selezionando la casella per GLI ANNUNCI prima di eseguire una scansione.
+
+image:xcp-file-distribution-ads.png[""]
+
+
+
+=== Distribuzione dimensione file per grafico estensione
+
+image:xcp-filesize-dist-ex.png[""]
+
+Il grafico distribuzione dimensioni file per estensione rappresenta la dimensione cumulativa delle diverse estensioni di file in una condivisione file. Le dimensioni delle divisioni che rappresentano le estensioni si basano sulle dimensioni dei file con ciascuna estensione.
 
 
 
@@ -128,3 +151,7 @@ Il grafico distribuzione per tipo rappresenta il numero dei seguenti tipi di fil
 * DIR: File con directory
 * Giunzione: Disponibile solo in SMB
 
+
+Inoltre, per le condivisioni SMB, è possibile ottenere il numero di file ADS (Alternate Data Streams) per tipi diversi selezionando la casella per GLI ANNUNCI prima di eseguire una scansione.
+
+image:xcp-file-distribution-type.png[""]

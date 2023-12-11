@@ -31,7 +31,7 @@ NOTE: Durante l'operazione di copia, è possibile utilizzare `-preserve-atime` c
 ----
 C:\xcp>xcp copy \\<source SMB share> \\<destination SMB share>
 ----
-Vedere `xcp help copy` per ulteriori dettagli.
+Eseguire `xcp help copy` per ulteriori dettagli.
 
 
 
@@ -50,7 +50,7 @@ NOTE: Durante l'operazione di sincronizzazione, è possibile utilizzare `-preser
 ----
 C:\xcp>xcp sync \\<source SMB share> \\<destination SMB share>
 ----
-Vedere `xcp help sync` per ulteriori dettagli.
+Eseguire `xcp help sync` per ulteriori dettagli.
 
 
 
@@ -69,4 +69,4 @@ Durante l'operazione di verifica, è possibile utilizzare `-preserve-atime` cont
 ----
 C:\xcp>xcp verify \\<source SMB share> \\<destination SMB share>
 ----
-Vedere `xcp help verify` per ulteriori dettagli.
+Eseguire `xcp help verify` per ulteriori dettagli.

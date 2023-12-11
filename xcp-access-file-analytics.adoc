@@ -16,7 +16,11 @@ summary: File Analytics offre una vista grafica dei risultati della scansione
 [role="lead"]
 File Analytics offre una vista grafica dei risultati della scansione.
 
-La GUI di XCP file Analytics offre una dashboard con grafici per la visualizzazione di file Analytics. La GUI di XCP file Analytics viene attivata quando si configura XCP su una macchina Linux.
+
+
+== Accedere alla GUI di file Analytics
+
+La GUI di XCP file Analytics fornisce un dashboard con grafici per la visualizzazione di file Analytics. La GUI di XCP file Analytics viene attivata quando si configura XCP su una macchina Linux.
 
 
 NOTE: Per verificare i browser supportati per l'accesso a file Analytics, consultare link:https://mysupport.netapp.com/matrix/["NetApp IMT"^].
@@ -24,8 +28,8 @@ NOTE: Per verificare i browser supportati per l'accesso a file Analytics, consul
 .Fasi
 . Utilizzare il link `\https://<IP address of linux machine>/xcp` Per accedere alla GUI di file Analytics. Quando richiesto, accettare il certificato di sicurezza:
 +
-.. Selezionare Avanzate sotto l'informativa sulla privacy.
-.. Selezionare l'opzione Procedi a. `<IP address of linux machine>` collegamento.
+.. Selezionare *Avanzate* sotto l'informativa sulla privacy.
+.. Selezionare il pulsante *Procedi a. `<IP address of linux machine>`collegamento *.
 
 
 . Accedere alla GUI di file Analytics.
@@ -33,21 +37,37 @@ NOTE: Per verificare i browser supportati per l'accesso a file Analytics, consul
 Esistono due modi per accedere alla GUI di file Analytics:
 
 +
-.. Utilizzare il nome utente "admin" e la password impostati durante la configurazione.
+[role="tabbed-block"]
+====
+.Accedere utilizzando le credenziali utente
+--
+.. Accedere alla GUI utilizzando le credenziali utente ottenute quando si installa file Analytics.
 +
 image:xcp_image2.png["Schermata di accesso a XCP file Analytics"]
 
-.. Configurare e abilitare la funzionalità SSO (Single Sign-on) a livello aziendale.
+.. Se si desidera, modificare la password con la propria password.
 +
-È possibile utilizzare questa funzione di accesso per configurare XCP file Analytics su un computer specifico e condividere l'URL dell'interfaccia utente Web a livello aziendale, consentendo agli utenti di accedere all'interfaccia utente utilizzando le proprie credenziali SSO.
+Se si desidera modificare la password ottenuta durante l'installazione con la propria password, selezionare l'icona utente e selezionare *Modifica password*.
 
 +
+La nuova password deve contenere almeno otto caratteri e contenere almeno un numero, una lettera maiuscola, una lettera minuscola e un carattere speciale (! @ # $ % ^ e * - _).
+
+
+
+
+NOTE: Dopo aver modificato la password, l'utente viene automaticamente disconnesso dalla GUI ed è necessario effettuare nuovamente l'accesso utilizzando la nuova password creata.
+
+--
+.Configurare e abilitare la funzionalità SSO
+--
+È possibile utilizzare questa funzionalità di accesso per impostare XCP file Analytics su un determinato computer e condividere l'URL dell'interfaccia utente Web a livello aziendale, consentendo agli utenti di accedere all'interfaccia utente utilizzando le credenziali SSO (Single Sign-on).
+
 
 NOTE: L'accesso SSO è opzionale e può essere configurato e attivato in modo permanente. Per impostare l'accesso SSO basato su SAML (Security Assertion Markup Language), vedere <<Configurare le credenziali SSO>>.
 
-
-
-. Dopo aver effettuato l'accesso, è possibile vedere l'agente NFS; è presente un segno di spunta verde che indica la configurazione minima del sistema Linux e della versione XCP.
+--
+====
+. Dopo aver effettuato l'accesso, viene visualizzato l'agente NFS; è presente un segno di spunta verde che mostra la configurazione minima del sistema Linux e la versione XCP.
 . Se è stato configurato un agente SMB, è possibile visualizzare l'agente SMB aggiunto nella stessa scheda agente.
 
 
@@ -72,13 +92,13 @@ Di seguito sono riportati i dettagli obbligatori da condividere per la registraz
 Puoi anche verificare questi dettagli accedendo all'interfaccia utente di file Analytics:
 
 +
-... Accedere all'interfaccia utente utilizzando il nome utente "admin" e la password impostati durante l'installazione.
+... Accedere alla GUI seguendo i passaggi descritti in <<Accedere alla GUI di file Analytics>>.
 ... Selezionare l'icona *utente* nell'angolo in alto a destra della pagina, quindi selezionare *SAML settings* (Impostazioni SAML).
 +
 Selezionare *Impostazioni provider di servizi* nel menu a discesa visualizzato.
 
 +
-image:xcp_image18.png["Esempio di impostazioni SAML"]
+image:xcp-saml-settings.png["Esempio di impostazioni SAML"]
 
 +
 Dopo la registrazione, riceverai i dettagli dell'endpoint IdP per la tua azienda. Devi fornire questi metadati dell'endpoint IdP all'interfaccia utente di file Analytics.

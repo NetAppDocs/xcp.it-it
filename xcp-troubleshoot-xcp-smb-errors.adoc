@@ -21,6 +21,13 @@ Esaminare le soluzioni per risolvere il problema.
 
 
  a| 
+I comandi XCP non mostrano i risultati previsti quando viene utilizzato un percorso di giunzione nell'origine o nella destinazione.
+ a| 
+Utilizzare un percorso di condivisione SMB invece di un percorso di giunzione quando si eseguono i comandi XCP.
+
+
+
+ a| 
 Un errore di traceback può verificarsi se l'origine, la destinazione o entrambi sono una giunzione senza directory e una licenza online viene utilizzata nella migrazione. In questo caso, lo stato del comando XCP è `PASSED` ma alla fine dell'output della console viene restituito il seguente errore:
 
 [listing]
