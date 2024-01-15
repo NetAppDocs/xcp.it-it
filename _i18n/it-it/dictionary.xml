@@ -679,8 +679,6 @@
   <block id="65957491431a9d992b0f37939d999254" category="paragraph">Installare o aggiornare file Analytics per NFS.</block>
   <block id="135b308ed83c53f1516b7c754566d1c4" category="list-title">Prima di iniziare</block>
   <block id="179301ccc5709fc7e02ecd874b26f686" category="list-text">La macchina Linux deve essere connessa al server di repository Yum o a Internet.</block>
-  <block id="11047916a280f54b6bb638b4fa43d625" category="summary">Risoluzione dei problemi relativi agli errori SMB di XCP</block>
-  <block id="5bf172f77cc9d71e44a586eb796e8205" category="doc">Risolvere gli errori SMB XCP</block>
   <block id="430f0b9cbaeb94092aee4baf6da23965" category="cell">Ottenere il file di licenza XCP appropriato. Copiare la licenza XCP su<block ref="33512415e7c038be43ab3632124d3ebf" prefix=" " category="inline-code"></block> Sull'host XCP. Eseguire<block ref="974d7928831087bfbec5968aec9bea85" prefix=" " category="inline-code"></block> per attivare la licenza</block>
   <block id="d41bf97a60e7be57b7f2c07b092ad5b0" category="cell"><block ref="ad3b549c4b03e0598dee96d17d3ccc66" prefix="" category="inline-code"></block>: XCP non attivato, eseguire prima "Activate"</block>
   <block id="93a8c927e888fa50601e3fe6d0cb5c14" category="cell">Scaricare la licenza XCP dal <block ref="f33ccbb3083b14f48de92a286ba83724" category="inline-link-macro-rx"></block>. Copiare il file sull'host del client XCP Linux all'indirizzo<block ref="33512415e7c038be43ab3632124d3ebf" prefix=" " category="inline-code"></block> Sull'host XCP. Eseguire<block ref="974d7928831087bfbec5968aec9bea85" prefix=" " category="inline-code"></block> per attivare la licenza.</block>
@@ -951,4 +949,6 @@ Riferimento: <block ref="47c554f6b2ce744e50a1b2318fbe4ec3" category="inline-link
   <block id="b99588d251bf1019e0e822689ebaf7d2" category="list-text"><block ref="b9a9b1656ba3adc03b7fa7487e42a8f6" prefix="" category="inline-code"></block></block>
   <block id="462f82c31411e99799f7e9026350b607" category="sidebar">NetApp XCP è un software basato su client che consente migrazioni di dati scalabili e dalle performance elevate per migrazioni di dati e analisi dei file da qualsiasi a NetApp e NetApp. Qui troverai la documentazione per il software XCP 1.9.3, incluse le modalità di installazione, configurazione e utilizzo di XCP. La documentazione per le versioni precedenti di XCP è disponibile sul sito di supporto NetApp.</block>
   <block id="01fe75bfb5351e8cb287658bc7ee5325" category="sidebar">NetApp XCP 1.9.2</block>
+  <block id="06c7c6fe1390b1e7519864e5fd3adc1b" category="summary">Risoluzione degli errori SMB XCP</block>
+  <block id="103bae74aac9cad62c4f7826cc30141d" category="doc">Risolvere gli errori SMB XCP</block>
 </blocks>
