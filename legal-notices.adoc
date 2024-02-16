@@ -52,4 +52,7 @@ I file di avviso forniscono informazioni sul copyright e sulle licenze di terze 
 * link:media/xcp_1.9_notice.pdf["Avviso per NetApp XCP 1,9"^]
 * link:media/xcp_1.8.1_notice.pdf["Avviso per NetApp XCP 1.8.1"^]
 * link:media/xcp_1.8_notice.pdf["Avviso per NetApp XCP 1,8"^]
+* link:media/xcp_1.7_notice.pdf["Avviso per NetApp XCP 1,7"^]
+* link:media/xcp_1.6.2_notice.pdf["Avviso per NetApp XCP 1.6.2"^]
+* link:media/xcp_1.6.1_notice.pdf["Avviso per NetApp XCP 1.6.1"^]
 
