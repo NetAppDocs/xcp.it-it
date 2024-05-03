@@ -1,11 +1,9 @@
 ---
 indexpage:
-  lead: NetApp XCP è un software basato su client che consente migrazioni di dati
-    scalabili e dalle performance elevate per migrazioni di dati e analisi dei file
-    da qualsiasi a NetApp e NetApp. Qui è disponibile la documentazione per XCP 1.6.2
-    e le versioni successive del software, incluse le modalità di installazione, configurazione
-    e utilizzo di XCP. La documentazione per le release di XCP precedenti alla 1.6.2
-    è disponibile sul sito di supporto NetApp.
+  lead: NetApp XCP è uno strumento software basato su client che consente migrazioni
+    di dati scalabili e dalle performance elevate per migrazioni di dati e file analytics
+    da any-to-NetApp e NetApp-to-NetApp. NetApp fornisce la documentazione per la
+    versione più recente dello strumento XCP e per le tre versioni più recenti.
   tiles:
   - title: Inizia subito
     links:
@@ -13,24 +11,26 @@ indexpage:
       url: "/releasenotes.html"
     - title: Scopri XCP
       url: "/xcp-index.html"
-  - title: Versioni precedenti delle note di rilascio
+    - title: Installare XCP
+      url: "/xcp-install-xcp.html"
+    - title: Riferimento XCP
+      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2886872
+  - title: Versioni precedenti
     links:
-    - title: NetApp XCP 1.9.2
+    - title: Note sulla versione di NetApp XCP 1.9.2
       url: https://library.netapp.com/ecm/ecm_get_file/ECMLP2885805
-    - title: NetApp XCP 1.9.1
+    - title: Riferimento NetApp XCP 1.9.2
+      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2885807
+    - title: Note sulla versione di NetApp XCP 1.9.1
       url: https://library.netapp.com/ecm/ecm_get_file/ECMLP2884968
-    - title: NetApp XCP 1,9
+    - title: Riferimento NetApp XCP 1.9.1
+      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2883343
+    - title: Note sulla versione di NetApp XCP 1,9
       url: https://library.netapp.com/ecm/ecm_get_file/ECMLP2883342
-    - title: NetApp XCP 1.8.1
-      url: https://library.netapp.com/ecm/ecm_get_file/ECMLP2881500
-    - title: NetApp XCP 1,8
-      url: https://library.netapp.com/ecm/ecm_get_file/ECMLP2880112
-    - title: NetApp XCP 1,7 e versioni precedenti
-      url: https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=63064
+    - title: Riferimento NetApp XCP 1,9
+      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2883343
   - title: Più risorse
     links:
-    - title: Documentazione per XCP 1.6.1 o versioni precedenti
-      url: https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=63064
     - title: NetApp TechCommTV (video NetApp XCP)
       url: link:https://www.youtube.com/user/NetAppTechCommTV/search?query=xcp
     - title: NetApp XCP (inclusi i collegamenti per ottenere una licenza)
