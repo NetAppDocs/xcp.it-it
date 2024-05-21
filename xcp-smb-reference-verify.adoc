@@ -1,0 +1,833 @@
+---
+sidebar: sidebar 
+permalink: xcp-smb-reference-verify.html 
+keywords: netapp, xcp, reference, smb, command, commands 
+summary: 'Riferimento comando "verifica" SMB XCP' 
+---
+= verificare
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Il `verify` il comando legge e confronta le condivisioni di origine e di destinazione e fornisce informazioni sui diversi elementi. È possibile utilizzare `verify` comando su qualsiasi origine e destinazione, indipendentemente dallo strumento utilizzato per eseguire l'operazione di copia o sincronizzazione.
+
+.Sintassi
+[source, cli]
+----
+xcp verify \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify  \\<IP address of SMB source server>\source_share  \\<IP address of SMB destination server>\dest_share
+xcp verify  \\<IP address of SMB source server>\source_share  \\ <IP address of SMB destination server>\dest_share
+
+xcp verify  \\<IP address of SMB source server>\source_share  \\<IP address of SMB destination server>\dest_share
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+xcp verify  \\<IP address of SMB source server>\source_share  \\<IP address of SMB destination server>\dest_share
+Total Time : 3s
+STATUS : PASSED
+----
+====
+La seguente tabella elenca `verify` parametri e loro descrizione.
+
+[cols="2*"]
+|===
+| Parametro | Descrizione 
+
+
+| <<smb_verify_help,verificare -h, --help>> | Mostra questo messaggio di aiuto e esci. 
+
+
+| <<verificare -v>> | Aumentare la verbosità del debug. 
+
+
+| <<smb_verify_parallel,verify -parallel  >> | Numero di processi simultanei (impostazione predefinita: <cpu-count>). 
+
+
+| <<smb_verify_match,verifica -match  >> | Elaborare solo file e directory corrispondenti al filtro (vedere `xcp help - match` per ulteriori informazioni). 
+
+
+| <<smb_verify_exclude,verifica -exclude  >> | Escludere solo i file e le directory nel filtro. 
+
+
+| <<verificare -preserva-atime>> | Ripristina l'ultima data di accesso sull'origine. 
+
+
+| <<verificare -nodata>> | Non controllare i dati. 
+
+
+| <<verificare -atime>> | Verificare il tempo di accesso ai file. 
+
+
+| <<verificare -noctime>> | Non controllare l'ora di creazione del file. 
+
+
+| <<verificare -nomtime>> | Non controllare l'ora di modifica del file. 
+
+
+| <<verificare -noattrs>> | Non controllare gli attributi. 
+
+
+| <<verificare -noownership>> | Non verificare la proprietà. 
+
+
+| <<verificare -ads>> | Ricercare eventuali modifiche e modifiche di flussi di dati alternativi nella condivisione SMB di origine e di destinazione. In caso di modifiche, applica la modifica al target a.
+assicurarsi che la destinazione sia identica alla sorgente. 
+
+
+| <<verificare -noacls>> | Non controllare gli ACL. 
+
+
+| <<verify_smb_atime,verifica -atimewindow  >> | Differenza di tempo di accesso accettabile, in secondi. 
+
+
+| <<verify_smb_ctime,verifica -ctimewindow  >> | Differenza di tempo di creazione accettabile, in secondi. 
+
+
+| <<verify_smb_mtime,verifica -mtimewindow  >> | Differenza di tempo di modifica accettabile, in secondi, 
+
+
+| <<verificare -stats>> | Eseguire la scansione delle strutture di origine e di destinazione in parallelo e confrontare le statistiche della struttura. 
+
+
+| <<verificare -l>> | Aumenta i dettagli di output. 
+
+
+| <<verifica -ll>> | Aumenta i dettagli di output (formato git diff). 
+
+
+| <<verify_smb_acl,verify -fallback-user  >> | Utente Active Directory o utente locale (non di dominio) sul computer di destinazione per ricevere le autorizzazioni degli utenti locali (non di dominio) del computer di origine (ad esempio: Dominio\amministratore). 
+
+
+| <<verify_smb_acl,verify -fallback-group  >> | Gruppo Active Directory o gruppo locale (non di dominio) sul computer di destinazione per ricevere le autorizzazioni dei gruppi di computer di origine locali (non di dominio) (ad esempio: Dominio\amministratori). 
+
+
+| <<smb_verify_root,verificare -root>> | Sincronizza ACL per la directory principale. 
+
+
+| <<verify_smb_onlyacl,verificare -solo-lyac>> | Copiare solo le informazioni di protezione. 
+|===
+
+
+== verificare -h, --help
+
+Utilizzare `-h` e. `–-help` parametri con `verify` per visualizzare informazioni dettagliate sul `verify` comando
+
+.Sintassi
+[source, cli]
+----
+xcp verify –help
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+C:\Netapp\xcp>xcp verify –help
+usage: xcp verify [-h] [-v] [-parallel <n>] [-match <filter>] [-exclude <filter>][-preserve-atime]
+[-loglevel <name>] [-fallback-user FALLBACK_USER]
+[-fallback-group FALLBACK_GROUP] [-noacls] [-nodata] [-stats] [-l] [-root] [-noownership] [-onlyacl] [-noctime] [-nomtime] [-noattrs] [-atime]
+[-atimewindow <float>] [-ctimewindow <float>] [-mtimewindow <float>] [-ads] source target
+
+Note: ONTAP does not let a SMB client modify COMPRESSED or ENCRYPTED attributes. XCP sync will ignore these file attributes.
+
+positional arguments:
+   source
+   target
+
+optional arguments:
+-h, --help	           show this help message and exit
+-v	                    increase debug verbosity
+-parallel <n>	        number of concurrent processes (default: <cpu-count>)
+-match <filter>        only process files and directories that match the filter (see `xcp help -match` for details)
+-exclude <filter>      Exclude files and directories that match the filter (see `xcp help -exclude` for details)
+-preserve-atime	     restore last accessed date on source
+--help-diag           Show all options including diag.The diag options should be used only on recommendation by NetApp support.
+-loglevel <name>	     option to set log level filter (default:INFO)
+-fallback-user FALLBACK_USER
+                       a user on the target machine to translate the permissions of local (non-domain) source machine users (eg. domain\administrator)
+-fallback-group FALLBACK_GROUP
+                       a group on the target machine to translate the permissions of local (non- domain) source machine groups (eg. domain\administrators)
+-nodata	              do not check data
+-stats	              scan source and target trees in parallel and compare tree statistics
+-l	                    detailed file listing output
+-root	                 verify acl for root directory
+-noacls	              do not check acls
+-noownership	        do not check ownership
+-onlyacl	              verify only acls
+-noctime	              do not check file creation time
+-nomtime	              do not check file modification time
+-noattrs	              do not check attributes
+-atime	              verify acess time as well
+-atimewindow <float>   acceptable access time difference in seconds
+-ctimewindow <float>   acceptable creation time difference in seconds
+-mtimewindow <float>   acceptable modification time difference in seconds
+-ads	                 verify ntfs alternate data stream
+----
+====
+
+
+== verificare -v
+
+Utilizzare `-v` con il `verify` comando per fornire informazioni dettagliate sul debug.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -v \\<IP address of SMB source server>\source_share address of SMB destination server>\dest_share
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp> xcp verify -v \\<IP address of SMB source server>\source_share address of SMB destination server>\dest_share
+xcp verify -v  \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -v \\< IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== verificare -parallel <n>
+
+Utilizzare `-parallel <n>` con il `verify` Comando per impostare un numero maggiore o minore di processi simultanei XCP. Il `verify -parallel <n>` comando verifica il numero di processi simultanei (impostazione predefinita: <cpu-count>).
+
+
+NOTE: Il valore massimo per n è 61.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -v -parallel <n> \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -v -parallel 8 \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -v -parallel 8 \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -v -parallel 8 \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+Total Time : 4s
+STATUS : PASSED
+----
+====
+
+
+== verificare -corrisponde a <filter>
+
+Utilizzare `-match <filter>` con il `verify` comando per eseguire la scansione della struttura di origine e di destinazione e confrontare solo i file o le directory che corrispondono all'argomento del filtro. In caso di differenze, il comando applica le azioni necessarie sulla destinazione per mantenerle sincronizzate.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -v -match <filter> \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -v -match "'Microsoft' in name" \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -v -match "'Microsoft' in name" \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -v -match 'Microsoft' in name \\<IP address of SMB source server> \source_share \\<IP address of SMB destination server>\dest_share
+374 scanned, 0 compared, 0 same, 0 different, 0 missing, 0 errors
+Total Time : 1s
+STATUS : PASSED
+----
+====
+
+
+== verificare -exclude <filter>
+
+Utilizzare `-exclude <filter>` con il `verify` comando per escludere solo file e directory nel filtro.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -exclude <filter> \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+C:\netapp\xcp>xcp verify -exclude "path('*Exceptions*')" \\<IP address of SMB sourceserver>\source_share \\<IP address of SMB destination server>\dest_share
+
+210 scanned, 99 excluded, 6 compared, 5 same, 1 different, 0 missing, 0 errors, 5s
+210 scanned, 107 excluded, 13 compared, 12 same, 1 different, 0 missing, 0 errors, 10s
+210 scanned, 107 excluded, 13 compared, 12 same, 1 different, 0 missing, 0 errors, 15s
+210 scanned, 107 excluded, 13 compared, 12 same, 1 different, 0 missing, 0 errors, 20s
+335 scanned, 253 excluded, 13 compared, 12 same, 1 different, 0 missing, 0 errors, 25s
+445 scanned, 427 excluded, 15 compared, 14 same, 1 different, 0 missing, 0 errors, 30s
+445 scanned, 427 excluded, 15 compared, 14 same, 1 different, 0 missing, 0 errors, 35s
+445 scanned, 427 excluded, 15 compared, 14 same, 1 different, 0 missing, 0 errors, 40s
+445 scanned, 427 excluded, 15 compared, 14 same, 1 different, 0 missing, 0 errors, 45s
+445 scanned, 427 excluded, 16 compared, 15 same, 1 different, 0 missing, 0 errors, 50s
+xcp verify -exclude path('*Exceptions*') \\<IP address of SMB sourceserver>\source_share \\<IP address of SMB destination server>\dest_share
+445 scanned, 427 excluded, 17 compared, 17 same, 0 different, 0 missing, 0 errors
+Total Time : 1m11s
+STATUS : PASSED
+----
+====
+
+
+== verificare -preserva-atime
+
+Utilizzare `-preserve-atime` con il `verify` comando per il reset `atime` Al valore originale prima che XCP legga il file.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -preserve-atime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -preserve-atime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -preserve-atime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+374 scanned, 179 compared, 179 same, 0 different, 0 missing, 0 errors, 5s
+xcp verify -preserve-atime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+Total Time : 8s
+STATUS : PASSED
+----
+====
+
+
+== verificare -nodata
+
+Utilizzare `-nodata` con il `verify` comando per non confrontare i dati.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -nodata \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -nodata \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -nodata \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -nodata \\<IP address of SMB source server> \source_share \\<IP address of SMB destination server>\dest_share : PASSED
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== verificare -atime
+
+Utilizzare `-atime` con il `verify` comando per confrontare i timestamp di accesso al file dall'origine alla destinazione.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -ll -atime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+c:\Netapp\xcp> xcp verify -ll -atime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+WARNING: your license will expire in less than one week! You can renew your license at https://xcp.netapp.com
+dir1: Changed (atime)
+  atime
+     - 2023-04-14 10:28:47 (1681482527.564423)
+     + 2023-04-14 10:24:40 (1681482280.366317)
+dir2: Changed (atime)
+  atime
+     - 2023-04-14 10:28:47 (1681482527.564424)
+     + 2023-04-14 10:24:40 (1681482280.366318)
+<root>: Changed (atime)
+  atime
+     - 2023-04-14 10:28:47 (1681482527.054403)
+     + 2023-04-14 10:28:35 (1681482515.538801)
+xcp verify -ll -atime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+14 scanned, 13 compared, 10 same, 3 different, 0 missing, 0 errors
+Total Time : 1s
+STATUS : FAILED
+----
+====
+
+
+== verificare -noctime
+
+Utilizzare `-noctime` con il `verify` comando per non confrontare i timestamp di creazione del file dall'origine alla destinazione.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -noctime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -noctime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -noctime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -noctime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share : PASSED
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== verificare -nomtime
+
+Utilizzare `-nomtime` con il `verify` comando per non confrontare i timestamp di modifica del file dall'origine alla destinazione.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -nomtime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -nomtime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -nomtime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -nomtime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share : PASSED
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== verificare -noattrs
+
+Utilizzare `-noattrs` con il `verify` comando per non controllare gli attributi.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -noattrs \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -noattrs \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -noattrs \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -noattrs \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share : PASSED
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== verificare -noownership
+
+Utilizzare `-noownership` con il `verify` comando per non controllare la proprietà.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -noownership \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -noownership \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -noownership	\\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -noownership \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share : PASSED
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== verificare -ads
+
+Utilizzo di `-ads` con il `verify` comando per leggere se vi sono flussi di dati alternativi sull'origine e sulla destinazione e visualizzare eventuali differenze.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -ads \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -ads \\<source_IP_address>\source_share\src \\<dest_IP_address>\dest_share
+
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	5s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	10s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	1m0s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	1m55s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	2m0s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	2m5s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	2m55s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	3m0s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	3m5s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	3m55s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	4m55s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	5m0s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	5m5s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	5m55s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	6m0s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	6m5s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	6m10s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	7m0s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	7m5s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	7m55s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	8m0s
+
+xcp verify -ads \\source_Ip_address>\source_share\src \\<dest_IP_address>\dest_share
+7 scanned, 6 compared, 6 same, 0 different, 0 missing, 0 errors
+Total Time : 8m4s
+STATUS : PASSED
+----
+====
+
+
+== verificare -noacls
+
+Utilizzare `-noacls` con il `verify` Comando per non controllare gli ACL.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -noacls -noownership \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -noacls -noownership \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -noacls -noownership	\\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -noacls -noownership \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+318 scanned, 317 compared, 317 same, 0 different, 0 missing, 0 errors
+Total Time : 1s
+STATUS : PASSED
+----
+====
+
+
+=== verificare -noacls -noownership
+
+Utilizzare `-noownership` parametro con `verify -noacls`  Per non controllare gli ACL o la proprietà dall'origine alla destinazione.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -noacls -noownership <source> <target>
+----
+
+
+== verificare -atimewindow <float>
+
+Utilizzare `-atimewindow <float>` con il `verify` che consente di specificare la differenza accettabile, in secondi, per `atime` di un file dall'origine alla destinazione. XCP non riporta i file come diversi se la differenza in `atime` è inferiore a <value>. Il `verify - atimewindow` command può essere utilizzato solo con `-atime` allarme.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -atimewindow <float> \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+c:\Netapp\xcp> xcp verify -atimewindow 600 -atime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -atimewindow 600 -atime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+14 scanned, 13 compared, 13 same, 0 different, 0 missing, 0 errors
+----
+====
+
+
+== verificare -ctimewindow <float>
+
+Utilizzare `-ctimewindow <float>` con il `verify` che consente di specificare la differenza accettabile, in secondi, per `ctime` di un file dall'origine alla destinazione. XCP non riporta i file come diversi quando la differenza in `ctime` è inferiore a <value>.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -ctimewindow <float> \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -ctimewindow 600 \\<IP address of SMB sourceserver>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -ctimewindow 600 \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -ctimewindow 600 \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== verificare -mtimewindow <float>
+
+Utilizzare `-mtimewindow <float>` con il `verify` che consente di specificare la differenza accettabile, in secondi, per `mtime` di un file dall'origine alla destinazione. XCP non riporta i file come diversi quando la differenza in `mtime` è inferiore a <value>.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -mtimewindow <float> \\<IP address of SMB sourceserver>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -mtimewindow 600 \\<IP address of SMB sourceserver>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -mtimewindow 600 \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -mtimewindow 600 \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== verificare -stats
+
+Utilizzare `-stats` con il `verify` comando per eseguire la scansione dell'origine e della destinazione e stampare un report delle statistiche ad albero che mostra analogie o differenze tra le due condivisioni.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -stats \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -stats \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -stats \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+
+       == Number of files ==
+	            empty    <8KiB    8-64KiB    64KiB-1MiB   1-10MiB   10-100MiB   >100MiB
+                               81        170            62         2
+on-target                    same       same          same      same
+on-source                    same       same          same      same
+
+       == Directory entries ==
+	            empty	  1-10     10-100	     100-1K	   1K-10K	     >10K
+        		                       1             1
+on-target                                same          same
+on-source			             same	      same
+
+       == Depth ==
+                  0-5	  6-10	    11-15	      16-20	   21-100	     >100
+	              317
+on-target           same
+on-source	      same
+
+       == Modified ==
+              >1 year	>1 month  1-31 days    1-24 hrs   <1 hour   <15 mins     future    invalid
+                  315                                    2
+on-target        same                                 same
+on-source        same                                 same
+
+Total count: 317 / same / same
+Directories: 2 / same / same
+Regular files: 315 / same / same
+Symbolic links:
+Junctions:
+Special files:
+xcp verify -stats \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+635 scanned, 0 errors Total Time : 1s
+STATUS : PASSED
+----
+====
+
+
+== verificare -l
+
+Utilizzare `-l` con il `verify` per elencare le differenze tra i file e le directory sull'origine e sulla destinazione.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -l \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+Nell'esempio seguente, durante la copia, le informazioni sulla proprietà non sono state trasferite ed è possibile vedere le differenze nell'output del comando.
+
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -l \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -l \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -l \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== verifica -ll
+
+Utilizzare `-ll` con il `verify` per elencare le differenze dettagliate dei file o delle directory dall'origine e dalla destinazione. Il formato è come git diff. Il valore rosso è quello vecchio della sorgente e il valore verde è quello nuovo della destinazione.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -ll \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -ll \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -ll \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -ll \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== verify-fallback-user <fallback_user> -fallback-group <fallback_group>
+
+Utilizzare `-fallback-user` e. `-fallback-group` parametri con `verify` Comando per elencare le differenze di ACL e proprietà tra i file e le directory sull'origine e sulla destinazione.
+
+
+NOTE: Se si utilizza `fallback-user` e. `fallback-group` Con un'operazione di copia o sincronizzazione, NetApp consiglia di utilizzare anche l' `fallback-user` e. `fallback-group` parametri con l'operazione di verifica.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -fallback-user <fallback_user> -fallback-group <fallback_group> \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+
+
+=== verificare -noownership-fallback-user <fallback_user> -fallback-group <fallback_group>
+
+Utilizzare `-noownership,` `-fallback-user`, e. `-fallback-group` parametri con `verify` Comando per elencare le differenze ACL e ignorare la verifica della proprietà tra i file e le directory nell'origine e nella destinazione.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -noownership -fallback-user <fallback_user> -fallback-group <fallback_group> \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+
+
+=== verificare -noacls-fallback-user <fallback_user> -fallback-group <fallback_group>
+
+Utilizzare `-noacls`, `-fallback-user`, e. `-fallback-group` parametri con `verify` Comando per saltare la verifica degli ACL e verificare la proprietà tra file e directory nell'origine e nella destinazione.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -noacls -fallback-user <fallback_user> -fallback-group <fallback_group> \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+
+
+== verificare -root
+
+Utilizzare `-root` con il `verify` Comando per sincronizzare gli ACL per la directory principale.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -root -fallback-user <fallback_user> -fallback- group <fallback_group> \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+C:\NetApp\XCP>xcp verify -root -fallback-user "DOMAIN\User" -fallback-group "DOMAIN\Group" \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -l -root -fallback-user "DOMAIN\User" -fallback-group "DOMAIN\Group" \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+7 scanned, 6 compared, 6 same, 0 different, 0 missing, 0 errors
+Total Time : 1s
+STATUS : PASSED
+----
+====
+
+
+=== verificare -onlyacl -fallback-user <fallback_user> -fallback- group <fallback_group>
+
+Utilizzare `-onlyacl`, `-fallback-user` e. `-fallback-group` parametri con `verify` per confrontare solo le informazioni di sicurezza tra origine e destinazione.
+
+.Sintassi
+[source, cli]
+----
+xcp verify -onlyacl -preserve-atime -fallback-user <fallback_user> -fallback- group <fallback_group> \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+C:\Users\ctladmin\Desktop>xcp verify -onlyacl -preserve-atime -fallback-user "DOMAIN\User" -fallback- group "DOMAIN\Group" -ll \\<source_IP_address>\source_share \\<IP address of SMB destination server>\dest_share
+
+4,722	scanned,	0 compared, 0 same, 0 different, 0 missing, 0 errors, 5s
+7,142	scanned,	120 compared, 120 same, 0 different, 0 missing, 0 errors, 10s
+7,142	scanned,	856 compared, 856 same, 0 different, 0 missing, 0 errors, 15s
+7,142	scanned,	1,374 compared, 1,374 same, 0 different, 0 missing, 0 errors,	20s
+7,142	scanned,	2,168 compared, 2,168 same, 0 different, 0 missing, 0 errors,	25s
+7,142	scanned,	2,910 compared, 2,910 same, 0 different, 0 missing, 0 errors,	30s
+7,142	scanned,	3,629 compared, 3,629 same, 0 different, 0 missing, 0 errors,	35s
+7,142	scanned,	4,190 compared, 4,190 same, 0 different, 0 missing, 0 errors,	40s
+7,142	scanned,	4,842 compared, 4,842 same, 0 different, 0 missing, 0 errors,	45s
+7,142	scanned,	5,622 compared, 5,622 same, 0 different, 0 missing, 0 errors,	50s
+7,142	scanned,	6,402 compared, 6,402 same, 0 different, 0 missing, 0 errors,	55s
+7,142	scanned,	7,019 compared, 7,019 same, 0 different, 0 missing, 0 errors,	1m0s
+
+xcp verify -onlyacl -preserve-atime -fallback-user "DOMAIN\User" -fallback-group "DOMAIN\Group" -ll \\<source_IP_address>\source_share \\<IP address of SMB destination server>\dest_share
+7,142 scanned, 7,141 compared, 7,141 same, 0 different, 0 missing, 0 errors
+Total Time : 1m2s
+STATUS : PASSED
+----
+====

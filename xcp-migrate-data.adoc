@@ -26,7 +26,7 @@ Il `copy` Il comando esegue la scansione e copia dell'intera struttura della dir
 
 [listing]
 ----
-xcp copy -newid <id> src_server:/src_export dst_server:/dst_export
+xcp copy <source_nfs_export_path> <destination_nfs_export_path>
 ----
 *Esempio di percorso POSIX:*
 
@@ -46,7 +46,7 @@ Il `resume` command riavvia un'operazione di copia precedentemente interrotta sp
 
 [listing]
 ----
-xcp resume [options] -id <id used for copy>
+xcp resume -id <catalog_name>
 ----
 Eseguire `xcp help resume` per ulteriori dettagli.
 
@@ -60,7 +60,7 @@ Il `sync` Il comando esegue la scansione delle modifiche e delle modifiche appor
 
 [listing]
 ----
-xcp sync [options] -id <id used for copy>
+xcp sync -id <catalog_name>
 ----
 Eseguire `xcp help sync` per ulteriori dettagli.
 
@@ -74,7 +74,7 @@ Il `verify` command utilizza un confronto completo dei dati byte per byte tra le
 
 [listing]
 ----
-xcp verify src_server:/src_export dst_server:/dst_export
+xcp verify <source_ip_address>:/source_vol <destination_ip_address>:/dest_vol
 ----
 *Esempio di percorso POSIX:*
 

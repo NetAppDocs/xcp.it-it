@@ -47,8 +47,8 @@ link:https://www.netapp.com/company/legal/privacy-policy/["https://www.netapp.co
 
 I file di avviso forniscono informazioni sul copyright e sulle licenze di terze parti utilizzate nel software NetApp.
 
+* link:media/xcp_1.9.4_notice.pdf["Avviso per NetApp XCP 1.9.4"^]
 * link:media/xcp_1.9.3_notice.pdf["Avviso per NetApp XCP 1.9.3"^]
 * link:media/xcp_1.9.2_notice.pdf["Avviso per NetApp XCP 1.9.2"^]
 * link:media/xcp_1.9.1_notice.pdf["Avviso per NetApp XCP 1.9.1"^]
-* link:media/xcp_1.9_notice.pdf["Avviso per NetApp XCP 1,9"^]
 

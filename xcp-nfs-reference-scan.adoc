@@ -1,0 +1,1193 @@
+---
+sidebar: sidebar 
+permalink: xcp-nfs-reference-scan.html 
+keywords: netapp, xcp, reference, nfs, command, commands 
+summary: Riferimento comando NFS XCP 
+---
+= scansione
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Il NFS di XCP `scan` Comando analizza ricorsivamente l'intero percorso esportato NFSv3 sorgente e restituisce le statistiche della struttura dei file.
+
+NetApp consiglia di impostare i mount per l'esportazione NFS di origine in modalità di sola lettura durante l'operazione di scansione.
+
+.Sintassi
+[source, cli]
+----
+xcp scan <source_nfs_export_path>
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp scan <IP address of NFS server>:/
+
+source_vol
+source_vol
+source_vol/r1.txt
+source_vol/USER.1
+source_vol/USER.2
+source_vol/USER.1/FILE_1
+source_vol/USER.1/FILE_2
+source_vol/USER.1/FILE_3
+source_vol/USER.1/FILE_4
+source_vol/USER.1/FILE_5
+source_vol/USER.1/file1.txt
+source_vol/USER.1/file2.txt
+source_vol/USER.1/logfile.txt
+source_vol/USER.1/log1.txt
+source_vol/USER.2/FILE_1
+source_vol/USER.2/FILE_5
+source_vol/USER.2/FILE_2
+source_vol/USER.2/FILE_3
+source_vol/USER.2/FILE_4
+Xcp command : xcp scan <IP address of NFS server>:/source vol
+----
+====
+La seguente tabella elenca `scan` parametri e loro descrizione.
+
+[cols="2*"]
+|===
+| Parametro | Descrizione 
+
+
+| <<scan_l,scansione -l>> | Elenca i file nel formato di output dell'elenco lungo. 
+
+
+| <<scan_q,scansione -q>> | Mostra il numero di file sottoposti a scansione. 
+
+
+| <<nfs_scan_stats_csv_html,scan - stats (statistiche scansione)>> | Elenca i file nel formato di rapporto statistico ad albero. 
+
+
+| <<nfs_scan_stats_csv_html,scansione -csv>> | Elenca i file nel formato di rapporto CSV delle statistiche ad albero. 
+
+
+| <<nfs_scan_stats_csv_html,scansione -html>> | Elenca i file nel formato di report HTML delle statistiche ad albero. 
+
+
+| <<scansione -nonames>> | Esclude i nomi di utenti e gruppi dagli elenchi di file e dai report. 
+
+
+| <<nfs_scan_newid,scansione -newid  >> | Specifica il nome del catalogo per un nuovo indice. 
+
+
+| <<nfs_scan_id,scansione -id  >> | Specifica il nome di catalogo di un indice di copia o scansione precedente. 
+
+
+| <<nfs_scan_match,scan -match  >> | Elabora solo file e directory corrispondenti al filtro. 
+
+
+| <<nfs_scan_fmt,scan -fmt  >> | Elabora solo file e directory corrispondenti al formato. 
+
+
+| <<nfs_scan_du,scansione -du>> | Riepiloga l'utilizzo dello spazio di ciascuna directory, incluse le sottodirectory. 
+
+
+| <<nfs_scan_md5,scansione -md5  >> | Genera checksum sui file e salva i checksum durante l'indicizzazione (default: False). 
+
+
+| <<nfs_scan_depth,scansione -profondità  >> | Limita la profondità di ricerca. 
+
+
+| <<nfs_scan_dircount,scan -dircount [k]>  | Specifica la dimensione della richiesta durante la lettura delle directory. 
+
+
+| <<nfs_scan_edupe,scansione -edupe>> | Include la stima della deduplica nei report. 
+
+
+| <<nfs_scan_bs,scansione -bs [k]>  | Specifica la dimensione del blocco di lettura/scrittura per le scansioni che leggono i dati utilizzando `-md5` oppure `-edupe` (predefinito: 64k). 
+
+
+| <<nfs_scan_parallel,scansione -parallela  >> | Specifica il numero massimo di processi batch simultanei (impostazione predefinita: 7). 
+
+
+| <<nfs_scan_noid,Scansione -noid >> | Disattiva la creazione di un indice predefinito (default: False). 
+
+
+| <<nfs_scan_subdir,scansione -subdir-names>> | Recupera i nomi delle sottodirectory di livello superiore in una directory. 
+
+
+| <<scan -preserve-atime>> | Ripristina tutti i file alla data dell'ultimo accesso sull'origine. 
+
+
+| <<scansione -s3.insecure>> | Fornisce l'opzione per utilizzare HTTP invece di HTTPS per la comunicazione bucket S3. 
+
+
+| <<nfs_scan_endpoint,scansione -s3.endpoint  >> | Sovrascrive l'URL endpoint predefinito di Amazon Web Services (AWS) con l'URL specificato per la comunicazione bucket S3. 
+
+
+| <<nfs_scan_s3_profile,scansione -s3.profile  >> | Specifica un profilo dal file delle credenziali AWS per la comunicazione del bucket S3. 
+
+
+| <<scansione -s3.noverify>> | Sovrascrive la verifica predefinita della certificazione SSL per la comunicazione bucket S3. 
+|===
+
+
+== scansione -l
+
+Utilizzare `-l` con il `scan` comando per elencare i file nel formato di output dell'elenco lungo.
+
+.Sintassi
+[source, cli]
+----
+xcp scan -l <ip_address_or_hostname>:/source_vol
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+root@localhost linux]# ./xcp scan -l <IP address or hostname of NFSserver>:/source_vol
+
+drwxr-xr-x --- root root 4KiB 4KiB 6s source_vol
+drwxr-xr-x --- root root 4KiB 4KiB 42s source_vol/USER.1
+drwxr-xr-x --- root root 4KiB 4KiB 42s source_vol/USER.2
+rw-r--r-- --- root root 1KiB 4KiB 42s source_vol/USER.1/FILE_1
+rw-r--r-- --- root root 1KiB 4KiB 42s source_vol/USER.1/FILE_2
+rw-r--r-- --- root root 1KiB 4KiB 42s source_vol/USER.1/FILE_3
+rw-r--r-- --- root root 1KiB 4KiB 42ssource_vol/USER.1/FILE_4
+rw-r--r-- --- root root 1KiB 4KiB 42s source_vol/USER.1/FILE_5
+rw-r--r-- --- root root 1KiB 4KiB 42s source_vol/USER.2/FILE_1
+rw-r--r-- --- root root 1KiB 4KiB 42s source_vol/USER.2/FILE_5
+rw-r--r-- --- root root 1KiB 4KiB 42s source_vol/USER.2/FILE_2
+rw-r--r-- --- root root 1KiB 4KiB 42s source_vol/USER.2/FILE_3
+rw-r--r-- --- root root 1KiB 4KiB 42s source_vol/USER.2/FILE_4
+Xcp command : xcp scan -l <IP address or hostname of NFS server>:/source_vol
+13 scanned, 0 matched, 0 error
+Speed : 3.73 KiB in (4.89 KiB/s), 756 out (989/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+
+
+== scansione -q
+
+Utilizzare `-q` con il `scan` comando per visualizzare il numero di file sottoposti a scansione.
+
+.Sintassi
+[source, cli]
+----
+xcp scan -q <ip_address_or_hostname>:/source_vol
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp scan -q <IP address or hostname of NFSserver>:/source_vol
+
+Xcp command : xcp scan -q <IP address or hostname of NFS server>:/source_vol
+13 scanned, 0 matched, 0 error
+Speed : 3.73 KiB in (3.96 KiB/s), 756 out(801/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+
+
+== scan -stats, scan -csv e scan -html
+
+Utilizzare `-stats`, `-csv`, e. `-html` parametri con `scan` comando per elencare i file nel formato del rapporto statistico ad albero.
+
+
+NOTE: I report XCP (.csv, .html) vengono salvati nella posizione del catalogo specificata nella `xcp.ini` file. I file vengono memorizzati in `<catalog path>/catalog/indexes/1/reports` cartella. È possibile visualizzare i rapporti di esempio nell'appendice.
+
+.Sintassi
+[source, cli]
+----
+xcp scan -stats <ip_address>:/source_vol
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+root@client1 linux]# ./xcp scan -stats <ip_address>:/fg1
+
+Job ID: Job_2023-11-23_23.23.33.930501_scan
+== Maximum Values ==
+Size Used Depth File Path Namelen Dirsize
+50.4 MiB 50.6 MiB 1 24 20 33
+== Average Values ==
+Size Depth Namelen Dirsize
+15.3 MiB 0 6 33
+== Top Space Users ==
+root
+107 MiB
+== Top File Owners ==
+root
+34
+== Top File Extensions ==
+.sh .out .py .sh1 other
+8 2 2 1 20
+16.0 KiB 3.09 MiB 448 1.48 KiB 502 MiB
+== Number of files ==
+empty <8KiB 8-64KiB 64KiB-1MiB 1-10MiB 10-100MiB >100MiB
+20 1 2 10
+== Space used ==
+empty <8KiB 8-64KiB 64KiB-1MiB 1-10MiB 10-100MiB >100MiB
+76 KiB 12 KiB 5.16 MiB 102 MiB
+== Directory entries ==
+empty 1-10 10-100 100-1K 1K-10K >10K
+
+== Depth ==
+0-5 6-10 11-15 16-20 21-100 >100
+34
+== Accessed ==
+>1 year9-12 months 6-9 months 3-6 months 1-3 months 1-31 days 1-24 hrs <1 hour <15 mins
+future
+33
+505 MiB
+== Modified ==
+>1 year9-12 months 6-9 months 3-6 months 1-3 months 1-31 days 1-24 hrs <1 hour <15 mins
+future
+16
+17
+400 MiB 105
+MiB
+== Changed ==
+>1 year9-12 months 6-9 months 3-6 months 1-3 months 1-31 days 1-24 hrs <1 hour <15 mins
+future
+16
+17
+400 MiB 105
+MiB
+== Path ==
+0-1024 >1024
+33
+Total count: 34
+Directories: 1
+Regular files: 33
+Symbolic links: None
+Special files: None
+Hard links: None
+Multilink files: None
+Space Saved by Hard links (KB): 0
+Sparse data: N/A
+Dedupe estimate: N/A
+Total space for regular files: size: 505 MiB, used: 107 MiB
+Total space for symlinks: size: 0, used: 0
+Total space for directories: size: 8 KiB, used: 8 KiB
+Total space used: 107 MiB
+Xcp command : xcp scan -stats <ip_address>:/fg1
+Stats : 34 scanned
+Speed : 6.35 KiB in (7.23 KiB/s), 444 out (506/s)
+Total Time : 0s.
+Job ID : Job_2023-11-23_23.23.33.930501_scan
+Log Path : /opt/NetApp/xFiles/xcp/xcplogs/
+Job_2023-11-23_23.23.33.930501_scan.log
+
+STATUS : PASSED
+[root@client 1 linux]#
+
+
+----
+====
+.Sintassi
+[source, cli]
+----
+xcp scan -csv <ip_address_or_hostname>:/source_vol
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+root@localhost linux]# ./xcp scan -csv <IP address or hostname of NFS server>:/source_vol
+
+scan <IP address or hostname of NFS server>:/source_vol
+options,"{'-csv': True}"
+summary,"13 scanned, 3.73 KiB in (11.3 KiB/s), 756 out (2.23 KiB/s), 0s."
+Maximum Values,Size,Used,Depth,Namelen,Dirsize
+Maximum Values,1024,4096,2,10,5
+Average Values,Namelen,Size,Depth,Dirsize
+Average Values,6,1024,1,4
+Top Space Users,root
+Top Space Users,53248
+Top File Owners,root
+Top File Owners,13
+Top File Extensions,other
+Top File Extensions,10
+Number of files,empty,<8KiB,8-64KiB,64KiB-1MiB,1-10MiB,10-100MiB,>100MiB
+Number of files,0,10,0,0,0,0,0
+Space used,empty,<8KiB,8-64KiB,64KiB-1MiB,1-10MiB,10-100MiB,>100MiB
+Space used,0,40960,0,0,0,0,0
+Directory entries,empty,1-10,10-100,100-1K,1K-10K,>10K
+Directory entries,0,3,0,0,0,0
+Depth,0-5,6-10,11-15,16-20,21-100,>100
+Depth,13,0,0,0,0,0
+Accessed,>1 year,>1 month,1-31 days,1-24 hrs,<1 hour,<15 mins,future
+Accessed,0,0,0,0,0,10,0
+Modified,>1 year,>1 month,1-31 days,1-24 hrs,<1 hour,<15 mins,future
+Modified,0,0,0,0,0,10,0
+Changed,>1 year,>1 month,1-31 days,1-24 hrs,<1 hour,<15 mins,future
+Changed,0,0,0,0,0,10,0
+
+Total count,13
+Directories,3
+Regular files,10
+Symbolic links,0
+Special files,0
+Hard links,0,
+multilink files,0,
+Space Saved by Hard links (KB),0
+Sparse data,N/A
+Dedupe estimate,N/A
+Total space for regular files,size,10240,used,40960
+Total space for symlinks,size,0,used,0
+Total space for directories,size,12288,used,12288
+Total space used,53248
+Xcp command : xcp scan -csv <IP address or hostname of NFS server>:/source_vol
+13 scanned, 0 matched, 0 error
+Speed : 3.73 KiB in (11.2 KiB/s), 756 out (2.22 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+.Sintassi
+[source, cli]
+----
+xcp scan -html <ip_address_or_hostname>:/source_vol
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+root@localhost linux]# ./xcp scan -html <IP address or hostname of NFS server>:/source_vol
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN""http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+[redacted HTML contents]
+</body></html>
+Xcp command : xcp scan -html <IP address or hostname of NFSserver>:/source_vol
+13 scanned, 0 matched, 0 error
+Speed : 3.73 KiB in (4.31 KiB/s), 756 out(873/s)
+Total Time : 0s.
+STATUS : PASSED
+[root@localhost source_vol]#
+----
+====
+
+
+== scansione -nonames
+
+Utilizzare `-nonames` con il `scan` comando per escludere i nomi degli utenti e dei gruppi da elenchi di file o rapporti.
+
+
+NOTE: Se utilizzato con `scan` il comando `-nonames` il parametro si applica solo agli elenchi di file restituiti mediante `-l` opzione.
+
+.Sintassi
+[source, cli]
+----
+xcp scan -nonames <ip_address_or_hostname>:/source_vol
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp scan -nonames <IP address or hostname of NFS server>:/source_vol
+
+source_vol
+source_vol/USER.1
+source_vol/USER.2
+source_vol/USER.1/FILE_1
+source_vol/USER.1/FILE_2
+source_vol/USER.1/FILE_3
+source_vol/USER.1/FILE_4
+source_vol/USER.1/FILE_5
+source_vol/USER.2/FILE_1
+source_vol/USER.2/FILE_5
+source_vol/USER.2/FILE_2
+source_vol/USER.2/FILE_3
+source_vol/USER.2/FILE_4
+Xcp command : xcp scan -nonames <IP address or hostname of NFSserver>:/source_vol
+13 scanned, 0 matched, 0 error
+Speed : 3.73 KiB in (4.66 KiB/s), 756 out(944/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+
+
+== scansione -newid <name>
+
+Utilizzare `-newid <name>` con il `scan` comando per specificare il nome del catalogo per un nuovo indice durante l'esecuzione di una scansione.
+
+.Sintassi
+[source, cli]
+----
+xcp scan -newid <name> <ip_address_or_hostname>:/source_vol
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp scan -newid ID001 <IP address or hostname of NFS server>:/source_vol
+
+Xcp command : xcp scan -newid ID001 <IP address or hostname of NFS server>:/source_vol
+13 scanned, 0 matched, 0 error
+Speed : 13.8 KiB in (17.7 KiB/s), 53.1 KiB out (68.0 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+
+
+== scan -id <catalog_name> (scansione - id)
+
+Utilizzare `-id` con il `scan` comando per specificare il nome del catalogo dell'indice di copia o scansione precedente.
+
+.Sintassi
+[source, cli]
+----
+xcp scan -id <catalog_name>
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp scan -id 3
+
+xcp: Index: {source: 10.10.1.10:/vol/ex_s01/etc/keymgr, target: None}
+keymgr/root/cacert.pem
+keymgr/cert/secureadmin.pem
+keymgr/key/secureadmin.pem
+keymgr/csr/secureadmin.pem
+keymgr/root
+keymgr/csr
+keymgr/key
+keymgr/cert
+keymgr
+9 reviewed, 11.4 KiB in (11.7 KiB/s), 1.33 KiB out (1.37 KiB/s), 0s.
+----
+====
+
+
+== scansione - corrispondenza <filter>
+
+Utilizzare `-match <filter>` con il `scan` comando per specificare che vengono elaborati solo i file e le directory corrispondenti a un filtro.
+
+.Sintassi
+[source, cli]
+----
+xcp scan -match <filter> <ip_address_or_hostname>:/source_vol
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+root@localhost linux]# ./xcp scan -match bin <IP address or hostname of NFS server>:/source_vol
+
+source_vol
+source_vol/USER.1/FILE_1
+source_vol/USER.1/FILE_2
+source_vol/USER.1/FILE_3
+source_vol/USER.1/FILE_4
+source_vol/USER.1/FILE_5
+source_vol/USER.1/file1.txt
+source_vol/USER.1/file2.txt
+source_vol/USER.1/logfile.txt
+source_vol/USER.1/log1.txt
+source_vol/r1.txt
+source_vol/USER.1
+source_vol/USER.2
+source_vol/USER.2/FILE_1
+source_vol/USER.2/FILE_5
+source_vol/USER.2/FILE_2
+source_vol/USER.2/FILE_3
+source_vol/USER.2/FILE_4
+Filtered: 0 did not match
+Xcp command : xcp scan -match bin <IP address or hostname of NFSserver>:/source_vol
+18 scanned, 18 matched, 0 error
+Speed : 4.59 KiB in (6.94 KiB/s), 756 out (1.12KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+
+
+== scan -fmt <string_expression>
+
+Utilizzare `-fmt` con il `scan` comando per specificare che vengono restituiti solo i file e le directory corrispondenti al formato specificato.
+
+.Sintassi
+[source, cli]
+----
+xcp scan -fmt <string_expression> <ip_address_or_hostname>:/source_vol
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp scan -fmt "'{}, {}, {}, {}, {}'.format(name, x, ctime, atime, mtime)"
+<IP address or hostname of NFS server>:/source_vol
+
+source_vol, <IP address or hostname of NFS server>:/source_vol, 1583294484.46, 1583294492.63,
+1583294484.46
+ILE_1, <IP address or hostname of NFS server>:/source_vol/USER.1/FILE_1, 1583293637.88,
+1583293637.83, 1583293637.83
+FILE_2, <IP address or hostname of NFS server>:/source_vol/USER.1/FILE_2, 1583293637.88,
+1583293637.83, 1583293637.84
+FILE_3, <IP address or hostname of NFS server>:/source_vol/USER.1/FILE_3, 1583293637.88,
+1583293637.84, 1583293637.84
+FILE_4, <IP address or hostname of NFS server>:/source_vol/USER.1/FILE_4, 1583293637.88,
+1583293637.84, 1583293637.84
+FILE_5, <IP address or hostname of NFS server>:/source_vol/USER.1/FILE_5, 1583293637.88,
+1583293637.84, 1583293637.84
+file1.txt, <IP address or hostname of NFS server>:/source_vol/USER.1/file1.txt, 1583294284.78,
+1583294284.78, 1583294284.78
+file2.txt, <IP address or hostname of NFS server>:/source_vol/USER.1/file2.txt, 1583294284.78,
+1583294284.78, 1583294284.78
+logfile.txt, <IP address or hostname of NFS server>:/source_vol/USER.1/logfile.txt,
+1583294295.79, 1583294295.79, 1583294295.79
+log1.txt, <IP address or hostname of NFS server>:/source_vol/USER.1/log1.txt, 1583294295.8,
+1583294295.8, 1583294295.8
+r1.txt, <IP address or hostname of NFS server>:/source_vol/r1.txt, 1583294484.46, 1583294484.45,
+1583294484.45
+USER.1, <IP address or hostname of NFS server>:/source_vol/USER.1, 1583294295.8, 1583294492.63,
+1583294295.8
+USER.2, <IP address or hostname of NFS server>:/source_vol/USER.2, 1583293637.95, 1583294492.63,
+1583293637.95
+FILE_1, <IP address or hostname of NFS server>:/source_vol/USER.2/FILE_1, 1583293637.95,
+1583293637.94, 1583293637.94
+FILE_5, <IP address or hostname of NFS server>:/source_vol/USER.2/FILE_5, 1583293637.96,
+1583293637.94, 1583293637.94
+FILE_2, <IP address or hostname of NFS server>:/source_vol/USER.2/FILE_2, 1583293637.96,
+1583293637.95, 1583293637.95
+FILE_3, <IP address or hostname of NFS server>:/source_vol/USER.2/FILE_3, 1583293637.96,
+1583293637.95, 1583293637.95
+FILE_4, <IP address or hostname of NFS server>:/source_vol/USER.2/FILE_4, 1583293637.96,
+1583293637.95, 1583293637.96
+Xcp command : xcp scan -fmt '{}, {}, {}, {}, {}'.format(name, x, ctime, atime, mtime) <IP address
+or hostname of NFS server>:/source_vol
+18 scanned, 0 matched, 0 error
+Speed : 4.59 KiB in (4.14 KiB/s), 756 out (683/s)
+Total Time : 1s.
+STATUS : PASSED
+----
+====
+
+
+== scansione -du
+
+Utilizzare `-du` con il `scan` per riepilogare l'utilizzo dello spazio di ogni directory, incluse le sottodirectory.
+
+.Sintassi
+[source, cli]
+----
+xcp scan -du <ip_address_or_hostname>:/source_vol
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp scan -du <IP address or hostname of NFSserver>:/source_vol
+
+24KiB source_vol/USER.1
+24KiB source_vol/USER.2
+52KiB source_vol
+Xcp command : xcp scan -du <IP address or hostname of NFSserver>:/source_vol
+18 scanned, 0 matched, 0 error
+Speed : 4.59 KiB in (12.9 KiB/s), 756 out (2.07KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+
+
+== scansione -md5 <string_expression>
+
+Utilizzare `-md5` con il `scan` comando per generare checksum per gli elenchi dei file e salvare i checksum durante l'indicizzazione. Il valore predefinito è impostato su false.
+
+
+NOTE: I checksum non vengono utilizzati per la verifica dei file, ma solo per gli elenchi dei file durante le operazioni di scansione.
+
+.Sintassi
+[source, cli]
+----
+xcp scan -md5 <ip_address_or_hostname>:/source_vol
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+root@localhost linux]# ./xcp scan -md5 <IP address or hostname of NFSserver>:/source_vol
+
+source_vol
+d47b127bc2de2d687ddc82dac354c415 source_vol/USER.1/FILE_1
+d47b127bc2de2d687ddc82dac354c415 source_vol/USER.1/FILE_2
+d47b127bc2de2d687ddc82dac354c415 source_vol/USER.1/FILE_3
+d47b127bc2de2d687ddc82dac354c415 source_vol/USER.1/FILE_4
+d47b127bc2de2d687ddc82dac354c415 source_vol/USER.1/FILE_5
+d41d8cd98f00b204e9800998ecf8427e source_vol/USER.1/file1.txt
+d41d8cd98f00b204e9800998ecf8427e source_vol/USER.1/file2.txt
+d41d8cd98f00b204e9800998ecf8427esource_vol/USER.1/logfile.txt
+d41d8cd98f00b204e9800998ecf8427e source_vol/USER.1/log1.txt
+e894f2344aaa92289fb57bc8f597ffa9 source_vol/r1.txt
+source_vol/USER.1
+source_vol/USER.2
+d47b127bc2de2d687ddc82dac354c415 source_vol/USER.2/FILE_1
+d47b127bc2de2d687ddc82dac354c415 source_vol/USER.2/FILE_5
+d47b127bc2de2d687ddc82dac354c415 source_vol/USER.2/FILE_2
+d47b127bc2de2d687ddc82dac354c415 source_vol/USER.2/FILE_3
+d47b127bc2de2d687ddc82dac354c415 source_vol/USER.2/FILE_4
+Xcp command : xcp scan -md5 <IP address or hostname of NFS server>:/source_vol
+18 scanned, 0 matched, 0 error
+Speed : 16.0 KiB in (34.5 KiB/s), 2.29 KiB out (4.92 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+
+
+== scan -depth <n> (scansione - profondità
+
+Utilizzare `-depth <n>` con il `scan` comando per limitare la profondità di ricerca di una scansione. Il `-depth <n>` Parametro specifica la profondità nelle sottodirectory in cui XCP può eseguire la scansione dei file. Ad esempio, se viene specificato il numero 2, XCP eseguirà la scansione solo dei primi due livelli di sottodirectory.
+
+.Sintassi
+[source, cli]
+----
+xcp scan -depth <n> <ip_address_or_hostname>:/source_vol
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp scan -depth 2 <IP address or hostname of NFS server>:/source_vol
+
+source_vol
+source_vol/r1.txt
+source_vol/USER.1
+source_vol/USER.2
+source_vol/USER.1/FILE_1
+source_vol/USER.1/FILE_2
+source_vol/USER.1/FILE_3
+source_vol/USER.1/FILE_4
+source_vol/USER.1/FILE_5
+source_vol/USER.1/file1.txt
+source_vol/USER.1/file2.txt
+source_vol/USER.1/logfile.txt
+source_vol/USER.1/log1.txt
+source_vol/USER.2/FILE_1
+source_vol/USER.2/FILE_5
+source_vol/USER.2/FILE_2
+source_vol/USER.2/FILE_3
+source_vol/USER.2/FILE_4
+Xcp command : xcp scan -depth 2 <IP address or hostname of NFSserver>:/source_vol
+18 scanned, 0 matched, 0 error
+Speed : 4.59 KiB in (6.94 KiB/s), 756 out (1.12KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+
+
+== scan - dircount <n[k]>
+
+Utilizzare `-dircount <n[k]>` con il `scan` comando per specificare la dimensione della richiesta durante la lettura delle directory in una scansione. Il valore predefinito è 64k.
+
+.Sintassi
+[source, cli]
+----
+xcp scan -dircount <n[k]> <ip_address_or_hostname>:/source_vol
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp scan -dircount 64k <IP address or hostname of NFS server>:/source_vol
+
+source_vol
+source_vol/USER.1/FILE_1
+source_vol/USER.1/FILE_2
+source_vol/USER.1/FILE_3
+source_vol/USER.1/FILE_4
+source_vol/USER.1/FILE_5
+source_vol/USER.1/file1.txt
+source_vol/USER.1/file2.txt
+source_vol/USER.1/logfile.txt
+source_vol/USER.1/log1.txt
+source_vol/r1.txt
+source_vol/USER.1
+source_vol/USER.2
+source_vol/USER.2/FILE_1
+source_vol/USER.2/FILE_5
+----
+====
+
+
+== scansione -edupe
+
+Utilizzare `-edupe` con il `scan` comando per includere la stima della deduplica nei report.
+
+
+NOTE: Simple Storage Service (S3) non supporta i file sparse. Pertanto, specificando un bucket S3 come destinazione di destinazione per `scan -edupe` Restituisce il valore "Nessuno" per i dati sparse.
+
+.Sintassi
+[source, cli]
+----
+xcp scan -edupe <ip_address_or_hostname>:/source_vol
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+root@localhost linux]# ./xcp scan -edupe <IP address or hostname of NFSserver>:/source_vol
+
+== Maximum Values ==
+Size Used Depth Namelen Dirsize
+1 KiB 4 KiB 2 11 9
+== Average Values ==
+Namelen Size Depth Dirsize
+6 682 1 5
+== Top Space Users ==
+root
+52 KiB
+== Top File Owners ==
+root
+18
+== Top File Extensions ==
+.txt other
+5 10
+== Number of files ==
+empty <8KiB 8-64KiB 64KiB-1MiB 1-10MiB 10-100MiB >100MiB
+    4 11
+== Space used ==
+empty <8KiB 8-64KiB 64KiB-1MiB 1-10MiB 10-100MiB >100MiB
+40 KiB
+== Directory entries ==
+empty 1-10 10-100 100-1K 1K-10K >10K
+3
+== Depth ==
+0-5 6-10 11-15 16-20 21-100 >100
+18
+== Accessed ==
+>1 year >1 month 1-31 days 1-24 hrs <1 hour
+4
+<15 mins
+11
+future
+== Modified ==
+>1 year >1 month 1-31 days 1-24 hrs <1 hour <15 mins future
+15
+== Changed ==
+>1 year >1 month 1-31 days 1-24 hrs <1 hour <15 mins future
+                                     15
+Total count: 18
+Directories: 3
+Regular files: 15
+Symbolic links: None
+Special files: None
+Hard links: None,
+multilink files: None,
+Space Saved by Hard links (KB): 0
+Sparse data: None
+Dedupe estimate: N/A
+Total space for regular files: size: 10.0 KiB, used: 40 KiB
+Total space for symlinks: size: 0, used: 0
+Total space for directories: size: 12 KiB, used: 12 KiB
+Total space used: 52 KiB
+Xcp command : xcp scan -edupe <IP address or hostname of NFSserver>:/source_vol
+18 scanned, 0 matched, 0 error
+Speed : 16.0 KiB in (52.7 KiB/s), 2.29 KiB out (7.52 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+
+
+== scan -bs <n[k]> (scansione - bs)
+
+Utilizzare `-bs <n[k]>` con il `scan` comando per specificare le dimensioni del blocco di lettura/scrittura. Ciò si applica alle scansioni che leggono i dati utilizzando `-md5` oppure `-edupe` parametri. Le dimensioni predefinite per i blocchi sono 64k.
+
+.Sintassi
+[source, cli]
+----
+xcp scan -bs <n[k]> <ip_address_or_hostname>:/source_vol
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp scan -bs 32 <IP address or hostname of NFS server>:/source_vol
+
+source_vol
+source_vol/r1.txt
+source_vol/USER.1
+source_vol/USER.2
+source_vol/USER.1/FILE_1
+source_vol/USER.1/FILE_2
+source_vol/USER.1/FILE_3
+source_vol/USER.1/FILE_4
+source_vol/USER.1/FILE_5
+source_vol/USER.1/file1.txt
+source_vol/USER.1/file2.txt
+source_vol/USER.1/logfile.txt
+source_vol/USER.1/log1.txt
+source_vol/USER.2/FILE_1
+source_vol/USER.2/FILE_5
+source_vol/USER.2/FILE_2
+source_vol/USER.2/FILE_3
+source_vol/USER.2/FILE_4
+Xcp command : xcp scan -bs 32 <IP address or hostname of NFSserver>:/source_vol
+18 scanned, 0 matched, 0 error
+Speed : 4.59 KiB in (19.0 KiB/s), 756 out (3.06KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+
+
+== scansione - <n> parallela
+
+Utilizzare `-parallel` con il `scan` comando per specificare il numero massimo di processi batch simultanei. Il valore predefinito è 7.
+
+.Sintassi
+[source, cli]
+----
+xcp scan -parallel <n> <ip_address_or_hostname>:/source_vol
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp scan -parallel 5 <IP address or hostname of NFS server>:/source_vol
+
+source_vol
+source_vol/USER.1/FILE_1
+source_vol/USER.1/FILE_2
+source_vol/USER.1/FILE_3
+source_vol/USER.1/FILE_4
+source_vol/USER.1/FILE_5
+source_vol/USER.1/file1.txt
+source_vol/USER.1/file2.txt
+source_vol/USER.1/logfile.txt
+source_vol/USER.1/log1.txt
+source_vol/r1.txt
+source_vol/USER.1
+source_vol/USER.2
+source_vol/USER.2/FILE_1
+source_vol/USER.2/FILE_5
+source_vol/USER.2/FILE_2
+source_vol/USER.2/FILE_3
+source_vol/USER.2/FILE_4
+Xcp command : xcp scan -parallel 5 <IP address or hostname of NFS server>:/source_vol
+18 scanned, 0 matched, 0 error
+Speed : 4.59 KiB in (7.36 KiB/s), 756 out (1.19 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+
+
+== Scansione -noid
+
+Utilizzare `-noId` con il `scan` per disattivare la creazione di un indice predefinito. Il valore predefinito è false.
+
+.Sintassi
+[source, cli]
+----
+xcp scan -noId <ip_address_or_hostname>:/source_vol
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp scan -noId <IP address or hostname of NFS server>:/source_vol
+
+source_vol
+source_vol/USER.1/FILE_1
+source_vol/USER.1/FILE_2
+source_vol/USER.1/FILE_3
+source_vol/USER.1/FILE_4
+source_vol/USER.1/FILE_5
+source_vol/USER.1/file1.txt
+source_vol/USER.1/file2.txt
+source_vol/USER.1/logfile.txt
+source_vol/USER.1/log1.txt
+source_vol/r1.txt
+source_vol/USER.1
+source_vol/USER.2
+source_vol/USER.2/FILE_1
+source_vol/USER.2/FILE_5
+source_vol/USER.2/FILE_2
+source_vol/USER.2/FILE_3
+source_vol/USER.2/FILE_4
+Xcp command : xcp scan -noId <IP address or hostname of NFSserver>:/source_vol
+18 scanned, 0 matched, 0 error
+Speed : 4.59 KiB in (5.84 KiB/s), 756 out(963/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+
+
+== scansione -subdir-names
+
+Utilizzare `-subdir-names` con il `scan` per recuperare i nomi delle sottodirectory di livello superiore in una directory.
+
+.Sintassi
+[source, cli]
+----
+xcp scan -subdir-names <ip_address_or_hostname>:/source_vol
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp scan -subdir-names <IP address or hostname of NFS server>:/source_vol
+
+source_vol
+Xcp command : xcp scan -subdir-names <IP address or hostname of NFS server>:/source_vol
+7 scanned, 0 matched, 0 error
+Speed : 1.30 KiB in (1.21 KiB/s), 444 out(414/s)
+Total Time : 1s.
+STATUS : PASSED
+----
+====
+
+
+== scan -preserve-atime
+
+Utilizzare `-preserve-atime` con il `scan` comando per ripristinare tutti i file alla data dell'ultimo accesso sull'origine.
+
+Quando viene eseguita la scansione di una condivisione NFS, il tempo di accesso viene modificato sui file se il sistema di archiviazione è configurato per modificare il tempo di accesso in lettura. XCP non modifica direttamente il tempo di accesso. XCP legge i file uno alla volta e questo attiva un aggiornamento del tempo di accesso. Il `-preserve-atime` Option (opzione) consente di ripristinare il tempo di accesso al valore originale impostato prima dell'operazione di lettura XCP.
+
+.Sintassi
+[source, cli]
+----
+xcp scan -preserve-atime <ip_address_or_hostname>:/source_vol
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+[root@client 1 linux]# ./xcp scan -preserve-atime 101.10.10.10:/source_vol
+
+xcp: Job ID: Job_2022-06-30_14.14.15.334173_scan
+source_vol/USER2/DIR1_4/FILE_DIR1_4_1024_1
+source_vol/USER2/DIR1_4/FILE_DIR1_4_13926_4
+source_vol/USER2/DIR1_4/FILE_DIR1_4_65536_2
+source_vol/USER2/DIR1_4/FILE_DIR1_4_7475_3
+source_vol/USER2/DIR1_4/FILE_DIR1_4_20377_5
+source_vol/USER2/DIR1_4/FILE_DIR1_4_26828_6
+source_vol/USER2/DIR1_4/FILE_DIR1_4_33279_7
+source_vol/USER2/DIR1_4/FILE_DIR1_4_39730_8
+source_vol/USER1
+source_vol/USER2
+source_vol/USER1/FILE_USER1_1024_1
+source_vol/USER1/FILE_USER1_65536_2
+source_vol/USER1/FILE_USER1_7475_3
+source_vol/USER1/FILE_USER1_13926_4
+source_vol/USER1/FILE_USER1_20377_5
+source_vol/USER1/FILE_USER1_26828_6
+source_vol/USER1/FILE_USER1_33279_7
+source_vol/USER1/FILE_USER1_39730_8
+source_vol/USER1/DIR1_2
+source_vol/USER1/DIR1_3
+source_vol/USER2/FILE_USER2_1024_1
+source_vol/USER2/FILE_USER2_65536_2
+source_vol/USER2/FILE_USER2_7475_3
+source_vol/USER2/FILE_USER2_13926_4
+source_vol/USER2/FILE_USER2_20377_5
+source_vol/USER2/FILE_USER2_26828_6
+source_vol/USER2/FILE_USER2_33279_7
+source_vol/USER2/FILE_USER2_39730_8
+source_vol/USER2/DIR1_3
+source_vol/USER2/DIR1_4
+source_vol/USER1/DIR1_2/FILE_DIR1_2_1024_1
+source_vol/USER1/DIR1_2/FILE_DIR1_2_7475_3
+source_vol/USER1/DIR1_2/FILE_DIR1_2_33279_7
+source_vol/USER1/DIR1_2/FILE_DIR1_2_26828_6
+source_vol/USER1/DIR1_2/FILE_DIR1_2_65536_2
+source_vol/USER1/DIR1_2/FILE_DIR1_2_39730_8
+source_vol/USER1/DIR1_2/FILE_DIR1_2_13926_4
+source_vol/USER1/DIR1_2/FILE_DIR1_2_20377_5
+source_vol/USER1/DIR1_3/FILE_DIR1_3_1024_1
+source_vol/USER1/DIR1_3/FILE_DIR1_3_7475_3
+source_vol/USER1/DIR1_3/FILE_DIR1_3_65536_2
+source_vol/USER1/DIR1_3/FILE_DIR1_3_13926_4
+source_vol/USER1/DIR1_3/FILE_DIR1_3_20377_5
+source_vol/USER1/DIR1_3/FILE_DIR1_3_26828_6
+source_vol/USER1/DIR1_3/FILE_DIR1_3_33279_7
+source_vol/USER1/DIR1_3/FILE_DIR1_3_39730_8
+source_vol/USER2/DIR1_3/FILE_DIR1_3_1024_1
+source_vol/USER2/DIR1_3/FILE_DIR1_3_65536_2
+source_vol/USER2/DIR1_3/FILE_DIR1_3_7475_3
+source_vol/USER2/DIR1_3/FILE_DIR1_3_13926_4
+source_vol/USER2/DIR1_3/FILE_DIR1_3_20377_5
+source_vol/USER2/DIR1_3/FILE_DIR1_3_26828_6
+source_vol/USER2/DIR1_3/FILE_DIR1_3_33279_7
+source_vol/USER2/DIR1_3/FILE_DIR1_3_39730_8
+source_vol
+Xcp command : xcp scan -preserve-atime 101.10.10.10:/source_vol
+Stats : 55 scanned
+Speed : 14.1 KiB in (21.2 KiB/s), 2.33 KiB out (3.51 KiB/s)
+Total Time : 0s.
+Job ID : Job_2022-06-30_14.14.15.334173_scan
+Log Path : /opt/NetApp/xFiles/xcp/xcplogs/Job_2022-06-30_14.14.15.334173_scan.log
+STATUS : PASSED
+----
+====
+
+
+== scansione -s3.insecure
+
+Utilizzare `-s3.insecure` con il `scan` Comando per utilizzare HTTP invece di HTTPS per la comunicazione bucket S3.
+
+.Sintassi
+[source, cli]
+----
+xcp scan -s3.insecure s3://<bucket_name>
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+[root@client1 linux]# ./xcp scan -s3.insecure s3://bucket1
+
+Job ID: Job_2023-06-08_08.16.31.345201_scan
+file5g_1
+USER1/FILE_USER1_1024_1
+USER1/FILE_USER1_1024_2
+USER1/FILE_USER1_1024_3
+USER1/FILE_USER1_1024_4
+USER1/FILE_USER1_1024_5
+Xcp command : xcp scan -s3.insecure s3:// -bucket1
+Stats : 8 scanned, 6 s3.objects
+Speed : 0 in (0/s), 0 out (0/s)
+Total Time : 2s.
+Job ID : Job_2023-06-08_08.16.31.345201_scan
+Log Path : /opt/NetApp/xFiles/xcp/xcplogs/Job_2023-06-08_08.16.31.345201_scan.log
+STATUS : PASSED
+----
+====
+
+
+== scansione -s3.endpoint <s3_endpoint_url>
+
+Utilizzare `-s3.endpoint <s3_endpoint_url>` con il `scan` Comando per sovrascrivere l'URL endpoint AWS predefinito con un URL specificato per la comunicazione bucket S3.
+
+.Sintassi
+[source, cli]
+----
+xcp scan -s3.endpoint https://<endpoint_url>: s3://<bucket_name>
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+[root@client1 linux]# ./xcp scan -s3.endpoint https://<endpoint_url>: s3://xcp-testing
+
+Job ID: Job_2023-06-13_11.23.06.029137_scan
+aws_files/USER1/FILE_USER1_1024_1
+aws_files/USER1/FILE_USER1_1024_2
+aws_files/USER1/FILE_USER1_1024_3
+aws_files/USER1/FILE_USER1_1024_4
+aws_files/USER1/FILE_USER1_1024_5
+Xcp command : xcp scan -s3.endpoint https://<endpoint_url>: s3://xcp-testing
+Stats : 8 scanned, 5 s3.objects
+Speed : 0 in (0/s), 0 out (0/s)
+Total Time : 0s.
+Job ID : Job_2023-06-13_11.23.06.029137_scan
+Log Path : /opt/NetApp/xFiles/xcp/xcplogs/Job_2023-06-13_11.23.06.029137_scan.log
+STATUS : PASSED
+----
+====
+
+
+== eseguire la scansione di -s3.profile <name>
+
+Utilizzare `s3.profile` con il `scan` Comando per specificare un profilo dal file delle credenziali AWS per la comunicazione del bucket S3.
+
+.Sintassi
+[source, cli]
+----
+xcp scan -s3.profile <name> -s3.endpoint https://<endpoint_url>: s3://<bucket_name>
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+[root@client1 linux]# ./xcp scan -s3.profile sg -s3.endpoint https://<endpoint_url>:
+s3://bucket1
+
+Job ID: Job_2023-06-08_08.47.11.963479_scan
+1 scanned, 0 in (0/s), 0 out (0/s), 5s
+USER1/FILE_USER1_1024_1
+USER1/FILE_USER1_1024_2
+USER1/FILE_USER1_1024_3
+USER1/FILE_USER1_1024_4
+USER1/FILE_USER1_1024_5
+Xcp command : xcp scan -s3.profile sg -s3.endpoint https://<endpoint_url>: s3://bucket1
+Stats : 7 scanned, 5 s3.objects
+Speed : 0 in (0/s), 0 out (0/s)
+Total Time : 6s.
+Job ID : Job_2023-06-08_08.47.11.963479_scan
+Log Path : /opt/NetApp/xFiles/xcp/xcplogs/Job_2023-06-08_08.47.11.963479_scan.log
+STATUS : PASSED
+[root@client1 linux]#
+----
+====
+
+
+== scansione -s3.noverify
+
+Utilizzare `-s3.noverify` con il `scan` Comando per ignorare la verifica predefinita della certificazione SSL per la comunicazione bucket S3.
+
+.Sintassi
+[source, cli]
+----
+xcp scan -s3.noverify s3://<bucket_name>
+----
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+root@client1 linux]# ./xcp scan -s3.noverify s3:// bucket1
+
+Job ID: Job_2023-06-13_11.00.59.742237_scan
+aws_files/USER1/FILE_USER1_1024_1
+aws_files/USER1/FILE_USER1_1024_2
+aws_files/USER1/FILE_USER1_1024_3
+aws_files/USER1/FILE_USER1_1024_4
+aws_files/USER1/FILE_USER1_1024_5
+Xcp command : xcp scan -s3.noverify s3://bucket1
+Stats : 8 scanned, 5 s3.objects
+Speed : 0 in (0/s), 0 out (0/s)
+Total Time : 2s.
+Job ID : Job_2023-06-13_11.00.59.742237_scan
+Log Path : /opt/NetApp/xFiles/xcp/xcplogs/Job_2023-06-13_11.00.59.742237_scan.log
+STATUS : PASSED
+----
+====

@@ -1,0 +1,13 @@
+= 
+:allow-uri-read: 
+
+
+.Mostra esempio
+[%collapsible]
+====
+[listing]
+----
+C:\Users\Administrator\Desktop\xcp>xcp activate
+XCP activated
+----
+====

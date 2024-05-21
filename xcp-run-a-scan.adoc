@@ -125,7 +125,7 @@ image:xcp_image14.png["File Distribution per Extension Graphic"]
 
 Il grafico distribuzione file per estensione rappresenta il numero delle diverse estensioni di file in una condivisione file. La dimensione delle divisioni che rappresentano le estensioni si basa sul numero di file con ciascuna estensione.
 
-Inoltre, per le condivisioni SMB, è possibile ottenere il numero di file ADS (Alternate Data Streams) per ogni estensione di file selezionando la casella per GLI ANNUNCI prima di eseguire una scansione.
+Inoltre, per le condivisioni SMB, è possibile ottenere il numero di file di flussi di dati alternativi per ogni estensione file selezionando la casella per flussi di dati alternativi prima di eseguire una scansione.
 
 image:xcp-file-distribution-ads.png[""]
 
@@ -152,6 +152,6 @@ Il grafico distribuzione per tipo rappresenta il numero dei seguenti tipi di fil
 * Giunzione: Disponibile solo in SMB
 
 
-Inoltre, per le condivisioni SMB, è possibile ottenere il numero di file ADS (Alternate Data Streams) per tipi diversi selezionando la casella per GLI ANNUNCI prima di eseguire una scansione.
+Inoltre, per le condivisioni SMB, è possibile ottenere il numero di file di flussi di dati alternativi per diversi tipi selezionando la casella relativa a flussi di dati alternativi prima di eseguire una scansione.
 
 image:xcp-file-distribution-type.png[""]

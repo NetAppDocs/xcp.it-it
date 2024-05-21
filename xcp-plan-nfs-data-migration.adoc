@@ -18,7 +18,7 @@ Pianifica le migrazioni dei dati NFS.
 
 
 
-== Mostra
+== mostra
 
 Il `show` Il comando interroga i servizi RPC e le esportazioni NFS di uno o più server di storage. Il comando elenca i servizi disponibili e le esportazioni con la capacità utilizzata e libera di ogni esportazione, seguita dagli attributi root di ogni esportazione.
 
@@ -32,7 +32,7 @@ Eseguire `xcp help show` per ulteriori dettagli.
 
 
 
-== Scansione
+== scansione
 
 Il `scan` Il comando esegue una scansione ricorrente dell'intero percorso esportato NFSv3 di origine e stampa le statistiche della struttura del file alla fine della scansione. NetApp consiglia di mettere i supporti di esportazione NFS di origine in modalità di sola lettura durante l'operazione di scansione.
 
