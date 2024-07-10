@@ -22,7 +22,7 @@ In preparazione all'installazione, si scarica XCP, si ottiene una licenza e si p
 
 Questo documento fornisce un semplice workflow per l'installazione e la configurazione di XCP su sistemi NFS e SMB.
 
-image:xcp_image16.PNG["Errore: Immagine grafica mancante"]
+image:xcp_image16.PNG["Flusso di lavoro di installazione e configurazione di XCP"]
 
 
 

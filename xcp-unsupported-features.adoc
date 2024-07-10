@@ -49,6 +49,9 @@ Le seguenti funzioni non sono supportate su XCP SMB:
 | Nome funzione | Descrizione 
 
 
+| Elenchi di controllo di accesso NTFS (ACL) di terze parti per NetApp | XCP SMB non supporta la migrazione di ACL di terze parti da sistemi non NetApp a sistemi NetApp. 
+
+
 | Link simbolico NFS (link simbolico) | Il collegamento simbolico NFS non è supportato in XCP SMB 
 
 

@@ -658,8 +658,6 @@
   <block id="95b2f11d1aece0b4ddfc5cba00384742" category="summary">Installare XCP</block>
   <block id="5157096b4994925e784b5ccc913a425c" category="section-title">Installare e configurare il workflow</block>
   <block id="dda26d898eec39eecd399e188771288e" category="paragraph">Questo documento fornisce un semplice workflow per l'installazione e la configurazione di XCP su sistemi NFS e SMB.</block>
-  <block id="341d84aa26cb4521474864e04ea2a63b" category="inline-image-macro">Errore: Immagine grafica mancante</block>
-  <block id="e0cc20d4c07649f34c6795a45c8f54ec" category="paragraph"><block ref="e0cc20d4c07649f34c6795a45c8f54ec" category="inline-image-macro-rx" type="image"></block></block>
   <block id="af4c2fb6e7c29314dbe63e8b1d277ff8" category="section-title">Scarica XCP</block>
   <block id="83008f4493bba0b08400133371c2e80c" category="paragraph">Scarica XCP dal sito di supporto NetApp e ottieni una licenza dal sito XCP.</block>
   <block id="8c41baf1ca98e1184f48c4721d44d431" category="inline-link-macro">Sito di supporto NetApp</block>
@@ -2214,4 +2212,8 @@ sistema.</block>
   <block id="7abd8bc01e56757cc6d2d51936b79c34" category="sidebar">Registri eventi XCP</block>
   <block id="64b873b5723d0186c94db0f344f92d2b" category="sidebar">Registri eventi NFS</block>
   <block id="4749766868b7c96046bdc8c12e4653fb" category="sidebar">Registri eventi SMB</block>
+  <block id="10f9a2d4423674460e3651820224566e" category="inline-image-macro">Flusso di lavoro di installazione e configurazione di XCP</block>
+  <block id="d00c1e93acb215a134bcc17a6aafed7e" category="paragraph"><block ref="d00c1e93acb215a134bcc17a6aafed7e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e53491994f0709110c81f65b9c6dcbf5" category="cell">Elenchi di controllo di accesso NTFS (ACL) di terze parti per NetApp</block>
+  <block id="0ce0e45a25c05fb4a79ccca92ab31b0a" category="cell">XCP SMB non supporta la migrazione di ACL di terze parti da sistemi non NetApp a sistemi NetApp.</block>
 </blocks>
