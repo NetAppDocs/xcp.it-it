@@ -488,7 +488,6 @@
   <block id="1504bd4779c3c062c9078099fad0ac19" category="paragraph">Il<block ref="63ad9d34f3503826e5f649ae6b7ac92c" prefix=" " category="inline-code"></block> Il comando esegue la scansione delle modifiche e delle modifiche apportate in una directory NFS di origine utilizzando un nome di tag di indice del catalogo o il numero di un'operazione di copia precedente. Le modifiche incrementali di origine vengono copiate e applicate alla directory di destinazione. I vecchi numeri di indice del catalogo vengono sostituiti con uno nuovo [.underline] dopo l'operazione di sincronizzazione n..</block>
   <block id="990d138c681bf32e178b6390caea1423" category="paragraph">Il<block ref="e8418d1d706cd73548f9f16f1d55ad6e" prefix=" " category="inline-code"></block> command utilizza un confronto completo dei dati byte per byte tra le directory di origine e di destinazione dopo l'operazione di copia senza utilizzare un numero di indice del catalogo. Il comando verifica i tempi di modifica e altri attributi di file o directory, incluse le autorizzazioni. Il comando legge anche i file su entrambi i lati e confronta i dati.</block>
   <block id="dc3e4b78f385d96eee62d48189bd45ed" category="summary">Procedura per configurare il file INI XCP</block>
-  <block id="27844988f363a5f923e9334ae145a1fd" category="doc">Configurare il file INI</block>
   <block id="29c2f1feeb1231581bf05d60a3d62a9a" category="paragraph">Procedura per configurare il file INI per XCP.</block>
   <block id="586dba64773da8695bdac99be604919f" category="section-title">Configurare il file INI per un utente root</block>
   <block id="21ee12acf8b4df5f11e93b279367513a" category="paragraph">Per configurare il file INI per un utente root NFS XCP, seguire la procedura riportata di seguito.</block>
@@ -877,14 +876,10 @@ Riferimento: <block ref="47c554f6b2ce744e50a1b2318fbe4ec3" category="inline-link
   <block id="269e3fa15ca9366f6cfcb1eac97c6cf0" category="paragraph">Eseguire<block ref="1a1b0d47f4e6e0151b4df12640fe4bb0" prefix=" " category="inline-code"></block> per ulteriori dettagli.</block>
   <block id="ea7072dd30b8128f4d74568ed70d406c" category="paragraph">Il grafico file utilizzati/modificati/creati visualizza il numero di file modificati nel tempo. L'asse X rappresenta il periodo di tempo entro il quale sono state apportate le modifiche e l'asse Y rappresenta il numero di file modificati.</block>
   <block id="e66cb3e85cec55480dc46a379124f46a" category="section-title">Grafico dimensione file raggiunta/modificata/creata</block>
-  <block id="5eeb433a134b50fcf2d2d02005945304" category="paragraph"><block ref="5eeb433a134b50fcf2d2d02005945304" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b483a26f1bc7e903df1139b2bea4faca" category="paragraph">Il grafico dimensione file raggiunta/modificata/creata visualizza le dimensioni dei file modificate nel tempo. L'asse X rappresenta il periodo di tempo entro il quale sono state apportate le modifiche e l'asse Y rappresenta la dimensione dei file modificati.</block>
   <block id="8105201d67059c07d533dcbbe25a3c67" category="section-title">Distribuzione file per grafico estensione</block>
-  <block id="699e5e6ac0568498b21221ee949dd4a3" category="paragraph"><block ref="699e5e6ac0568498b21221ee949dd4a3" category="inline-image-macro-rx" type="image"></block></block>
   <block id="79f475897ad3ccfba85aa2fc2f2d9bad" category="section-title">Distribuzione dimensione file per grafico estensione</block>
-  <block id="4ab3fb97b389232d625b03e49824e147" category="paragraph"><block ref="4ab3fb97b389232d625b03e49824e147" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a07e34309c0f4fe3914143661296e902" category="paragraph">Il grafico distribuzione dimensioni file per estensione rappresenta la dimensione cumulativa delle diverse estensioni di file in una condivisione file. Le dimensioni delle divisioni che rappresentano le estensioni si basano sulle dimensioni dei file con ciascuna estensione.</block>
-  <block id="fa089a630122acf5e9273fce49f4cf34" category="paragraph"><block ref="fa089a630122acf5e9273fce49f4cf34" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0c298119c26e2b6846ed04c0a3a19fc9" category="paragraph">Eseguire<block ref="0b0f856b03e3ddcd7804298ac5bc4a97" prefix=" " category="inline-code"></block> per ulteriori dettagli.</block>
   <block id="1b8208be7fabaa97780c143eb5ae291e" category="paragraph">Eseguire<block ref="dc7a0e5e50a6e16de630993f68e9061c" prefix=" " category="inline-code"></block> per ulteriori dettagli.</block>
   <block id="b802ccf3bd2b24d676e6542534797831" category="paragraph">Eseguire<block ref="7aaf8f3c0f52b0fd5a97d37fbe81d5c5" prefix=" " category="inline-code"></block> per ulteriori dettagli.</block>
@@ -2216,4 +2211,15 @@ sistema.</block>
   <block id="d00c1e93acb215a134bcc17a6aafed7e" category="paragraph"><block ref="d00c1e93acb215a134bcc17a6aafed7e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e53491994f0709110c81f65b9c6dcbf5" category="cell">Elenchi di controllo di accesso NTFS (ACL) di terze parti per NetApp</block>
   <block id="0ce0e45a25c05fb4a79ccca92ab31b0a" category="cell">XCP SMB non supporta la migrazione di ACL di terze parti da sistemi non NetApp a sistemi NetApp.</block>
+  <block id="1300bd8e2d36b2d26dd0d4054937f9b7" category="admonition">Il file XCP INI non è richiesto in XCP SMB.</block>
+  <block id="cfd8dd3ece7e01985a0c3284a9784c66" category="inline-image-macro">Un grafico che mostra le dimensioni dei file modificati nel tempo</block>
+  <block id="6892c40e78a41a89c3e977071754228f" category="paragraph"><block ref="6892c40e78a41a89c3e977071754228f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="23cc9fe9e052a539bfb7f4050d5cbc0c" category="inline-image-macro">Un grafico che mostra come ottenere il numero di file di flussi di dati alternativi per ogni estensione di file in XCP SMB</block>
+  <block id="38a84eabbe5af8a7b5f98fac70ba57da" category="paragraph"><block ref="38a84eabbe5af8a7b5f98fac70ba57da" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0ddb9db6b0a28f38a95e40d7cf8eb8cb" category="inline-image-macro">Un grafico che mostra le dimensioni cumulative delle diverse estensioni di file in una condivisione di file.</block>
+  <block id="3364e1b19026788a2e58a0d78550ffc5" category="paragraph"><block ref="3364e1b19026788a2e58a0d78550ffc5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4a19e5a58f92d23fde8fba05519926e6" category="inline-image-macro">Un grafico che mostra come ottenere il numero di file di flussi di dati alternativi per diversi tipi per XCP SMB</block>
+  <block id="92420eba0222a4b23e712f8973ef3bc8" category="paragraph"><block ref="92420eba0222a4b23e712f8973ef3bc8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="19699e63b68566e37c15a09d5b8fa402" category="sidebar">Documentazione XCP</block>
+  <block id="3b878279a04dc47d60932cb294d96259" category="sidebar">Panoramica</block>
 </blocks>

@@ -110,7 +110,7 @@ NOTE: Per ottenere il grafico del tempo di accesso (atime) nelle scansioni SMB, 
 
 === Grafico dimensione file raggiunta/modificata/creata
 
-image:xcp-filesize-amc.png[""]
+image:xcp-filesize-amc.png["Un grafico che mostra le dimensioni dei file modificati nel tempo"]
 
 Il grafico dimensione file raggiunta/modificata/creata visualizza le dimensioni dei file modificate nel tempo. L'asse X rappresenta il periodo di tempo entro il quale sono state apportate le modifiche e l'asse Y rappresenta la dimensione dei file modificati.
 
@@ -127,13 +127,13 @@ Il grafico distribuzione file per estensione rappresenta il numero delle diverse
 
 Inoltre, per le condivisioni SMB, è possibile ottenere il numero di file di flussi di dati alternativi per ogni estensione file selezionando la casella per flussi di dati alternativi prima di eseguire una scansione.
 
-image:xcp-file-distribution-ads.png[""]
+image:xcp-file-distribution-ads.png["Un grafico che mostra come ottenere il numero di file di flussi di dati alternativi per ogni estensione di file in XCP SMB"]
 
 
 
 === Distribuzione dimensione file per grafico estensione
 
-image:xcp-filesize-dist-ex.png[""]
+image:xcp-filesize-dist-ex.png["Un grafico che mostra le dimensioni cumulative delle diverse estensioni di file in una condivisione di file."]
 
 Il grafico distribuzione dimensioni file per estensione rappresenta la dimensione cumulativa delle diverse estensioni di file in una condivisione file. Le dimensioni delle divisioni che rappresentano le estensioni si basano sulle dimensioni dei file con ciascuna estensione.
 
@@ -154,4 +154,4 @@ Il grafico distribuzione per tipo rappresenta il numero dei seguenti tipi di fil
 
 Inoltre, per le condivisioni SMB, è possibile ottenere il numero di file di flussi di dati alternativi per diversi tipi selezionando la casella relativa a flussi di dati alternativi prima di eseguire una scansione.
 
-image:xcp-file-distribution-type.png[""]
+image:xcp-file-distribution-type.png["Un grafico che mostra come ottenere il numero di file di flussi di dati alternativi per diversi tipi per XCP SMB"]

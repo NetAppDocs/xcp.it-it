@@ -1,5 +1,9 @@
 ---
 indexpage:
+  title: Documentazione XCP
+  summary: NetApp XCP è un software basato su client che consente migrazioni di dati
+    scalabili e dalle performance elevate per migrazioni di dati e analisi dei file
+    da qualsiasi a NetApp e NetApp.
   lead: NetApp XCP è uno strumento software basato su client che consente migrazioni
     di dati scalabili e dalle performance elevate per migrazioni di dati e file analytics
     da any-to-NetApp e NetApp-to-NetApp. NetApp fornisce la documentazione per la
