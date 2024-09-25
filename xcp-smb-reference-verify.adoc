@@ -79,8 +79,7 @@ La seguente tabella elenca `verify` parametri e loro descrizione.
 | <<verificare -noownership>> | Non verificare la proprietà. 
 
 
-| <<verificare -ads>> | Ricercare eventuali modifiche e modifiche di flussi di dati alternativi nella condivisione SMB di origine e di destinazione. In caso di modifiche, applica la modifica al target a.
-assicurarsi che la destinazione sia identica alla sorgente. 
+| <<verificare -ads>> | Il `verify` comando con il `-ads` parametro controlla eventuali flussi di dati alternativi sull'origine e sulla destinazione e visualizza eventuali differenze. 
 
 
 | <<verificare -noacls>> | Non controllare gli ACL. 
@@ -110,10 +109,10 @@ assicurarsi che la destinazione sia identica alla sorgente.
 | <<verify_smb_acl,verify -fallback-group  >> | Gruppo Active Directory o gruppo locale (non di dominio) sul computer di destinazione per ricevere le autorizzazioni dei gruppi di computer di origine locali (non di dominio) (ad esempio: Dominio\amministratori). 
 
 
-| <<smb_verify_root,verificare -root>> | Sincronizza ACL per la directory principale. 
+| <<smb_verify_root,verificare -root>> | Verificare gli ACL per la directory principale. 
 
 
-| <<verify_smb_onlyacl,verificare -solo-lyac>> | Copiare solo le informazioni di protezione. 
+| <<verify_smb_onlyacl,verificare -solo-lyac>> | Verificare solo le informazioni di protezione. 
 |===
 
 
@@ -477,7 +476,7 @@ STATUS : PASSED
 
 == verificare -ads
 
-Utilizzo di `-ads` con il `verify` comando per leggere se vi sono flussi di dati alternativi sull'origine e sulla destinazione e visualizzare eventuali differenze.
+Utilizzare il `-ads` parametro con il `verify` comando per controllare se sono presenti flussi di dati alternativi sull'origine e sulla destinazione e visualizzare eventuali differenze.
 
 .Sintassi
 [source, cli]
@@ -774,7 +773,7 @@ xcp verify -noacls -fallback-user <fallback_user> -fallback-group <fallback_grou
 
 == verificare -root
 
-Utilizzare `-root` con il `verify` Comando per sincronizzare gli ACL per la directory principale.
+Utilizzare il `-root` parametro con il `verify` comando per verificare gli ACL per la directory principale.
 
 .Sintassi
 [source, cli]
