@@ -614,6 +614,9 @@ STATUS : PASSED
 
 Utilizzare `-stats` con il `scan` comando per elencare i file in un formato di rapporto delle statistiche ad albero.
 
+
+NOTE: L'opzione -stats consente di stampare un report leggibile da un utente sulla console. Altre opzioni di formato del rapporto sono -html o -csv. Il formato CSV (comma-Separated Values, valori separati da virgola) contiene valori esatti. I report CSV e HTML vengono salvati automaticamente nel catalogo, se esiste un catalogo.
+
 .Sintassi
 [source, cli]
 ----

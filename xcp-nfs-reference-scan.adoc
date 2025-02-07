@@ -199,9 +199,13 @@ STATUS : PASSED
 
 Utilizzare `-stats`, `-csv`, e. `-html` parametri con `scan` comando per elencare i file nel formato del rapporto statistico ad albero.
 
+[NOTE]
+====
+* L' `-stats`opzione consente di stampare un referto leggibile sulla console. Altre opzioni di formato del rapporto sono `-html` o `-csv`. Il formato CSV (comma-Separated Values, valori separati da virgola) contiene valori esatti. I report CSV e HTML vengono salvati automaticamente nel catalogo, se esiste un catalogo.
+* I report XCP (.csv, .html) vengono salvati nella posizione del catalogo specificata nel `xcp.ini` file. I file vengono memorizzati nella `<catalog path>/catalog/indexes/1/reports` cartella. È possibile visualizzare i referti di esempio in link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2886872["Riferimento NetApp XCP 1.9.3"^].
 
-NOTE: I report XCP (.csv, .html) vengono salvati nella posizione del catalogo specificata nella `xcp.ini` file. I file vengono memorizzati in `<catalog path>/catalog/indexes/1/reports` cartella. È possibile visualizzare i rapporti di esempio nell'appendice.
 
+====
 .Sintassi
 [source, cli]
 ----
